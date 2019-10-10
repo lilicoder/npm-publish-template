@@ -1,0 +1,21 @@
+@import "../common.less";
+
+.main-layout {
+  height: 100%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  .content {
+    flex: 1;
+    overflow: auto;
+  }
+  .header,
+  .footer {
+    padding: 0 16px;
+  }
+  .footer {
+    > div > div {
+      float: right;
+    }
+  }
+}
