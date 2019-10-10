@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Icon, Tile } from "tinper-bee";
 import "./index.less";
 
