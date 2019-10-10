@@ -16,11 +16,11 @@ let IndexView = props => {
     </div>
   );
 };
-// IndexView.propTypes = {
-//   content: PropTypes.Component,
-//   header: PropTypes.Component,
-//   footer: PropTypes.Component
-// };
+IndexView.propTypes = {
+  content: PropTypes.Component | PropTypes.array,
+  header: PropTypes.Component | PropTypes.array,
+  footer: PropTypes.Component | PropTypes.array
+};
 IndexView.defaultProps = {
   // content: [],
   // header: [],

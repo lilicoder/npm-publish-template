@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Row, Col, Icon, Tile } from "tinper-bee";
+import React from "react";
+import { Row } from "tinper-bee";
 import PropTypes from "prop-types";
 import "./index.less";
 
@@ -11,11 +11,11 @@ let IndexView = props => {
     </div>
   );
 };
-// IndexView.propTypes = {
-//   content: PropTypes.Component,
-//   header: PropTypes.Component,
-//   footer: PropTypes.Component
-// };
+IndexView.propTypes = {
+  content: PropTypes.Component | PropTypes.array,
+  header: PropTypes.Component | PropTypes.array,
+  footer: PropTypes.Component | PropTypes.array
+};
 IndexView.defaultProps = {
   // content: [],
   // header: [],
