@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import { Card } from "./publish";
+import Card from "u9-iot-basic-template";
+console.log(Card, "KKKKK");
 
 function App() {
   return (
     <div className="App">
-      <Card data={new Array(10).fill({})} />
+      1111
+      <Card />
     </div>
   );
 }
