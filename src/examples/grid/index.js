@@ -5,7 +5,7 @@ const columns = [
   {
     title: "序号",
     dataIndex: "index",
-    width: "80",
+    width: "90",
     render: (text, record, index) => {
       return index;
     },
