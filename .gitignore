@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /publish
+publish.js
 
 # testing
 /coverage
