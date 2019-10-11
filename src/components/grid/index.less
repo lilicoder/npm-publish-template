@@ -1,0 +1,17 @@
+@import "../common.less";
+.iot-grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .u-table-filter-column-cont {
+    flex: 1;
+    overflow: hidden;
+  }
+  .u-pagination {
+    .u-pagination-list > .active > a {
+      background: #fff;
+      border: 1px solid @red;
+      color: @red;
+    }
+  }
+}
