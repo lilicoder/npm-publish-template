@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Row, Col, Icon, Tile } from "tinper-bee";
+import React from "react";
+import { Row, Col } from "tinper-bee";
 import PropTypes from "prop-types";
 import "./index.less";
 

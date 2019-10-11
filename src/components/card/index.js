@@ -9,7 +9,7 @@ let IndexView = props => {
       <div className="tile-contain">
         {data.map((item, index) => (
           <div className="tile-box">
-            {item.type == "new" ? (
+            {item.type === "new" ? (
               <Tile key={index} className="tile">
                 <div className="add-circle" onClick={() => item.newFn()}>
                   +
