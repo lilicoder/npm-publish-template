@@ -4,12 +4,15 @@
 /node_modules
 /.pnp
 .pnp.js
+/publish
+publish.js
 
 # testing
 /coverage
 
 # production
 /build
+webpack.publish.js
 
 # misc
 .DS_Store

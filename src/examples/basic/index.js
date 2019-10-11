@@ -43,7 +43,7 @@ let Demo = Form.createForm()(
     }
 
     render() {
-      const { getFieldProps, getFieldError } = this.props.form;
+      const { getFieldProps } = this.props.form;
       let header = (
         <SearchContainer
           data={[

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Pagination, Form, Select, FormControl, Table } from "tinper-bee";
+import { FormControl, Table } from "tinper-bee";
 
 import Layout from "../../components/splitLayout";
 import Grid from "bee-complex-grid";
@@ -29,7 +29,7 @@ const columns = [
 
 const data = [...new Array(15)].map((e, i) => {
   const rs = { a: i + "a", b: i + "b", c: i + "c", d: i + "d", key: i };
-  if (i % 3 == 0) {
+  if (i % 3 === 0) {
     rs.b = "女";
   }
   return rs;

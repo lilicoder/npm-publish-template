@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Pagination, Form, Select, FormControl, Table } from "tinper-bee";
+import { Pagination, FormControl } from "tinper-bee";
 
 import Layout from "../../components/basicLayout";
 import SearchContainer from "../../components/searchContainer";
 import Card from "../../components/card";
 import Warn from "../../components/warn";
-import MoreSearch from "../../components/moreSearch";
+import MoreSearch, { SeachFormItem } from "../../components/moreSearch";
 import "./index.less";
 
 class IndexView extends Component {
@@ -69,14 +69,6 @@ class IndexView extends Component {
   }
 
   render() {
-    let paginationObj = {
-      items: 10, //一页显示多少条
-      total: 100, //总共多少条
-      freshData: this.freshData, //点击下一页刷新的数据
-      onDataNumSelect: this.onDataNumSelect, //每页大小改变触发的事件
-      noBorder: true,
-      gap: true
-    };
     let header = (
       <SearchContainer
         data={[
@@ -87,7 +79,14 @@ class IndexView extends Component {
             splitLine
           />,
           <div>
-            <button className="gray-button">高级搜索</button>
+            <button
+              className="gray-button"
+              onClick={() => {
+                this.setState({ showSearchBoard: true });
+              }}
+            >
+              高级搜索
+            </button>
           </div>
         ]}
       />
@@ -95,7 +94,31 @@ class IndexView extends Component {
     let content = [
       <Card data={this.state.data} />,
       <Warn data={this.state.data} />,
-      <MoreSearch />
+      <MoreSearch
+        show={this.state.showSearchBoard}
+        onClose={() =>
+          this.setState({
+            showSearchBoard: false
+          })
+        }
+        content={[
+          <SeachFormItem label="用户名">
+            <input />
+          </SeachFormItem>,
+          <SeachFormItem label="密码">
+            <input />
+          </SeachFormItem>
+        ]}
+        confirmFn={() => {
+          console.log("confirm");
+        }}
+        resetFn={() => {
+          console.log("reset");
+        }}
+        cancelFn={() => {
+          console.log("cancel");
+        }}
+      />
     ];
     let footer = (
       <Pagination

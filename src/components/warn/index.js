@@ -11,7 +11,7 @@ let IndexView = props => {
     <div className="warn-container">
       <div className="warn-contain">
         {data.map((item, index) => (
-          <div className="warn-box">
+          <div className="warn-box" key={index}>
             <Tile key={index} className="warn">
               <div className="name">
                 {item.name}
