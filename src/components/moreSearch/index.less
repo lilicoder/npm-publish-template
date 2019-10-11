@@ -1,11 +1,36 @@
 .more-search {
-  div .drawer-body {
+  .drawer {
+    display: flex;
+    flex-direction: column;
+  }
+  .drawer-header-title {
+    font-weight: bold;
+  }
+  .drawer-body {
     width: 652px;
     padding: 50px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+    .u-label {
+      text-align: left;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 0;
+    }
+    .u-form-item {
+      margin-bottom: 10px;
+    }
+    form {
+      flex: 1;
+      overflow: auto;
+    }
+    .button-footer {
+      text-align: right;
+    }
   }
-  .u-label {
-    text-align: left;
-  }
+
   input {
     width: 100%;
   }

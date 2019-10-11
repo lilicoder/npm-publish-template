@@ -5,7 +5,7 @@ import Layout from "../../components/basicLayout";
 import SearchContainer from "../../components/searchContainer";
 import Card from "../../components/card";
 import Warn from "../../components/warn";
-import MoreSearch from "../../components/moreSearch";
+import MoreSearch, { SeachFormItem } from "../../components/moreSearch";
 import "./index.less";
 
 class IndexView extends Component {
@@ -87,7 +87,25 @@ class IndexView extends Component {
     let content = [
       <Card data={this.state.data} />,
       <Warn data={this.state.data} />,
-      <MoreSearch />
+      <MoreSearch
+        content={[
+          <SeachFormItem label="11111">
+            <input />
+          </SeachFormItem>,
+          <SeachFormItem label="11111">
+            <input />
+          </SeachFormItem>
+        ]}
+        confirmFn={() => {
+          console.log("confirm");
+        }}
+        resetFn={() => {
+          console.log("reset");
+        }}
+        cancelFn={() => {
+          console.log("cancel");
+        }}
+      />
     ];
     let footer = (
       <Pagination
