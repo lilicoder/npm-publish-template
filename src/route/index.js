@@ -8,7 +8,7 @@ import Grid from "../examples/grid";
 const routers = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={Basic} />
+      <Route exact path="/" component={Grid} />
       <Route exact path="/basic" component={Basic} />
       <Route exact path="/split" component={Split} />
       <Route exact path="/warn" component={Warn} />
