@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Label, FormControl, Form, Button, Drawer } from "tinper-bee";
+import { Col, Label, Form, Drawer } from "tinper-bee";
 
 import "./index.less";
 const FormItem = Form.FormItem;
@@ -12,16 +12,14 @@ const SeachFormItem = props => (
     </Col>
   </FormItem>
 );
-
 const IndexView = props => {
-  console.log(props.router);
   return (
     <Drawer
       className="more-search"
       title="高级搜索"
       placement="right"
-      show={true}
-      onClose={() => {}}
+      show={props.show}
+      onClose={() => props.onClose()}
     >
       <Form>
         {props.content.map(item => (
@@ -29,12 +27,6 @@ const IndexView = props => {
             label={item.props.label}
             children={item.props.children}
           />
-          // <FormItem>
-          //   <Col md={12}>
-          //     <Label>{item.props.label}</Label>
-          //     <FormControl placeholder="请输入用户名(包含数字和字母，8-15位)" />
-          //   </Col>
-          // </FormItem>
         ))}
       </Form>
       <div className="button-footer">

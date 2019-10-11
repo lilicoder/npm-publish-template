@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Select } from "tinper-bee";
 import PropTypes from "prop-types";
 import "./index.less";

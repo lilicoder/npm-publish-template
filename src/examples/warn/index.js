@@ -79,7 +79,14 @@ class IndexView extends Component {
             splitLine
           />,
           <div>
-            <button className="gray-button">高级搜索</button>
+            <button
+              className="gray-button"
+              onClick={() => {
+                this.setState({ showSearchBoard: true });
+              }}
+            >
+              高级搜索
+            </button>
           </div>
         ]}
       />
@@ -88,11 +95,17 @@ class IndexView extends Component {
       <Card data={this.state.data} />,
       <Warn data={this.state.data} />,
       <MoreSearch
+        show={this.state.showSearchBoard}
+        onClose={() =>
+          this.setState({
+            showSearchBoard: false
+          })
+        }
         content={[
-          <SeachFormItem label="11111">
+          <SeachFormItem label="用户名">
             <input />
           </SeachFormItem>,
-          <SeachFormItem label="11111">
+          <SeachFormItem label="密码">
             <input />
           </SeachFormItem>
         ]}
