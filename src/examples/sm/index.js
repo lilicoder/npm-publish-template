@@ -4,6 +4,7 @@ import ColorSelect from "../../components/colorSelect";
 import Select from "../../components/select";
 import TreeSelect from "../../components/treeSelect";
 import Pagination from "../../components/pagination";
+import SearchInput from "../../components/searchInput";
 import "./index.less";
 
 class IndexView extends Component {
@@ -138,6 +139,10 @@ class IndexView extends Component {
           freshData={x => console.log(x)}
           onDataNumSelect={x => console.log(x, "999")}
         />
+      </div>,
+      <div>
+        <h4>搜索框</h4>
+        <SearchInput onSearch={x => console.log(x)} value="xxx" />
       </div>
     ];
 
