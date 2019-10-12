@@ -9,6 +9,7 @@ import MainGrid from "./src/components/grid";
 import Select from "./src/components/select";
 import TreeSelect from "./src/components/treeSelect";
 import Pagination from "./src/components/pagination";
+import TreeRef from "./src/components/treeRef";
 export {
   MoreSearch,
   Warn,
@@ -20,5 +21,6 @@ export {
   Select,
   TreeSelect,
   MainGrid,
-  Pagination
+  Pagination,
+  TreeRef
 };

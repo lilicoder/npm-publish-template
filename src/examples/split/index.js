@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { FormControl, Table } from "tinper-bee";
+import { FormControl } from "tinper-bee";
 
 import Layout from "../../components/splitLayout";
-import Grid from "bee-complex-grid";
+import Grid from "../../components/grid";
 import SearchContainer from "../../components/searchContainer";
 import "./index.less";
 
@@ -42,14 +42,6 @@ class IndexView extends Component {
   }
 
   render() {
-    let paginationObj = {
-      items: 10, //一页显示多少条
-      total: 100, //总共多少条
-      freshData: this.freshData, //点击下一页刷新的数据
-      onDataNumSelect: this.onDataNumSelect, //每页大小改变触发的事件
-      noBorder: true,
-      gap: true
-    };
     let header = [
       <SearchContainer
         data={[
@@ -68,15 +60,11 @@ class IndexView extends Component {
         ]}
       />,
       <Grid
-        className="demo"
         columns={columns}
         data={data}
-        getSelectedDataFunc={this.getSelectedDataFunc}
-        paginationObj={paginationObj}
-        // loadLazy={true}
-        // heigth={40}
-        // hoverContent={this.getHoverContent}
-        // onRowHover={this.onRowHover}
+        totalPage={50}
+        freshData={x => console.log(x)}
+        onDataNumSelect={x => console.log(x, "999")}
       />
     ];
     let content = [
@@ -96,15 +84,12 @@ class IndexView extends Component {
           </div>
         ]}
       />,
-      <Table
+      <Grid
         columns={columns}
         data={data}
-        // getSelectedDataFunc={this.getSelectedDataFunc}
-        // paginationObj={paginationObj}
-        // loadLazy={true}
-        // heigth={40}
-        // hoverContent={this.getHoverContent}
-        // onRowHover={this.onRowHover}
+        totalPage={50}
+        freshData={x => console.log(x)}
+        onDataNumSelect={x => console.log(x, "999")}
       />
     ];
 

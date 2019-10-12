@@ -5,6 +5,7 @@ import Split from "../examples/split";
 import Warn from "../examples/warn";
 import Sm from "../examples/sm";
 import Grid from "../examples/grid";
+import Ref from "../examples/ref";
 const routers = () => (
   <Router>
     <Switch>
@@ -14,6 +15,7 @@ const routers = () => (
       <Route exact path="/warn" component={Warn} />
       <Route exact path="/sm" component={Sm} />
       <Route exact path="/grid" component={Grid} />
+      <Route exact path="/ref" component={Ref} />
     </Switch>
   </Router>
 );
