@@ -1,17 +1,11 @@
 import React from "react";
 import { Select, Tooltip } from "tinper-bee";
 import PropTypes from "prop-types";
-import ErrorTip from "../errorTip";
 import "./index.less";
+import ErrorTip from "../errorTip";
 const Option = Select.Option;
 let IndexView = props => {
-  let selectColor = props.value || "Red";
-  return props.disabled ? (
-    <div
-      className={"color-select-option " + selectColor}
-      style={{ width: "80%" }}
-    ></div>
-  ) : (
+  return (
     <Tooltip
       inverse
       visible={props.showError}
@@ -20,20 +14,16 @@ let IndexView = props => {
       className="select-tip"
     >
       <Select
-        defaultValue={props.value || selectColor}
-        onChange={value => {
-          props.onChange(value);
-        }}
+        value={props.value}
+        style={{ width: "100%" }}
+        onChange={props.onChange}
+        placeholder="请选择"
         allowClear={true}
-        className={selectColor + " color-select iot-select"}
+        className="iot-select"
       >
         {props.data.map(item => (
-          <Option
-            key={item.value}
-            value={item.value}
-            className={"color-select-option " + item.value}
-          >
-            {/* <div className="option-value">{item.value}</div> */}
+          <Option key={item.code} value={item.code}>
+            {item.value}
           </Option>
         ))}
       </Select>

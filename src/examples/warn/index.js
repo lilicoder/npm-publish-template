@@ -5,8 +5,10 @@ import Layout from "../../components/basicLayout";
 import SearchContainer from "../../components/searchContainer";
 import Card from "../../components/card";
 import Warn from "../../components/warn";
-import MoreSearch, { SeachFormItem } from "../../components/moreSearch";
+import MoreSearch from "../../components/moreSearch";
 import "./index.less";
+
+const SeachFormItem = MoreSearch.SeachFormItem;
 
 class IndexView extends Component {
   constructor(props) {

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Button } from "tinper-bee";
 import Grid from "../../components/grid";
 const columns = [
   {
@@ -24,16 +23,13 @@ const columns = [
 
 const data = [...new Array(100)].map((e, i) => {
   const rs = { a: i + "a", b: i + "b", c: i + "c", d: i + "d", key: i };
-  if (i % 3 == 0) {
+  if (i % 3 === 0) {
     rs.b = "女";
   }
   return rs;
 });
 
 class Demo4 extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Grid
@@ -41,7 +37,7 @@ class Demo4 extends Component {
         data={data}
         totalPage={50}
         freshData={x => console.log(x)}
-        // onDataNumSelect={x => console.log(x, "999")}
+        onDataNumSelect={x => console.log(x, "999")}
         // multiSelect={{ type: "radio" }}
         // getSelectedDataFunc={record => console.log(record, "Llll")}
       />

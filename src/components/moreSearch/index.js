@@ -59,5 +59,5 @@ IndexView.defaultProps = {
   resetFn: () => {},
   cancelFn: () => {}
 };
+IndexView.SeachFormItem = SeachFormItem;
 export default IndexView;
-export { SeachFormItem };

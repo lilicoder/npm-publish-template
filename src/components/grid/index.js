@@ -22,7 +22,7 @@ class MainGrid extends Component {
     let paginationObj = {
       gap: true,
       horizontalPosition: "right",
-      items: 10, //一页显示多少条
+      items: props.items || 10, //一页显示多少条
       total: props.totalPage || 0, //总共多少条
       freshData: props.freshData, //点击下一页刷新的数据
       onDataNumSelect: props.onDataNumSelect //每页大小改变触发的事件
