@@ -1,0 +1,24 @@
+@import "../common.less";
+.iot-grid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .u-table-filter-column-cont {
+    flex: 1;
+    overflow: hidden;
+    tr:nth-child(2n) {
+      background: #f7f9fb;
+    }
+    tr.u-table-row-hover,
+    tr:hover {
+      background: #ebecf0;
+    }
+  }
+  .u-pagination {
+    .u-pagination-list > .active > a {
+      background: #fff;
+      border: 1px solid @red;
+      color: @red;
+    }
+  }
+}
