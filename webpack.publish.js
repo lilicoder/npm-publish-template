@@ -56,6 +56,7 @@ module.exports = function(webpackEnv) {
     return loaders;
   };
   return {
+    mode: "production",
     entry: {
       index: "./publish.js"
       // vendor: ["react", "react-dom", "react-router"]
@@ -63,6 +64,7 @@ module.exports = function(webpackEnv) {
     output: {
       path: path.resolve(__dirname, "publish"),
       filename: "[name].js",
+      chunkFilename: "[name].bundle.js",
       library: "iot",
       libraryTarget: "commonjs2"
     },
@@ -196,6 +198,24 @@ module.exports = function(webpackEnv) {
         }
       ]
     },
-    externals: ["react", "react-dom", "react-router", "tinper-bee"]
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all"
+          }
+        }
+      }
+    },
+    externals: [
+      "react",
+      "react-dom",
+      "react-router",
+      "tinper-bee",
+      "rc-form",
+      "react-beautiful-dnd"
+    ]
   };
 };

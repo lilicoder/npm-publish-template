@@ -11,8 +11,8 @@ import TreeSelect from "./src/components/treeSelect";
 import Pagination from "./src/components/pagination";
 import TreeRef from "./src/components/treeRef";
 import TableRef from "./src/components/tableRef";
-import OrganRef from "./src/components/organRef";
-import DepartRef from "./src/components/departRef";
+import OrganRef from "./src/business-components/organRef";
+import DepartRef from "./src/business-components/departRef";
 export {
   MoreSearch,
   Warn,
