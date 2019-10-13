@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { RefMultipleTableWithInput } from "ref-multiple-table";
-import { Button } from "tinper-bee";
 import Radio from "bee-radio";
-import data1 from "./../../examples/ref/table1.json";
-import data2 from "./../../examples/ref/table2.json";
+import "bee-radio/build/Radio.css";
+import request from "./../utils/request";
 import "ref-multiple-table/lib/index.css";
+import "./index.less";
 let options = {};
 class TableRef extends Component {
   constructor(props) {
@@ -12,15 +12,8 @@ class TableRef extends Component {
     this.state = {
       showLoading: false,
       showModal: false,
-      matchData: [
-        {
-          mobile: "15011430235",
-          name: "人员5",
-          refpk: "5e3a85ec-5e14-4734-8b3a-1e6168426c89",
-          refname: "人员5"
-          // "email":"55@26.com"
-        }
-      ]
+      matchData: [],
+      value: ""
     };
     this.page = {
       pageCount: 0,
@@ -31,17 +24,39 @@ class TableRef extends Component {
     this.columnsData = [];
   }
 
-  /**
-   * @msg: 请求mock数据，包含表头数据和表体数据
-   * @param {type}
-   * @return:
-   */
+  componentDidMount() {
+    this.loadData();
+  }
+
+  async filterData(params) {
+    let result = await request(this.props.filterUrl + "?params=" + params);
+    this.launchTableData(result.data);
+  }
   loadData = async () => {
-    this.launchTableHeader(data1);
-    this.launchTableData(data2);
-    this.setState({
-      showLoading: false
-    });
+    let refModelUrl = {
+      tableBodyUrl: this.props.fetchDataUrl, //表体请求
+      refInfo: this.props.fetchHeadUrl //表头请求
+    };
+    let requestList = [
+      request(refModelUrl.refInfo, { method: "get" }), //表头数据
+      request(refModelUrl.tableBodyUrl, { method: "get" }) //表体数据
+    ];
+    Promise.all(requestList)
+      .then(([columnsData, bodyData]) => {
+        this.launchTableHeader(columnsData.data);
+        this.launchTableData(bodyData.data);
+        this.setState({
+          showLoading: false
+        });
+      })
+      .catch(e => {
+        this.launchTableHeader({});
+        this.launchTableData({});
+        this.setState({
+          showLoading: false
+        });
+        console.log(e);
+      });
   };
   /**
    * 根据 refinfo 返回结果拆解并渲染表格表头
@@ -49,7 +64,6 @@ class TableRef extends Component {
    * 注意：单选时候自己添加radio
    */
   launchTableHeader = data => {
-    return;
     if (!data) return;
     let { multiple, valueField } = options;
     let keyList = data.strFieldCode || [];
@@ -83,7 +97,6 @@ class TableRef extends Component {
         }
       });
     }
-
     this.columnsData = colunmsList;
   };
   /**
@@ -104,80 +117,68 @@ class TableRef extends Component {
       totalElements: page.totalElements || 0
     };
   };
+
   miniSearchFunc = value => {
-    alert("搜索" + value);
+    this.filterData(value);
   };
 
-  /**
-   * 跳转到制定页数的操作
-   * @param {number} index 跳转页数
-   */
   handlePagination = index => {
     this.page.currPageIndex = index;
     this.setState({ number: Math.random() });
   };
-  /**
-   * 选择每页数据个数
-   */
+
   dataNumSelect = (index, pageSize) => {
     console.log(index, pageSize);
   };
-  /**
-   * @msg: modal框确认按钮
-   * @param {type}
-   * @return:
-   */
+
   onSave = item => {
-    this.checkedArray = item;
     this.setState({
-      showModal: false,
-      matchData: item
+      showModal: false
     });
+    this.props.onSave(item);
   };
-  /**
-   * @msg: modal框右上X和右下角取消
-   * @param {type}
-   * @return:
-   */
+
   onCancel = () => {
     this.setState({ showModal: false });
   };
-
+  clearFunc = () => {
+    this.setState({
+      matchData: [],
+      value: `{"refname":"","refpk":"${Math.random()}"}`
+    });
+  };
   render() {
-    let { showLoading, showModal, matchData } = this.state;
+    let { showLoading, matchData, value, showModal } = this.state;
     let { columnsData, tableData, page } = this;
+    let { placeholder, title } = this.props;
     options = {
       miniSearch: true,
       multiple: false,
       valueField: "refpk",
       displayField: "{refname}"
     };
-    let childrenProps = Object.assign({}, options, {
+    let childrenProps = {
       showModal: showModal,
       showLoading: showLoading,
       columnsData: columnsData,
       tableData: tableData,
-      ...page,
+      title: title,
+      // ...page,
       matchData,
+      value,
       miniSearchFunc: this.miniSearchFunc,
       dataNumSelect: this.dataNumSelect,
       handlePagination: this.handlePagination,
       onSave: this.onSave,
-      onCancel: this.onCancel
-    });
+      onCancel: this.onCancel,
+      className: "iot-table-ref",
+      wrapClassName: "iot-table-ref-input",
+      placeholder: placeholder,
+      style: { width: "100%" }
+    };
     return (
-      <div className="demoPadding">
-        {/* <RefMultipleTableWithInput {...childrenProps} /> */}
-        <Button
-          colors="primary"
-          onClick={() => {
-            this.setState({ showModal: true }, () => {
-              this.loadData();
-            });
-          }}
-        >
-          打开参照
-        </Button>
+      <div style={this.props.style} className="iot-table-ref">
+        <RefMultipleTableWithInput {...childrenProps} />
       </div>
     );
   }

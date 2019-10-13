@@ -10,6 +10,9 @@ import Select from "./src/components/select";
 import TreeSelect from "./src/components/treeSelect";
 import Pagination from "./src/components/pagination";
 import TreeRef from "./src/components/treeRef";
+import TableRef from "./src/components/tableRef";
+import OrganRef from "./src/components/organRef";
+import DepartRef from "./src/components/departRef";
 export {
   MoreSearch,
   Warn,
@@ -22,5 +25,7 @@ export {
   TreeSelect,
   MainGrid,
   Pagination,
-  TreeRef
+  TreeRef,
+  TableRef,
+  OrganRef
 };

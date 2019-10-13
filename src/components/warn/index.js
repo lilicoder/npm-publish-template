@@ -17,12 +17,12 @@ let IndexView = props => {
                 {item.name}
                 <Icon
                   type="uf-exc-c-2"
-                  style={{ color: item.isAlarm && getColor(item.alarmColor) }}
+                  style={{ color: !!item.isAlarm && getColor(item.alarmColor) }}
                 />
               </div>
               <div
                 className="num"
-                style={{ color: item.isAlarm && getColor(item.alarmColor) }}
+                style={{ color: !!item.isAlarm && getColor(item.alarmColor) }}
               >
                 {item.actValue}
                 <span>{item.unit}</span>
