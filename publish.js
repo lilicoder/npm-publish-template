@@ -27,5 +27,6 @@ export {
   Pagination,
   TreeRef,
   TableRef,
-  OrganRef
+  OrganRef,
+  DepartRef
 };

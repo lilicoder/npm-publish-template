@@ -11,4 +11,37 @@
   .uf {
     color: @inputBorderColor;
   }
+  @import "../common.less";
+  .iot-tree-ref-input.ref-red {
+    .u-form-control {
+      border-color: @inputBorderColor;
+      &::placeholder {
+        color: @inputBorderColor;
+      }
+    }
+    .uf {
+      color: @inputBorderColor;
+    }
+  }
+
+  .ref-core-button {
+    display: flex;
+    justify-content: right;
+    flex-direction: row-reverse;
+    .u-button-primary {
+      margin-right: 8px;
+    }
+  }
+  .ref-core-button-empty {
+    position: absolute !important;
+    left: 0;
+  }
+  &.ref-core.u-modal {
+    .u-modal-content {
+      background: #f7f9fb;
+    }
+    .u-modal-body {
+      background: #fff;
+    }
+  }
 }

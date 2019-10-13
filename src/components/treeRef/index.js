@@ -7,7 +7,6 @@
 
 import React, { Component } from "react";
 import { RefTreeWithInput } from "ref-tree";
-import { Form } from "tinper-bee";
 import "ref-tree/lib/index.css";
 import "./index.less";
 
@@ -83,10 +82,10 @@ class TreeRef extends Component {
         canClickGoOn={this.canClickGoOn}
         value={value}
         wrapClassName="iot-tree-ref-input"
-        classname="iot-tree-ref"
+        className="iot-tree-ref"
         placeholder={this.props.placeholder}
       />
     );
   }
 }
-export default Form.createForm()(TreeRef);
+export default TreeRef;

@@ -7,7 +7,10 @@ export default props => {
       onSave={r => props.onSave(r)}
       placeholder="部门"
       title="部门选择"
-      fetchDataUrl="https://mock.yonyoucloud.com/mock/1264/pap_basedoc/common-ref/blobRefTree"
+      fetchDataUrl={
+        props.fetchDataUrl ||
+        "https://mock.yonyoucloud.com/mock/1264/pap_basedoc/common-ref/blobRefTree"
+      }
     />
   );
 };

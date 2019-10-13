@@ -177,7 +177,10 @@ class TableRef extends Component {
       style: { width: "100%" }
     };
     return (
-      <div style={this.props.style} className="iot-table-ref">
+      <div
+        style={this.props.style}
+        className={"iot-table-ref " + this.props.className}
+      >
         <RefMultipleTableWithInput {...childrenProps} />
       </div>
     );
