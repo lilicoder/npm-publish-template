@@ -1,6 +1,6 @@
 {
   "name": "u9-iot-basic-template",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "main": "publish/index.js",
   "dependencies": {
     "@babel/core": "7.6.0",

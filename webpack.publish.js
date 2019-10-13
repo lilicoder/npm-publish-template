@@ -1,6 +1,8 @@
 "use strict";
 
 const path = require("path");
+
+var fs = require("fs");
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
 const postcssNormalize = require("postcss-normalize");
 // const webpack = require("webpack");
@@ -9,8 +11,16 @@ const cssModuleRegex = /\.module\.css$/;
 const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/;
 
-// This is the production and development configuration.
-// It is focused on developer experience, fast rebuilds, and a minimal bundle.
+var nodeModules = {};
+//过滤node_modules中的所有模块
+fs.readdirSync("node_modules")
+  .filter(function(x) {
+    return [".bin"].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = "commonjs " + mod;
+  });
+
 module.exports = function(webpackEnv) {
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
@@ -148,8 +158,7 @@ module.exports = function(webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: false
-              }),
-              sideEffects: true
+              })
             },
             {
               test: cssModuleRegex,
@@ -170,8 +179,7 @@ module.exports = function(webpackEnv) {
                   sourceMap: false
                 },
                 "less-loader"
-              ),
-              sideEffects: true
+              )
             },
             // Adds support for CSS Modules, but using SASS
             // using the extension .module.scss or .module.sass
@@ -198,24 +206,25 @@ module.exports = function(webpackEnv) {
         }
       ]
     },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all"
-          }
-        }
-      }
-    },
-    externals: [
-      "react",
-      "react-dom",
-      "react-router",
-      "tinper-bee",
-      "rc-form",
-      "react-beautiful-dnd"
-    ]
+    externals: nodeModules
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       vendor: {
+    //         test: /[\\/]node_modules[\\/]/,
+    //         name: "vendors",
+    //         chunks: "all"
+    //       }
+    //     }
+    //   }
+    // },
+    // externals: [
+    //   "react",
+    //   "react-dom",
+    //   "react-router",
+    //   "tinper-bee",
+    //   "rc-form",
+    //   "react-beautiful-dnd"
+    // ]
   };
 };
