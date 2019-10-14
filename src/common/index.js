@@ -14,6 +14,7 @@ import TableRef from "./components/tableRef";
 import OrganRef from "./business-components/organRef";
 import DepartRef from "./business-components/departRef";
 import SearchInput from "./components/searchInput";
+import InputNumber from "./components/InputNumber";
 // import TreeTableRef from "./business-components/"
 export {
   MoreSearch,
@@ -31,5 +32,6 @@ export {
   TableRef,
   OrganRef,
   DepartRef,
-  SearchInput
+  SearchInput,
+  InputNumber
 };

@@ -5,7 +5,8 @@ import {
   Select,
   TreeSelect,
   Pagination,
-  SearchInput
+  SearchInput,
+  InputNumber
 } from "../../common";
 
 import "./index.less";
@@ -146,6 +147,10 @@ class IndexView extends Component {
       <div>
         <h4>搜索框</h4>
         <SearchInput onSearch={x => console.log(x)} value="xxx" />
+      </div>,
+      <div>
+        <h4>数字框</h4>
+        <InputNumber />
       </div>
     ];
 

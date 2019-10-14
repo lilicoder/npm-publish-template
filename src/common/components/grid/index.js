@@ -20,6 +20,7 @@ class MainGrid extends Component {
   render() {
     let { props } = this;
     let paginationObj = {
+      size: "md",
       gap: true,
       horizontalPosition: "right",
       items: props.items || 10, //一页显示多少条

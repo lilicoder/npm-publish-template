@@ -5,7 +5,11 @@ import { Pagination } from "tinper-bee";
 let MainPagination = props => {
   const [activePage, setActivePage] = useState(1);
   let paginationObj = {
+    prev: true,
+    next: true,
     gap: true,
+    first: true,
+    last: true,
     horizontalPosition: "right",
     maxButtons: 10,
     boundaryLinks: true,
