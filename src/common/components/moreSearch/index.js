@@ -20,6 +20,7 @@ const IndexView = props => {
       placement="right"
       show={props.show}
       onClose={() => props.onClose()}
+      zIndex={3}
     >
       <Form>
         {props.content.map(item => (

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { FormControl } from "tinper-bee";
 
-import Layout from "../../components/splitLayout";
-import Grid from "../../components/grid";
-import SearchContainer from "../../components/searchContainer";
+import {
+  SplitLayout as Layout,
+  MainGrid as Grid,
+  SearchContainer
+} from "../../common";
 import "./index.less";
 
 const columns = [

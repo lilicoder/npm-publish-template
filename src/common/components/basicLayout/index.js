@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "tinper-bee";
 // import PropTypes from "prop-types";
-import { getComponentChild } from "./../utils";
+import { getComponentChild } from "../utils";
 import "./index.less";
 
 let IndexView = props => {
@@ -9,7 +9,12 @@ let IndexView = props => {
     <div className="main-layout">
       <Row className="header">{getComponentChild(props.header)}</Row>
       <Row className="content">
-        <Col md={12}>{getComponentChild(props.content)}</Col>
+        <Col
+          md={12}
+          className={props.content.props && props.content.props.full && "full"}
+        >
+          {getComponentChild(props.content)}
+        </Col>
       </Row>
 
       <Row className="footer">{getComponentChild(props.footer)}</Row>

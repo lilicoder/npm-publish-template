@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import { RefTreeWithInput } from "ref-tree";
 import { Pagination, Form, Select, FormControl } from "tinper-bee";
 
-import Layout from "../../components/basicLayout";
-import Card from "../../components/card";
-import SearchContainer from "../../components/searchContainer";
+import { BasicLayout as Layout, Card, SearchContainer } from "./../../common";
+
 import "./index.less";
 const Option = Select.Option;
 
@@ -96,6 +95,7 @@ let Demo = Form.createForm()(
           ]}
         />
       );
+      // let content = <Card data={this.state.data} />;
       let content = <Card data={this.state.data} />;
       let footer = (
         <Pagination

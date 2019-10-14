@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import Layout from "../../components/basicLayout";
-import ColorSelect from "../../components/colorSelect";
-import Select from "../../components/select";
-import TreeSelect from "../../components/treeSelect";
-import Pagination from "../../components/pagination";
-import SearchInput from "../../components/searchInput";
+import {
+  BasicLayout as Layout,
+  ColorSelect,
+  Select,
+  TreeSelect,
+  Pagination,
+  SearchInput
+} from "../../common";
+
 import "./index.less";
 
 class IndexView extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Grid from "../../components/grid";
+import { MainGrid as Grid } from "../../common";
 const columns = [
   {
     title: "序号",

@@ -7,7 +7,9 @@ let MainPagination = props => {
   let paginationObj = {
     gap: true,
     horizontalPosition: "right",
-    items: props.items || 10, //一页显示多少条
+    maxButtons: 10,
+    boundaryLinks: true,
+    // items: props.items || (props.totalPage / 10 > 10 ? 10 : ""), //一页显示多少条
     total: props.totalPage || 0, //总共多少条
     onSelect: value => {
       setActivePage(value);

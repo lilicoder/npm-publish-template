@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import { Pagination, FormControl } from "tinper-bee";
 
-import Layout from "../../components/basicLayout";
-import SearchContainer from "../../components/searchContainer";
-import Card from "../../components/card";
-import Warn from "../../components/warn";
-import MoreSearch from "../../components/moreSearch";
+import {
+  BasicLayout as Layout,
+  SearchContainer,
+  Warn,
+  MoreSearch,
+  Pagination,
+  SearchInput,
+  OrganRef
+} from "../../common";
 import "./index.less";
 
 const SeachFormItem = MoreSearch.SeachFormItem;
@@ -21,9 +24,9 @@ class IndexView extends Component {
           actValue: "5.0000",
           unit: "Kv",
           createTime: "2019-09-29 14:22:46",
-          alarmColor: "9",
-          isAlarm: 0,
-          isConfirm: 1,
+          alarmColor: "Red",
+          isAlarm: 1,
+          isConfirm: 0,
           detailFn: item => {
             alert(item.id);
           },
@@ -38,7 +41,7 @@ class IndexView extends Component {
             actValue: "5.0000",
             unit: "Kv",
             createTime: "2019-09-29 14:22:46",
-            alarmColor: "9",
+            alarmColor: "Orange",
             isAlarm: 0,
             isConfirm: 0,
             detailFn: item => {
@@ -56,7 +59,7 @@ class IndexView extends Component {
             actValue: "5.0000",
             unit: "Kv",
             createTime: "2019-09-29 14:22:46",
-            alarmColor: "9",
+            alarmColor: "Green",
             isAlarm: 1,
             isConfirm: 0,
             detailFn: item => {
@@ -74,11 +77,9 @@ class IndexView extends Component {
     let header = (
       <SearchContainer
         data={[
-          <FormControl
+          <SearchInput
             placeHolder="请输入搜索内容"
-            type="search"
             onSearch={() => console.log(123)}
-            splitLine
           />,
           <div>
             <button
@@ -94,7 +95,6 @@ class IndexView extends Component {
       />
     );
     let content = [
-      <Card data={this.state.data} />,
       <Warn data={this.state.data} />,
       <MoreSearch
         show={this.state.showSearchBoard}
@@ -105,10 +105,10 @@ class IndexView extends Component {
         }
         content={[
           <SeachFormItem label="用户名">
-            <input />
+            <OrganRef />
           </SeachFormItem>,
           <SeachFormItem label="密码">
-            <input />
+            <OrganRef />
           </SeachFormItem>
         ]}
         confirmFn={() => {
@@ -124,19 +124,7 @@ class IndexView extends Component {
     ];
     let footer = (
       <Pagination
-        first
-        last
-        prev
-        next
-        maxButtons={5}
-        boundaryLinks
-        activePage={1}
-        // onSelect={this.handleSelect.bind(this)}
-        // onDataNumSelect={this.dataNumSelect}
-        showJump={true}
-        total={100}
-        dataNum={2}
-        // confirmBtn={this.renderConfirmBtn}
+        totalPage={99} //总页数
       />
     );
 

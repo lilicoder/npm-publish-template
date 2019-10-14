@@ -1,0 +1,222 @@
+@import "../color.less";
+@gray: #c7c7c7;
+@aniTime: 300ms;
+
+@keyframes BlueAnimate {
+  from {
+    color: @Blue;
+  }
+  to {
+    color: @gray;
+  }
+}
+@keyframes YellowAnimate {
+  from {
+    color: @Yellow;
+  }
+  to {
+    color: @gray;
+  }
+}
+@keyframes OrangeAnimate {
+  from {
+    color: @Orange;
+  }
+  to {
+    color: @gray;
+  }
+}
+@keyframes GreenAnimate {
+  from {
+    color: @Green;
+  }
+  to {
+    color: @gray;
+  }
+}
+@keyframes CrimsonAnimate {
+  from {
+    color: @Crimson;
+  }
+  to {
+    color: @gray;
+  }
+}
+@keyframes RedAnimate {
+  from {
+    color: @Red;
+  }
+  to {
+    color: @gray;
+  }
+}
+@keyframes RedAnimate {
+  from {
+    color: @Red;
+  }
+  to {
+    color: @gray;
+  }
+}
+.warn-container {
+  div {
+    box-sizing: border-box;
+  }
+  .warn-contain {
+    display: flex;
+    flex-wrap: wrap;
+    // padding: 0 0 0 16px;
+  }
+  .warn-box {
+    width: 16.6666%;
+    padding: 0 16px 16px 0;
+  }
+  .warn {
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: solid 1px #d9d9d9;
+    width: auto;
+    height: 152px;
+    position: relative;
+    &:hover {
+      box-shadow: 0 3px 5px 0 rgba(131, 148, 170, 0.25);
+      border: solid 1px rgba(153, 153, 153, 0.7);
+    }
+    .name {
+      font-size: 12px;
+      color: #4a4a4a;
+      line-height: 1.33;
+      .uf {
+        color: @gray;
+        float: right;
+        font-size: 20px;
+        line-height: 1;
+      }
+    }
+    .num {
+      font-size: 30px;
+      font-weight: 600;
+      color: #333;
+      padding: 10px 0 0;
+      span {
+        font-size: 12px;
+        color: #333;
+        font-weight: 100;
+        padding-left: 5px;
+      }
+    }
+    .time {
+      font-size: 12px;
+      color: #999;
+    }
+    .opration {
+      position: absolute;
+      border-top: 1px solid #d9d9d9;
+      background-color: #f7f8f9;
+      display: flex;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 39px;
+      // line-height: 39px;
+      text-align: center;
+      color: #2684ff;
+      .btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &.disabled {
+          color: #999;
+          cursor: auto;
+        }
+        span {
+          flex: 1;
+        }
+        span:first-child {
+          border-right: 1px solid #d9d9d9;
+          display: block;
+        }
+      }
+    }
+    &.Red {
+      &.animate {
+        .name .uf {
+          animation: RedAnimate @aniTime infinite;
+        }
+      }
+      .num {
+        color: @Red;
+      }
+      .name .uf {
+        color: @Red;
+      }
+    }
+    &.Green {
+      .num {
+        color: @Green;
+      }
+      &.animate {
+        .name .uf {
+          animation: GreenAnimate @aniTime infinite;
+        }
+      }
+      .name .uf {
+        color: @Green;
+      }
+    }
+    &.Crimson {
+      &.animate {
+        .name .uf {
+          animation: CrimsonAnimate @aniTime infinite;
+        }
+      }
+      .num {
+        color: @Crimson;
+      }
+      .name .uf {
+        color: @Crimson;
+      }
+    }
+    &.Orange {
+      &.animate {
+        .name .uf {
+          animation: OrangeAnimate @aniTime infinite;
+        }
+      }
+      .num {
+        color: @Orange;
+      }
+      .name .uf {
+        color: @Orange;
+      }
+    }
+    &.Blue {
+      &.animate {
+        .name .uf {
+          animation: BlueAnimate @aniTime infinite;
+        }
+      }
+      .num {
+        color: @Blue;
+      }
+      .name .uf {
+        color: @Blue;
+      }
+    }
+    &.Yellow {
+      &.animate {
+        .name .uf {
+          animation: YellowAnimate @aniTime infinite;
+        }
+      }
+      .num {
+        color: @Yellow;
+      }
+      .name .uf {
+        color: @Yellow;
+      }
+    }
+  }
+}

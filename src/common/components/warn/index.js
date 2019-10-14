@@ -4,26 +4,25 @@ import "./index.less";
 
 let IndexView = props => {
   let { data } = props;
-  function getColor(num) {
-    return "#ed3d34";
-  }
   return (
     <div className="warn-container">
       <div className="warn-contain">
         {data.map((item, index) => (
           <div className="warn-box" key={index}>
-            <Tile key={index} className="warn">
+            <Tile
+              key={index}
+              className={[
+                "warn",
+                !!item.isAlarm
+                  ? (!item.isConfirm ? "animate" : null) + " " + item.alarmColor
+                  : null
+              ].join(" ")}
+            >
               <div className="name">
                 {item.name}
-                <Icon
-                  type="uf-exc-c-2"
-                  style={{ color: !!item.isAlarm && getColor(item.alarmColor) }}
-                />
+                <Icon type="uf-exc-c-2" />
               </div>
-              <div
-                className="num"
-                style={{ color: !!item.isAlarm && getColor(item.alarmColor) }}
-              >
+              <div className="num">
                 {item.actValue}
                 <span>{item.unit}</span>
               </div>
