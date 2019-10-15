@@ -89,7 +89,6 @@ class IndexView extends Component {
       ]
     };
   }
-
   render() {
     let content = [
       <div style={{ width: 200 }}>
@@ -148,9 +147,15 @@ class IndexView extends Component {
         <h4>搜索框</h4>
         <SearchInput onSearch={x => console.log(x)} value="xxx" />
       </div>,
-      <div>
+      <div style={{ width: 200 }}>
         <h4>数字框</h4>
-        <InputNumber />
+        <InputNumber
+          onChange={x => this.setState({ num: x })}
+          value={this.state.num}
+          min={0}
+          max={10}
+          precision={5}
+        />
       </div>
     ];
 

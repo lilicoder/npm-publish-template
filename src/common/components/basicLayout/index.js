@@ -9,10 +9,7 @@ let IndexView = props => {
     <div className="main-layout">
       <Row className="header">{getComponentChild(props.header)}</Row>
       <Row className="content">
-        <Col
-          md={12}
-          className={props.content.props && props.content.props.full && "full"}
-        >
+        <Col md={12} className={"full"}>
           {getComponentChild(props.content)}
         </Col>
       </Row>

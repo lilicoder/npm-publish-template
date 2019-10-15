@@ -3,6 +3,15 @@
   i.uf {
     border-left: 1px solid @inputBorderColor;
     color: @inputBorderColor;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    &::before {
+      content: "";
+    }
+    background: url(./search.png) no-repeat center;
+    background-size: contain;
+    padding-left: 20px;
   }
   .u-form-control {
     border-color: @inputBorderColor;

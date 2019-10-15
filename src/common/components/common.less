@@ -45,7 +45,7 @@
 }
 .split-line {
   border-right: 1px dashed #dfdfdf;
-  padding-right: 20px !important;
+  padding-right: 20px;
 }
 
 .red-button:hover,
@@ -69,5 +69,16 @@
 .select-tip.u-tooltip.inverse {
   .tooltip-inner {
     border-color: @red;
+  }
+}
+.iot-tree-select-container,
+.iot-select-container,
+.iot-tree-ref-container {
+  display: flex;
+  .label {
+    white-space: nowrap;
+    line-height: 32px;
+    padding-right: 10px;
+    font-size: 12px;
   }
 }

@@ -6,28 +6,30 @@ import ErrorTip from "../errorTip";
 const Option = Select.Option;
 let IndexView = props => {
   return (
-    <Tooltip
-      inverse
-      visible={props.showError}
-      placement="top"
-      overlay={<ErrorTip value={props.errorText} />}
-      className="select-tip"
-    >
-      <Select
-        value={props.value}
-        style={{ width: "100%" }}
-        onChange={props.onChange}
-        placeholder="请选择"
-        allowClear={true}
-        className="iot-select"
+    <div className="iot-select-container">
+      {props.label && <div className="label">{props.label}</div>}
+      <Tooltip
+        inverse
+        visible={props.showError}
+        placement="top"
+        overlay={<ErrorTip value={props.errorText} />}
+        className="select-tip"
       >
-        {props.data.map(item => (
-          <Option key={item.code} value={item.code}>
-            {item.value}
-          </Option>
-        ))}
-      </Select>
-    </Tooltip>
+        <Select
+          value={props.value}
+          onChange={props.onChange}
+          placeholder="请选择"
+          allowClear={true}
+          className="iot-select"
+        >
+          {props.data.map(item => (
+            <Option key={item.code} value={item.code}>
+              {item.value}
+            </Option>
+          ))}
+        </Select>
+      </Tooltip>
+    </div>
   );
 };
 IndexView.propTypes = {

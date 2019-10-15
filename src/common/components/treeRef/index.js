@@ -64,28 +64,32 @@ class TreeRef extends Component {
     const { treeData, matchData, value } = this.state;
     const { title, placeholder } = this.props;
     return (
-      <RefTreeWithInput
-        title={title}
-        placeholder={placeholder}
-        emptyBut={true}
-        nodeDisplay={record => {
-          return record.refname;
-        }}
-        displayField={record => {
-          return record.code;
-        }} //显示内容的键
-        valueField={"code"} //真实 value 的键
-        // multiple={true}
-        onSave={this.onSave}
-        matchData={matchData}
-        treeData={treeData}
-        canClickGoOn={this.canClickGoOn}
-        value={value}
-        wrapClassName="iot-tree-ref-input"
-        className="iot-tree-ref"
-        placeholder={this.props.placeholder}
-        style={{ width: "100%" }}
-      />
+      <div className="iot-tree-ref-container">
+        {this.props.label && <div className="label">{this.props.label}</div>}
+
+        <RefTreeWithInput
+          title={title}
+          placeholder={placeholder}
+          emptyBut={true}
+          nodeDisplay={record => {
+            return record.refname;
+          }}
+          displayField={record => {
+            return record.code;
+          }} //显示内容的键
+          valueField={"code"} //真实 value 的键
+          // multiple={true}
+          onSave={this.onSave}
+          matchData={matchData}
+          treeData={treeData}
+          canClickGoOn={this.canClickGoOn}
+          value={value}
+          wrapClassName="iot-tree-ref-input"
+          className="iot-tree-ref"
+          placeholder={this.props.placeholder}
+          style={{ width: "100%" }}
+        />
+      </div>
     );
   }
 }

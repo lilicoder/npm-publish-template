@@ -2,15 +2,14 @@ import React from "react";
 import { Col, Label, Form, Drawer } from "tinper-bee";
 
 import "./index.less";
-const FormItem = Form.FormItem;
 
-const SeachFormItem = props => (
-  <FormItem>
+const SearchFormItem = props => (
+  <div className="search-form-item">
     <Col md={12}>
       <Label>{props.label}</Label>
       {props.children}
     </Col>
-  </FormItem>
+  </div>
 );
 const IndexView = props => {
   return (
@@ -22,14 +21,14 @@ const IndexView = props => {
       onClose={() => props.onClose()}
       zIndex={3}
     >
-      <Form>
+      <div className="more-search-content">
         {props.content.map(item => (
-          <SeachFormItem
+          <SearchFormItem
             label={item.props.label}
             children={item.props.children}
           />
         ))}
-      </Form>
+      </div>
       <div className="button-footer">
         <button type="button" className="red-button" onClick={props.confirmFn}>
           确定
@@ -60,5 +59,5 @@ IndexView.defaultProps = {
   resetFn: () => {},
   cancelFn: () => {}
 };
-IndexView.SeachFormItem = SeachFormItem;
+IndexView.SearchFormItem = SearchFormItem;
 export default IndexView;

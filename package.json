@@ -1,6 +1,6 @@
 {
   "name": "u9-iot-basic-template",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "main": "lib/index.js",
   "files": [
     "lib",

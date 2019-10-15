@@ -1,35 +1,37 @@
 @import "../common.less";
-.iot-tree-ref-input.ref-red {
-  .u-form-control {
-    border-color: @inputBorderColor;
-    &::placeholder {
+.iot-tree-ref-container {
+  .iot-tree-ref-input.ref-red {
+    .u-form-control {
+      border-color: @inputBorderColor;
+      &::placeholder {
+        color: @inputBorderColor;
+      }
+    }
+    .uf {
       color: @inputBorderColor;
     }
   }
-  .uf {
-    color: @inputBorderColor;
-  }
-}
-.iot-tree-ref {
-  position: relative;
-  .ref-core-button {
-    display: flex;
-    justify-content: right;
-    flex-direction: row-reverse;
-    .u-button-primary {
-      margin-right: 8px;
+  .iot-tree-ref {
+    position: relative;
+    .ref-core-button {
+      display: flex;
+      justify-content: right;
+      flex-direction: row-reverse;
+      .u-button-primary {
+        margin-right: 8px;
+      }
     }
-  }
-  .ref-core-button-empty {
-    position: absolute !important;
-    left: 0;
-  }
-  &.ref-core.u-modal {
-    .u-modal-content {
-      background: #f7f9fb;
+    .ref-core-button-empty {
+      position: absolute !important;
+      left: 0;
     }
-    .u-modal-body {
-      background: #fff;
+    &.ref-core.u-modal {
+      .u-modal-content {
+        background: #f7f9fb;
+      }
+      .u-modal-body {
+        background: #fff;
+      }
     }
   }
 }

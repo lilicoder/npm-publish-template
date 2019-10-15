@@ -13,8 +13,16 @@ class MainGrid extends Component {
     };
   }
   componentDidMount() {
+    let _this = this;
+    this.measureheight();
+    window.onresize = function() {
+      _this.measureheight();
+    };
+  }
+  measureheight() {
+    let h = ReactDOM.findDOMNode(this.dom.current).offsetHeight;
     this.setState({
-      h: ReactDOM.findDOMNode(this.dom.current).offsetHeight - 44 - 43
+      h: this.props.hidePagination ? h - 44 : h - 44 - 43
     });
   }
   render() {
@@ -30,7 +38,10 @@ class MainGrid extends Component {
     };
     return (
       <Grid
-        className="iot-grid"
+        className={[
+          props.hidePagination ? "iot-grid hidePagination" : "iot-grid",
+          props.opration ? "opration-grid" : null
+        ].join(" ")}
         ref={this.dom}
         columns={props.columns}
         data={props.data}

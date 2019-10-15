@@ -1,8 +1,14 @@
 import React, { Component } from "react";
-import { RefTreeWithInput } from "ref-tree";
-import { Pagination, Form, Select, FormControl } from "tinper-bee";
+import { Form, FormControl } from "tinper-bee";
 
-import { BasicLayout as Layout, Card, SearchContainer } from "./../../common";
+import {
+  BasicLayout as Layout,
+  Card,
+  SearchContainer,
+  TreeRef,
+  Select,
+  Pagination
+} from "./../../common";
 
 import "./index.less";
 const Option = Select.Option;
@@ -42,7 +48,6 @@ let Demo = Form.createForm()(
     }
 
     render() {
-      const { getFieldProps } = this.props.form;
       let header = (
         <SearchContainer
           data={[
@@ -52,33 +57,14 @@ let Demo = Form.createForm()(
               onSearch={() => console.log(123)}
               splitLine={true}
             />,
-            <RefTreeWithInput
-              emptyBut={true}
-              nodeDisplay={record => {
-                return record.refname;
-              }}
-              displayField={record => {
-                return record.name;
-              }} //显示内容的键
-              valueField={"code"} //真实 value 的键
-              treeData={this.state.treeData}
-              selectorDisplay={"{refname}-{code}"}
-              {...getFieldProps("code1", {
-                initialValue: this.state.value,
-                rules: [
-                  {
-                    message: "请输入请选择",
-                    pattern: /[^{"refname":"","refpk":""}|{"refpk":"","refname":""}]/
-                  }
-                ]
-              })}
-            />,
+            <TreeRef label="组织" />,
             <Select
               defaultValue="all"
               style={{ width: 200, marginRight: 6 }}
               onChange={this.handleChange}
               showSearch={true}
               allowClear={true}
+              label="模型分类"
             >
               <Option value="all">全部</Option>
               <Option value="confirming">待确认</Option>
@@ -97,23 +83,7 @@ let Demo = Form.createForm()(
       );
       // let content = <Card data={this.state.data} />;
       let content = <Card data={this.state.data} />;
-      let footer = (
-        <Pagination
-          first
-          last
-          prev
-          next
-          maxButtons={5}
-          boundaryLinks
-          activePage={this.state.activePage}
-          // onSelect={this.handleSelect.bind(this)}
-          // onDataNumSelect={this.dataNumSelect}
-          showJump={true}
-          total={100}
-          dataNum={2}
-          // confirmBtn={this.renderConfirmBtn}
-        />
-      );
+      let footer = <Pagination total={100} />;
 
       return <Layout header={header} content={content} footer={footer} />;
     }

@@ -9,26 +9,29 @@ import "./index.less";
 
 let IndexView = props => {
   return (
-    <Tooltip
-      inverse
-      visible={props.showError}
-      placement="top"
-      overlay={<ErrorTip value={props.errorText} />}
-      className="select-tip"
-    >
-      <TreeSelect
-        showSearch
-        value={props.value}
-        dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-        placeholder="请选择"
-        allowClear
-        // treeDefaultExpandAll
-        treeData={props.treeData}
-        // onChange={this.onChange}
-        onSelect={props.onSelect}
-        className="iot-tree-select"
-      />
-    </Tooltip>
+    <div className="iot-tree-select-container">
+      {props.label && <div className="label">{props.label}</div>}
+      <Tooltip
+        inverse
+        visible={props.showError}
+        placement="top"
+        overlay={<ErrorTip value={props.errorText} />}
+        className="select-tip"
+      >
+        <TreeSelect
+          showSearch
+          value={props.value}
+          dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+          placeholder="请选择"
+          allowClear
+          // treeDefaultExpandAll
+          treeData={props.treeData}
+          // onChange={this.onChange}
+          onSelect={props.onSelect}
+          className="iot-tree-select"
+        />
+      </Tooltip>
+    </div>
   );
 };
 IndexView.propTypes = {

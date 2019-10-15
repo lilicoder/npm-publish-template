@@ -9,7 +9,7 @@ let IndexView = props => {
   return props.disabled ? (
     <div
       className={"color-select-option " + selectColor}
-      style={{ width: "80%" }}
+      style={{ width: "75%" }}
     ></div>
   ) : (
     <Tooltip
@@ -20,7 +20,7 @@ let IndexView = props => {
       className="select-tip"
     >
       <Select
-        defaultValue={props.value || selectColor}
+        defaultValue={selectColor}
         onChange={value => {
           props.onChange(value);
         }}

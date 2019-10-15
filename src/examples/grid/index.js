@@ -18,7 +18,19 @@ const columns = [
     className: "rowClassName"
   },
   { id: "123", title: "性别", dataIndex: "b", key: "b", width: 80 },
-  { title: "年龄", dataIndex: "c", key: "c", width: 200 }
+  { title: "年龄", dataIndex: "c", key: "c", width: 600 },
+  {
+    title: "操作",
+    key: "d",
+    width: 200,
+    className: "opration",
+    render: (text, record, index) => (
+      <div>
+        <button>编辑</button>
+        <button>删除</button>
+      </div>
+    )
+  }
 ];
 
 const data = [...new Array(100)].map((e, i) => {
@@ -38,6 +50,8 @@ class Demo4 extends Component {
         totalPage={50}
         freshData={x => console.log(x)}
         onDataNumSelect={x => console.log(x, "999")}
+        // hidePagination={true}
+        opration={true}
         // multiSelect={{ type: "radio" }}
         // getSelectedDataFunc={record => console.log(record, "Llll")}
       />
