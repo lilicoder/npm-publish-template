@@ -7,8 +7,10 @@ import {
   SearchContainer,
   TreeRef,
   Select,
-  Pagination
+  Pagination,
+  SearchInput
 } from "./../../common";
+import Grid from "../grid";
 
 import "./index.less";
 const Option = Select.Option;
@@ -51,7 +53,7 @@ let Demo = Form.createForm()(
       let header = (
         <SearchContainer
           data={[
-            <FormControl
+            <SearchInput
               placeHolder="请输入搜索内容"
               type="search"
               onSearch={() => console.log(123)}
@@ -82,10 +84,10 @@ let Demo = Form.createForm()(
         />
       );
       // let content = <Card data={this.state.data} />;
-      let content = <Card data={this.state.data} />;
+      let content = [<Grid data={this.state.data} />];
       let footer = <Pagination total={100} />;
 
-      return <Layout header={header} content={content} footer={footer} />;
+      return <Layout header={header} content={content} />;
     }
   }
 );

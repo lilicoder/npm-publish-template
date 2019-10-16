@@ -6,7 +6,8 @@ import {
   TreeSelect,
   Pagination,
   SearchInput,
-  InputNumber
+  InputNumber,
+  InputNumberGroup
 } from "../../common";
 
 import "./index.less";
@@ -150,6 +151,16 @@ class IndexView extends Component {
       <div style={{ width: 200 }}>
         <h4>数字框</h4>
         <InputNumber
+          onChange={x => this.setState({ num: x })}
+          value={this.state.num}
+          min={0}
+          max={10}
+          precision={5}
+        />
+      </div>,
+      <div style={{ width: 200 }}>
+        <h4>数字框组</h4>
+        <InputNumberGroup
           onChange={x => this.setState({ num: x })}
           value={this.state.num}
           min={0}

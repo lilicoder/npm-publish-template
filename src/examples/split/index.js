@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { FormControl } from "tinper-bee";
 
 import {
   SplitLayout as Layout,
   MainGrid as Grid,
-  SearchContainer
+  SearchContainer,
+  SearchInput,
+  Select
 } from "../../common";
 import "./index.less";
 
@@ -14,7 +15,7 @@ const columns = [
     dataIndex: "index",
     width: "290",
     render: (text, record, index) => {
-      return index;
+      return <Select />;
     },
     fixed: "left"
   },
@@ -47,9 +48,8 @@ class IndexView extends Component {
     let header = [
       <SearchContainer
         data={[
-          <FormControl
+          <SearchInput
             placeHolder="请输入搜索内容"
-            type="search"
             onSearch={() => console.log(123)}
             splitLine
           />,
@@ -72,9 +72,8 @@ class IndexView extends Component {
     let content = [
       <SearchContainer
         data={[
-          <FormControl
+          <SearchInput
             placeHolder="请输入搜索内容"
-            type="search"
             onSearch={() => console.log(123)}
             splitLine
           />,
@@ -86,13 +85,7 @@ class IndexView extends Component {
           </div>
         ]}
       />,
-      <Grid
-        columns={columns}
-        data={data}
-        totalPage={50}
-        freshData={x => console.log(x)}
-        onDataNumSelect={x => console.log(x, "999")}
-      />
+      <Grid columns={columns} data={data} hidePagination={true} />
     ];
 
     return <Layout header={header} content={content} />;
