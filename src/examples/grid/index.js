@@ -81,6 +81,7 @@ class Demo4 extends Component {
         onDataNumSelect={x => {
           console.log(x, "999");
         }}
+        full={true}
         // hidePagination={true}
         // opration={true}
         // multiSelect={{ type: "radio" }}

@@ -84,7 +84,7 @@ let Demo = Form.createForm()(
         />
       );
       // let content = <Card data={this.state.data} />;
-      let content = [<Grid data={this.state.data} />];
+      let content = [<Grid />];
       let footer = <Pagination total={100} />;
 
       return <Layout header={header} content={content} />;

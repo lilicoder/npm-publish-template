@@ -93,11 +93,17 @@
       font-size: 12px;
       color: #4a4a4a;
       line-height: 1.33;
+      // overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-right: 20px;
+      position: relative;
       .uf {
         color: @gray;
-        float: right;
+        position: absolute;
         font-size: 20px;
         line-height: 1;
+        right: 0;
       }
     }
     .num {
@@ -154,17 +160,17 @@
           animation: RedAnimate @aniTime infinite;
         }
       }
-      .num {
-        color: @Red;
-      }
+      // .num {
+      //   color: @Red;
+      // }
       .name .uf {
         color: @Red;
       }
     }
     &.Green {
-      .num {
-        color: @Green;
-      }
+      // .num {
+      //   color: @Green;
+      // }
       &.animate {
         .name .uf {
           animation: GreenAnimate @aniTime infinite;
@@ -180,9 +186,9 @@
           animation: CrimsonAnimate @aniTime infinite;
         }
       }
-      .num {
-        color: @Crimson;
-      }
+      // .num {
+      //   color: @Crimson;
+      // }
       .name .uf {
         color: @Crimson;
       }
@@ -193,9 +199,9 @@
           animation: OrangeAnimate @aniTime infinite;
         }
       }
-      .num {
-        color: @Orange;
-      }
+      // .num {
+      //   color: @Orange;
+      // }
       .name .uf {
         color: @Orange;
       }
@@ -206,9 +212,9 @@
           animation: BlueAnimate @aniTime infinite;
         }
       }
-      .num {
-        color: @Blue;
-      }
+      // .num {
+      //   color: @Blue;
+      // }
       .name .uf {
         color: @Blue;
       }
@@ -219,9 +225,9 @@
           animation: YellowAnimate @aniTime infinite;
         }
       }
-      .num {
-        color: @Yellow;
-      }
+      // .num {
+      //   color: @Yellow;
+      // }
       .name .uf {
         color: @Yellow;
       }

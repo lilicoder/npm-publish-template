@@ -9,17 +9,19 @@ class MainGrid extends Component {
     super(props);
     this.dom = React.createRef();
     this.state = {
-      h: 0,
+      h: "auto",
       activePage: 1,
       dataNum: 10
     };
   }
   componentDidMount() {
     let _this = this;
-    this.measureheight();
-    window.onresize = function() {
-      _this.measureheight();
-    };
+    if (!!this.props.full) {
+      this.measureheight();
+      window.onresize = function() {
+        _this.measureheight();
+      };
+    }
   }
   measureheight() {
     let h = ReactDOM.findDOMNode(this.dom.current).offsetHeight;
@@ -60,7 +62,7 @@ class MainGrid extends Component {
         paginationObj={paginationObj}
         size="md"
         headerHeight={34}
-        heigth={80}
+        height={40}
         scroll={{ y: this.state.h }}
         multiSelect={props.multiSelect || false}
       />
