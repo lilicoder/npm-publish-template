@@ -15,7 +15,6 @@ let MainInputNumber = props => {
       onChange={props.onChange}
       toThousands={true}
       className="iot-input-number"
-      tabindex="10000"
       max={props.max}
       min={props.min}
     />

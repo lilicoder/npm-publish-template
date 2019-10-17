@@ -59,7 +59,7 @@ class IndexView extends Component {
             actValue: "5.0000",
             unit: "Kv",
             createTime: "2019-09-29 14:22:46",
-            alarmColor: "Green",
+            alarmColor: "Yellow",
             isAlarm: 1,
             isConfirm: 0,
             detailFn: item => {

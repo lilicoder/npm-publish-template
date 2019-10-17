@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./index.less";
 import { Pagination } from "tinper-bee";
-
 let MainPagination = props => {
   const [activePage, setActivePage] = useState(1);
+  const [dataNum, setDataNum] = useState(0);
   let paginationObj = {
     prev: true,
     next: true,
@@ -13,13 +13,16 @@ let MainPagination = props => {
     horizontalPosition: "right",
     maxButtons: 10,
     boundaryLinks: true,
-    // items: props.items || (props.totalPage / 10 > 10 ? 10 : ""), //一页显示多少条
+    items: Math.ceil(props.totalPage / 10 / (dataNum + 1)), //一页显示多少条
     total: props.totalPage || 0, //总共多少条
     onSelect: value => {
       setActivePage(value);
-      props.freshData(value);
+      props.freshData && props.freshData(value);
     }, //点击下一页刷新的数据
-    onDataNumSelect: props.onDataNumSelect,
+    onDataNumSelect: x => {
+      setDataNum(x);
+      props.onDataNumSelect && props.onDataNumSelect(x);
+    },
     showJump: true,
     activePage: activePage
   };

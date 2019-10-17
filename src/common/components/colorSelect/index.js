@@ -4,8 +4,25 @@ import PropTypes from "prop-types";
 import ErrorTip from "../errorTip";
 import "./index.less";
 const Option = Select.Option;
+const defaultData = [
+  {
+    value: "Blue"
+  },
+  {
+    value: "Yellow"
+  },
+  {
+    value: "Orange"
+  },
+  {
+    value: "Red"
+  },
+  {
+    value: "Crimson"
+  }
+];
 let IndexView = props => {
-  let selectColor = props.value || "Red";
+  let selectColor = props.value || "Blue";
   return props.disabled ? (
     <div
       className={"color-select-option " + selectColor}
@@ -27,7 +44,7 @@ let IndexView = props => {
         allowClear={true}
         className={selectColor + " color-select iot-select"}
       >
-        {props.data.map(item => (
+        {(props.data.length > 0 ? props.data : defaultData).map(item => (
           <Option
             key={item.value}
             value={item.value}

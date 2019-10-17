@@ -9,7 +9,9 @@ class MainGrid extends Component {
     super(props);
     this.dom = React.createRef();
     this.state = {
-      h: 0
+      h: 0,
+      activePage: 1,
+      dataNum: 10
     };
   }
   componentDidMount() {
@@ -28,13 +30,22 @@ class MainGrid extends Component {
   render() {
     let { props } = this;
     let paginationObj = {
+      activePage: this.state.activePage,
       size: "md",
       gap: true,
       horizontalPosition: "right",
-      // items: props.items || 10, //一页显示多少条
+      items: Math.ceil(props.totalPage / this.state.dataNum), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
-      freshData: props.freshData, //点击下一页刷新的数据
-      onDataNumSelect: props.onDataNumSelect //每页大小改变触发的事件
+      freshData: x => {
+        this.setState({ activePage: x });
+        props.freshData && props.freshData(x);
+      }, //点击下一页刷新的数据
+      onDataNumSelect: (x, y) => {
+        this.setState({
+          dataNum: y
+        });
+        props.onDataNumSelect && props.onDataNumSelect(y); //每页大小改变触发的事件
+      }
     };
     return (
       <Grid
@@ -49,7 +60,7 @@ class MainGrid extends Component {
         paginationObj={paginationObj}
         size="md"
         headerHeight={34}
-        heigth={40}
+        heigth={80}
         scroll={{ y: this.state.h }}
         multiSelect={props.multiSelect || false}
       />

@@ -16,32 +16,32 @@ class IndexView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        {
-          value: "Green",
-          des: "绿"
-        },
-        {
-          value: "Red",
-          des: "红"
-        },
-        {
-          value: "Yellow",
-          des: "黄"
-        },
-        {
-          value: "Orange",
-          des: "橙"
-        },
-        {
-          value: "Blue",
-          des: "蓝"
-        },
-        {
-          value: "Crimson",
-          des: "酒红"
-        }
-      ],
+      // data: [
+      //   {
+      //     value: "Green",
+      //     des: "绿"
+      //   },
+      //   {
+      //     value: "Red",
+      //     des: "红"
+      //   },
+      //   {
+      //     value: "Yellow",
+      //     des: "黄"
+      //   },
+      //   {
+      //     value: "Orange",
+      //     des: "橙"
+      //   },
+      //   {
+      //     value: "Blue",
+      //     des: "蓝"
+      //   },
+      //   {
+      //     value: "Crimson",
+      //     des: "酒红"
+      //   }
+      // ],
       selectData: [
         {
           value: "选项1",
@@ -95,7 +95,7 @@ class IndexView extends Component {
       <div style={{ width: 200 }}>
         <h4>颜色选择</h4>
         <ColorSelect
-          data={this.state.data}
+          // data={this.state.data}
           onChange={value =>
             this.setState({
               selectedColor: value
@@ -158,10 +158,10 @@ class IndexView extends Component {
           precision={5}
         />
       </div>,
-      <div style={{ width: 200 }}>
+      <div style={{ width: 400 }}>
         <h4>数字框组</h4>
         <InputNumberGroup
-          onChange={x => this.setState({ num: x })}
+          onChange={x => console.log(x)}
           value={this.state.num}
           min={0}
           max={10}

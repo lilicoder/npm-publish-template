@@ -6,8 +6,15 @@ let MainInputNumber = props => {
   return (
     <InputNumberGroup
       iconStyle="two"
-      onChange={this.handleChange}
-      placeholder={["请输入最小值", "请输入最大值"]}
+      onChange={props.onChange}
+      placeholder={props.placeholder || ["请输入最小值", "请输入最大值"]}
+      precision={props.precision || 2}
+      value={props.value}
+      onChange={props.onChange}
+      toThousands={true}
+      className="iot-input-number-group"
+      max={props.max}
+      min={props.min}
     />
   );
 };
