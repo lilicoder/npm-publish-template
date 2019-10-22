@@ -1,7 +1,8 @@
 @import "../common.less";
 .iot-grid {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+  position: relative;
   height: 100%;
   &.opration-grid {
     th:last-child {
@@ -21,10 +22,13 @@
     }
   }
   .u-table-filter-column-cont {
-    flex: 1;
-    overflow: hidden;
+    // flex: 1;
+    // overflow: hidden;
     tr:nth-child(2n) {
       background: #f7f9fb;
+      &.selected {
+        background: #fff7e7;
+      }
     }
     tr.u-table-row-hover,
     tr:hover {
@@ -39,12 +43,16 @@
       line-height: 33px;
     }
   }
-  &.hidePagination {
-    .u-pagination {
-      display: none;
-    }
-  }
+
   .u-pagination {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    margin-bottom: 0;
+    padding-bottom: 8px;
+    background: #fff;
     .u-pagination-list > .active > a {
       background: #fff;
       border: 1px solid @red;

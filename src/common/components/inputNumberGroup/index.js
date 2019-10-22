@@ -10,7 +10,6 @@ let MainInputNumber = props => {
       placeholder={props.placeholder || ["请输入最小值", "请输入最大值"]}
       precision={props.precision || 2}
       value={props.value}
-      onChange={props.onChange}
       toThousands={true}
       className="iot-input-number-group"
       max={props.max}

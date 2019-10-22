@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MainGrid as Grid, Select } from "../../common";
+import { MainGrid as Grid, Select, ColorSelect } from "../../common";
 const columns = [
   {
     title: "序号",
@@ -15,7 +15,10 @@ const columns = [
     dataIndex: "a",
     key: "a",
     width: 580,
-    className: "rowClassName"
+    className: "rowClassName",
+    render: () => {
+      return <ColorSelect disabled />;
+    }
   },
   {
     title: "用户名",
@@ -25,22 +28,23 @@ const columns = [
     className: "rowClassName"
   },
   { id: "123", title: "性别", dataIndex: "b", key: "b", width: 80 },
-  { title: "年龄", dataIndex: "c", key: "c", width: 600 }
-  // {
-  //   title: "操作",
-  //   key: "d",
-  //   width: 200,
-  //   className: "opration",
-  //   render: (text, record, index) => (
-  //     <div>
-  //       <button>编辑</button>
-  //       <button>删除</button>
-  //     </div>
-  //   )
-  // }
+  { title: "年龄", dataIndex: "c", key: "c", width: 600 },
+  {
+    title: "操作",
+    key: "d",
+    width: 200,
+    textAlign: "center",
+    fixed: "right",
+    render: (text, record, index) => (
+      <div>
+        {/* <button>编辑</button> */}
+        <button>删除</button>
+      </div>
+    )
+  }
 ];
 
-const data = [...new Array(100)].map((e, i) => {
+const data = [...new Array(10)].map((e, i) => {
   const rs = { a: i + "a", b: i + "b", c: i + "c", d: i + "d", key: i };
   if (i % 3 === 0) {
     rs.b = <Select />;
@@ -74,12 +78,14 @@ class Demo4 extends Component {
         columns={columns}
         data={this.state.data}
         totalPage={this.state.totalPage}
+        onRowClick={(a, i) => alert(i)}
         freshData={x => {
           console.log(1111);
           this.setState({ data: data2 });
         }}
         onDataNumSelect={x => {
           console.log(x, "999");
+          this.setState({ data: data2, totalPage: 100 });
         }}
         full={true}
         // hidePagination={true}

@@ -5,7 +5,7 @@ import {
   MainGrid as Grid,
   SearchContainer,
   SearchInput,
-  Select
+  InputNumberGroup
 } from "../../common";
 import "./index.less";
 
@@ -13,9 +13,9 @@ const columns = [
   {
     title: "序号",
     dataIndex: "index",
-    width: "290",
+    width: "100",
     render: (text, record, index) => {
-      return <Select />;
+      return index + 1;
     },
     fixed: "left"
   },
@@ -23,14 +23,17 @@ const columns = [
     title: "用户名",
     dataIndex: "a",
     key: "a",
-    width: 580,
-    className: "rowClassName"
+    width: 260,
+    className: "rowClassName",
+    render: () => <InputNumberGroup />
   },
   { id: "123", title: "性别", dataIndex: "b", key: "b", width: 80 },
+  { title: "年龄", dataIndex: "c", key: "c", width: 200 },
+  { title: "年龄", dataIndex: "c", key: "c", width: 200 },
   { title: "年龄", dataIndex: "c", key: "c", width: 200 }
 ];
 
-const data = [...new Array(15)].map((e, i) => {
+const data = [...new Array(30)].map((e, i) => {
   const rs = { a: i + "a", b: i + "b", c: i + "c", d: i + "d", key: i };
   if (i % 3 === 0) {
     rs.b = "女";
@@ -49,9 +52,8 @@ class IndexView extends Component {
       <SearchContainer
         data={[
           <SearchInput
-            placeHolder="请输入搜索内容"
-            onSearch={() => console.log(123)}
-            splitLine
+            placeHolder="请输入搜索内容1"
+            onSearch={v => console.log(v)}
           />,
           null,
           null,
@@ -67,6 +69,7 @@ class IndexView extends Component {
         totalPage={50}
         freshData={x => console.log(x)}
         onDataNumSelect={x => console.log(x, "999")}
+        full
       />
     ];
     let content = [
@@ -75,7 +78,6 @@ class IndexView extends Component {
           <SearchInput
             placeHolder="请输入搜索内容"
             onSearch={() => console.log(123)}
-            splitLine
           />,
           null,
           null,
@@ -85,7 +87,14 @@ class IndexView extends Component {
           </div>
         ]}
       />,
-      <Grid columns={columns} data={data} hidePagination={true} />
+      <Grid
+        onRowClick={(record, index) => alert(index)}
+        columns={columns}
+        data={data}
+        hidePagination={true}
+        full
+        // loading={true}
+      />
     ];
 
     return <Layout header={header} content={content} />;

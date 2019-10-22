@@ -86,7 +86,6 @@ class TreeRef extends Component {
           value={value}
           wrapClassName="iot-tree-ref-input"
           className="iot-tree-ref"
-          placeholder={this.props.placeholder}
           style={{ width: "100%" }}
         />
       </div>

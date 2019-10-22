@@ -20,7 +20,7 @@ class IndexView extends Component {
       data: new Array(10)
         .fill({
           id: "62f32a2cdc254b89904b0f0aa4f2e561",
-          name: "测试7",
+          tag: "测试7",
           actValue: "5.0000",
           unit: "Kv",
           createTime: "2019-09-29 14:22:46",
@@ -37,7 +37,7 @@ class IndexView extends Component {
         .concat(
           new Array(10).fill({
             id: "62f32a2cdc254b89904b0f0aa4f2e561",
-            name: "测试7",
+            tag: "站点1.1号亨龙储能焊机.修磨后实际焊点数",
             actValue: "5.0000",
             unit: "Kv",
             createTime: "2019-09-29 14:22:46",
@@ -55,7 +55,7 @@ class IndexView extends Component {
         .concat(
           new Array(10).fill({
             id: "62f32a2cdc254b89904b0f0aa4f2e561",
-            name: "测试7",
+            tag: "测试7",
             actValue: "5.0000",
             unit: "Kv",
             createTime: "2019-09-29 14:22:46",

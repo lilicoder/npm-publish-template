@@ -13,18 +13,23 @@ let MainPagination = props => {
     horizontalPosition: "right",
     maxButtons: 10,
     boundaryLinks: true,
-    items: Math.ceil(props.totalPage / 10 / (dataNum + 1)), //一页显示多少条
+    items: Math.ceil(props.totalPage / (props.dataNum || dataNum)), //一页显示多少条
     total: props.totalPage || 0, //总共多少条
     onSelect: value => {
-      setActivePage(value);
+      if (!props.activePage) {
+        setActivePage(value);
+      }
       props.freshData && props.freshData(value);
     }, //点击下一页刷新的数据
-    onDataNumSelect: x => {
-      setDataNum(x);
+    onDataNumSelect: (x, y) => {
+      if (!props.dataNum) {
+        setDataNum(y);
+      }
       props.onDataNumSelect && props.onDataNumSelect(x);
     },
     showJump: true,
-    activePage: activePage
+    activePage: props.activePage || activePage,
+    dataNum: props.dataNum || dataNum
   };
   return <Pagination className="iot-pagination" {...paginationObj} />;
 };

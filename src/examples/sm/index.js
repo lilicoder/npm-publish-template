@@ -139,6 +139,8 @@ class IndexView extends Component {
       <div>
         <h4>分页</h4>
         <Pagination
+          activePage={2}
+          dataNum={10}
           totalPage={50}
           freshData={x => console.log(x)}
           onDataNumSelect={x => console.log(x, "999")}

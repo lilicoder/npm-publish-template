@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormControl } from "tinper-bee";
+import { Form } from "tinper-bee";
 
 import {
   BasicLayout as Layout,
@@ -10,10 +10,8 @@ import {
   Pagination,
   SearchInput
 } from "./../../common";
-import Grid from "../grid";
 
 import "./index.less";
-const Option = Select.Option;
 
 let Demo = Form.createForm()(
   class IndexView extends Component {
@@ -50,6 +48,7 @@ let Demo = Form.createForm()(
     }
 
     render() {
+      const { getFieldProps } = this.props.form;
       let header = (
         <SearchContainer
           data={[
@@ -60,32 +59,39 @@ let Demo = Form.createForm()(
               splitLine={true}
             />,
             <TreeRef label="组织" />,
+            // <ColorSelect {...getFieldProps("xxx")} />,
             <Select
-              defaultValue="all"
-              style={{ width: 200, marginRight: 6 }}
-              onChange={this.handleChange}
-              showSearch={true}
-              allowClear={true}
-              label="模型分类"
-            >
-              <Option value="all">全部</Option>
-              <Option value="confirming">待确认</Option>
-              <Option value="executing">执行中</Option>
-              <Option value="completed" disabled>
-                已办结
-              </Option>
-              <Option value="termination">终止</Option>
-            </Select>,
+              // onChange={this.handleChange}
+              data={[
+                {
+                  value: "请选择",
+                  code: ""
+                },
+                {
+                  value: "选项1",
+                  code: "x1"
+                }
+              ]}
+              {...getFieldProps("username")}
+            />,
             <div right>
-              <button className="red-button mr-10">查询</button>
+              <button
+                className="red-button mr-10"
+                onClick={() => {
+                  this.props.form.validateFields((err, values) => {
+                    console.log(values, ":KKKK");
+                  });
+                }}
+              >
+                查询
+              </button>
               <button className="border-button">清空查询</button>
             </div>
           ]}
         />
       );
-      // let content = <Card data={this.state.data} />;
-      let content = [<Grid />];
-      let footer = <Pagination total={100} />;
+      let content = <Card data={this.state.data} />;
+      // let content = [<Grid full={true} />];
 
       return <Layout header={header} content={content} />;
     }

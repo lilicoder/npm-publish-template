@@ -9,7 +9,7 @@ class MainGrid extends Component {
     super(props);
     this.dom = React.createRef();
     this.state = {
-      h: "auto",
+      h: null,
       activePage: 1,
       dataNum: 10
     };
@@ -18,31 +18,40 @@ class MainGrid extends Component {
     let _this = this;
     if (!!this.props.full) {
       this.measureheight();
+
       window.onresize = function() {
-        _this.measureheight();
+        _this.measureheight(300);
       };
     }
   }
   measureheight() {
+    // setTimeout(() => {
     let h = ReactDOM.findDOMNode(this.dom.current).offsetHeight;
     this.setState({
       h: this.props.hidePagination ? h - 44 : h - 44 - 43
     });
+    // }, 1000);
   }
   render() {
     let { props } = this;
     let paginationObj = {
-      activePage: this.state.activePage,
+      activePage: props.activePage || this.state.activePage,
+      dataNum: props.dataNum || this.state.dataNum,
       size: "md",
       gap: true,
       horizontalPosition: "right",
-      items: Math.ceil(props.totalPage / this.state.dataNum), //一页显示多少条
+      items: Math.ceil(props.totalPage / (props.dataNum || this.state.dataNum)), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
       freshData: x => {
-        this.setState({ activePage: x });
+        if (!props.activePage) {
+          this.setState({ activePage: x });
+        }
         props.freshData && props.freshData(x);
       }, //点击下一页刷新的数据
       onDataNumSelect: (x, y) => {
+        if (!props.activePage) {
+          this.setState({ activePage: x });
+        }
         this.setState({
           dataNum: y
         });
@@ -51,15 +60,30 @@ class MainGrid extends Component {
     };
     return (
       <Grid
-        className={[
-          props.hidePagination ? "iot-grid hidePagination" : "iot-grid",
-          props.opration ? "opration-grid" : null
-        ].join(" ")}
+        rowClassName={(record, index) => {
+          if (this.state.selectedRowIndex === index) {
+            return "selected";
+          } else {
+            return "";
+          }
+        }}
+        className={[props.opration ? "opration-grid" : null, "iot-grid"].join(
+          " "
+        )}
         ref={this.dom}
         columns={props.columns}
         data={props.data}
+        syncHover={false}
+        rowKey={this.props.rowKey || "id"}
+        onRowClick={(x, y) => {
+          this.setState({
+            selectedRowIndex: y
+          });
+          this.props.onRowClick && this.props.onRowClick(x, y);
+        }}
+        loading={props.loading}
         getSelectedDataFunc={props.getSelectedDataFunc}
-        paginationObj={paginationObj}
+        paginationObj={props.hidePagination ? "none" : paginationObj}
         size="md"
         headerHeight={34}
         height={40}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Label, Form, Drawer } from "tinper-bee";
+import { Col, Label, Drawer } from "tinper-bee";
 
 import "./index.less";
 
