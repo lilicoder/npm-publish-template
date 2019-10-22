@@ -14,8 +14,11 @@ import TableRef from "./components/tableRef";
 import OrganRef from "./business-components/organRef";
 import DepartRef from "./business-components/departRef";
 import SearchInput from "./components/searchInput";
-import InputNumber from "./components/inputNumber";
+import InputNumber from "./components/InputNumber";
 import InputNumberGroup from "./components/inputNumberGroup";
+import NumberEditGridCell from "./logic-components/edittable/cell/NumberEditGridCell";
+import SelectEditGridCell from "./logic-components/edittable/cell/SelectEditGridCell";
+import StringEditGridCell from "./logic-components/edittable/cell/StringEditGridCell";
 // import TreeTableRef from "./business-components/"
 export {
   MoreSearch,
@@ -35,5 +38,8 @@ export {
   DepartRef,
   SearchInput,
   InputNumber,
-  InputNumberGroup
+  InputNumberGroup,
+  NumberEditGridCell,
+  SelectEditGridCell,
+  StringEditGridCell,
 };

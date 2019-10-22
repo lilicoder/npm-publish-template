@@ -6,7 +6,8 @@ import Warn from "../examples/warn";
 import Sm from "../examples/sm";
 import Grid from "../examples/grid";
 import Ref from "../examples/ref";
-import FormTest from "../examples/formTest";
+import FormTable from "../examples/editgrid/form";
+import TableCell from "../examples/editgrid/cell";
 const routers = () => (
   <Router>
     <Switch>
@@ -17,7 +18,8 @@ const routers = () => (
       <Route exact path="/sm" component={Sm} />
       <Route exact path="/grid" component={Grid} />
       <Route exact path="/ref" component={Ref} />
-      <Route exact path="/form-test" component={FormTest} />
+      <Route exact path="/form-table" component={FormTable} />
+      <Route exact path="/table-cell" component={TableCell} />
     </Switch>
   </Router>
 );
