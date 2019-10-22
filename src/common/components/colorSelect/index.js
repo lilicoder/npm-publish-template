@@ -34,7 +34,7 @@ let IndexView = props => {
       visible={props.showError}
       placement="top"
       overlay={<ErrorTip value={props.errorText} />}
-      className="select-tip"
+      className="error-tip"
     >
       <Select
         defaultValue={selectColor}
@@ -42,7 +42,12 @@ let IndexView = props => {
           props.onChange(value);
         }}
         allowClear={true}
-        className={selectColor + " color-select iot-select"}
+        className={[
+          selectColor,
+          "color-select",
+          "iot-select",
+          props.showError && "error-input"
+        ].join(" ")}
       >
         {(props.data.length > 0 ? props.data : defaultData).map(item => (
           <Option

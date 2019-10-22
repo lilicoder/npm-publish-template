@@ -1,7 +1,13 @@
 @import "../common.less";
 .iot-input-number-group {
+  &.error-input {
+    .u-input-number {
+      border-color: @red;
+    }
+  }
   .u-input-number {
     border-color: @inputBorderColor;
+
     &.focus {
       border-color: @inputfocusColor;
       outline: none;

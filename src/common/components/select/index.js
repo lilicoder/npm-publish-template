@@ -13,14 +13,14 @@ let IndexView = props => {
         visible={props.showError}
         placement="top"
         overlay={<ErrorTip value={props.errorText} />}
-        className="select-tip"
+        className="error-tip"
       >
         <Select
           value={props.value}
           onChange={props.onChange}
           placeholder="请选择"
           allowClear={true}
-          className="iot-select"
+          className={props.showError ? "error-input iot-select" : "iot-select"}
         >
           {props.data.map(item => (
             <Option key={item.code} value={item.code}>

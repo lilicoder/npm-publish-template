@@ -2,6 +2,9 @@
 .iot-select-container {
   .iot-select {
     min-width: 200px;
+    &.error-input.u-select .u-select-selection {
+      border-color: @red;
+    }
     &.u-select .u-select-selection {
       border-color: @inputBorderColor;
       &:focus {

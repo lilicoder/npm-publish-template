@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl, Tooltip } from "tinper-bee";
 import ErrorTip from "../errorTip";
 import "./index.less";
-let SearchInput = props => {
+let Input = props => {
   return (
     <div className="iot-input-container">
       {props.label && <div className="label">{props.label}</div>}
@@ -14,15 +14,13 @@ let SearchInput = props => {
         className="error-tip"
       >
         <FormControl
-          className={props.showError ? "error-input iot-search" : "iot-search"}
+          className={props.showError ? "error-input iot-input" : "iot-input"}
           value={props.value}
           placeHolder={props.placeHolder}
-          onSearch={props.onSearch}
           onChange={v => props.onChange && props.onChange(v)}
-          type="search"
         />
       </Tooltip>
     </div>
   );
 };
-export default SearchInput;
+export default Input;

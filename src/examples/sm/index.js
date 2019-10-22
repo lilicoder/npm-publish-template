@@ -7,7 +7,8 @@ import {
   Pagination,
   SearchInput,
   InputNumber,
-  InputNumberGroup
+  InputNumberGroup,
+  Input
 } from "../../common";
 
 import "./index.less";
@@ -115,12 +116,18 @@ class IndexView extends Component {
             });
           }}
           showError={this.state.visible}
-          errorText={"我是错误信息"}
+          errorText={
+            <div>
+              错误信息第一行
+              <br />
+              错误信息第二行
+            </div>
+          }
           value={this.state.selectedCode}
         />
 
         <button onClick={() => this.setState({ visible: !this.state.visible })}>
-          显示、隐藏
+          显示、隐藏错误信息
         </button>
       </div>,
       <div style={{ width: 200 }}>
@@ -134,6 +141,8 @@ class IndexView extends Component {
             });
             console.log(value);
           }}
+          showError={this.state.visible}
+          errorText={"我是错误信息"}
         />
       </div>,
       <div>
@@ -147,8 +156,22 @@ class IndexView extends Component {
         />
       </div>,
       <div>
+        <h4>输入框</h4>
+        <Input
+          onChange={x => console.log(x)}
+          value="xxx"
+          showError={this.state.visible}
+          errorText={"我是错误信息"}
+        />
+      </div>,
+      <div>
         <h4>搜索框</h4>
-        <SearchInput onSearch={x => console.log(x)} value="xxx" />
+        <SearchInput
+          onSearch={x => console.log(x)}
+          value="xxx"
+          showError={this.state.visible}
+          errorText={"我是错误信息"}
+        />
       </div>,
       <div style={{ width: 200 }}>
         <h4>数字框</h4>
@@ -158,6 +181,8 @@ class IndexView extends Component {
           min={0}
           max={10}
           precision={5}
+          showError={this.state.visible}
+          errorText={"我是错误信息"}
         />
       </div>,
       <div style={{ width: 400 }}>
@@ -168,6 +193,8 @@ class IndexView extends Component {
           min={0}
           max={10}
           precision={5}
+          showError={this.state.visible}
+          errorText={"我是错误信息"}
         />
       </div>
     ];

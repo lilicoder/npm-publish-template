@@ -16,7 +16,7 @@ let IndexView = props => {
         visible={props.showError}
         placement="top"
         overlay={<ErrorTip value={props.errorText} />}
-        className="select-tip"
+        className="error-tip"
       >
         <TreeSelect
           showSearch
@@ -28,7 +28,9 @@ let IndexView = props => {
           treeData={props.treeData}
           // onChange={this.onChange}
           onSelect={props.onSelect}
-          className="iot-tree-select"
+          className={
+            props.showError ? "error-input iot-tree-select" : "iot-tree-select"
+          }
         />
       </Tooltip>
     </div>

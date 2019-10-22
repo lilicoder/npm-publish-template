@@ -14,7 +14,8 @@ import TableRef from "./components/tableRef";
 import OrganRef from "./business-components/organRef";
 import DepartRef from "./business-components/departRef";
 import SearchInput from "./components/searchInput";
-import InputNumber from "./components/InputNumber";
+import InputNumber from "./components/inputNumber";
+import Input from "./components/input";
 import InputNumberGroup from "./components/inputNumberGroup";
 import NumberEditGridCell from "./logic-components/edittable/cell/NumberEditGridCell";
 import SelectEditGridCell from "./logic-components/edittable/cell/SelectEditGridCell";
@@ -37,9 +38,10 @@ export {
   OrganRef,
   DepartRef,
   SearchInput,
+  Input,
   InputNumber,
   InputNumberGroup,
   NumberEditGridCell,
   SelectEditGridCell,
-  StringEditGridCell,
+  StringEditGridCell
 };

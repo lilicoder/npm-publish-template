@@ -1,6 +1,9 @@
 @import "../common.less";
 .iot-input-number.u-input-number {
   border-color: @inputBorderColor;
+  &.error-input {
+    border-color: @red;
+  }
   &.focus {
     border-color: @inputfocusColor;
     outline: none;

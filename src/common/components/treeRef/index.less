@@ -1,8 +1,14 @@
 @import "../common.less";
 .iot-tree-ref-container {
   .iot-tree-ref-input.ref-red {
+    &.error-input {
+      .u-form-control {
+        border-color: @red;
+      }
+    }
     .u-form-control {
       border-color: @inputBorderColor;
+
       &::placeholder {
         color: @inputBorderColor;
       }

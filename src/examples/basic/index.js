@@ -11,6 +11,8 @@ import {
   SearchInput
 } from "./../../common";
 
+import Grid from "../grid";
+
 import "./index.less";
 
 let Demo = Form.createForm()(
@@ -90,8 +92,8 @@ let Demo = Form.createForm()(
           ]}
         />
       );
-      let content = <Card data={this.state.data} />;
-      // let content = [<Grid full={true} />];
+      // let content = <Card data={this.state.data} />;
+      let content = [<Grid full={true} />];
 
       return <Layout header={header} content={content} />;
     }

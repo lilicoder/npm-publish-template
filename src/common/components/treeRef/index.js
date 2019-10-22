@@ -7,6 +7,8 @@
 
 import React, { Component } from "react";
 import { RefTreeWithInput } from "ref-tree";
+import { Tooltip } from "tinper-bee";
+import ErrorTip from "../errorTip";
 import "ref-tree/lib/index.css";
 import "./index.less";
 
@@ -67,27 +69,35 @@ class TreeRef extends Component {
       <div className="iot-tree-ref-container">
         {this.props.label && <div className="label">{this.props.label}</div>}
 
-        <RefTreeWithInput
-          title={title}
-          placeholder={placeholder}
-          emptyBut={true}
-          nodeDisplay={record => {
-            return record.refname;
-          }}
-          displayField={record => {
-            return record.code;
-          }} //显示内容的键
-          valueField={"code"} //真实 value 的键
-          // multiple={true}
-          onSave={this.onSave}
-          matchData={matchData}
-          treeData={treeData}
-          canClickGoOn={this.canClickGoOn}
-          value={value}
-          wrapClassName="iot-tree-ref-input"
-          className="iot-tree-ref"
-          style={{ width: "100%" }}
-        />
+        <Tooltip
+          inverse
+          visible={this.props.showError}
+          placement="top"
+          overlay={<ErrorTip value={this.props.errorText} />}
+          className="error-tip"
+        >
+          <RefTreeWithInput
+            title={title}
+            placeholder={placeholder}
+            emptyBut={true}
+            nodeDisplay={record => {
+              return record.refname;
+            }}
+            displayField={record => {
+              return record.code;
+            }} //显示内容的键
+            valueField={"code"} //真实 value 的键
+            // multiple={true}
+            onSave={this.onSave}
+            matchData={matchData}
+            treeData={treeData}
+            canClickGoOn={this.canClickGoOn}
+            value={value}
+            wrapClassName="iot-tree-ref-input"
+            className="iot-tree-ref"
+            style={{ width: "100%" }}
+          />
+        </Tooltip>
       </div>
     );
   }

@@ -1,8 +1,12 @@
 @import "../common.less";
 
 .iot-tree-select {
+  &.error-input.u-select .u-select-selection {
+    border-color: @red;
+  }
   &.u-select .u-select-selection {
     border-color: @inputBorderColor;
+
     &:focus {
       border-color: @inputfocusColor;
     }

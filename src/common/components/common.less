@@ -66,14 +66,19 @@
 .ml-8 {
   margin-left: 8px;
 }
-.select-tip.u-tooltip.inverse {
+.error-tip.u-tooltip.inverse {
+  &.top .tooltip-arrow {
+    border-top-color: @red;
+  }
   .tooltip-inner {
     border-color: @red;
   }
 }
+
 .iot-tree-select-container,
 .iot-select-container,
-.iot-tree-ref-container {
+.iot-tree-ref-container,
+.iot-input-container {
   display: flex;
   .label {
     white-space: nowrap;

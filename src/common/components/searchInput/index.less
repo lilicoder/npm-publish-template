@@ -13,8 +13,14 @@
     background-size: contain;
     padding-left: 20px;
   }
+  &.error-input {
+    .u-form-control {
+      border-color: @red;
+    }
+  }
   .u-form-control {
     border-color: @inputBorderColor;
+
     &:focus {
       border-color: @inputfocusColor;
     }

@@ -13,7 +13,6 @@ let IndexView = props => {
           {getComponentChild(props.content)}
         </Col>
       </Row>
-
       <Row className="footer">{getComponentChild(props.footer)}</Row>
     </div>
   );

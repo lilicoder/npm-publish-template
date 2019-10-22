@@ -28,7 +28,7 @@ class MainGrid extends Component {
     // setTimeout(() => {
     let h = ReactDOM.findDOMNode(this.dom.current).offsetHeight;
     this.setState({
-      h: this.props.hidePagination ? h - 44 : h - 44 - 43
+      h: this.props.hidePagination ? h - 44 - 10 : h - 44 - 43 - 10
     });
     // }, 1000);
   }
