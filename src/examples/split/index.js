@@ -93,6 +93,7 @@ class IndexView extends Component {
         data={data}
         hidePagination={true}
         full
+
         // loading={true}
       />
     ];

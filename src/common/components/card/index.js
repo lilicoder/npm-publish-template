@@ -15,7 +15,7 @@ let IndexView = props => {
                   +
                 </div>
                 <div className="new" onClick={() => item.newFn()}>
-                  新建{item.name}
+                  {item.name}
                 </div>
               </Tile>
             ) : (

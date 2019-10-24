@@ -22,7 +22,7 @@ let IndexView = props => {
                       : null
                   ].join(" ")}
                 >
-                    <Icon type="uf-exc-c-2" />
+                  <Icon type="uf-exc-c-2" />
                   <div className="name" title={item.tag}>
                     {item.tag}
                   </div>
@@ -36,7 +36,7 @@ let IndexView = props => {
                       className="btn"
                       onClick={() => item.detailFn && item.detailFn(item)}
                     >
-                      <span>详情</span>
+                      <span>{item.detailText || "详情"}</span>
                     </div>
                     <div
                       className={
@@ -49,7 +49,7 @@ let IndexView = props => {
                         item.confirmFn(item)
                       }
                     >
-                      <span>确认</span>
+                      <span>{item.confirmText || "确认"}</span>
                     </div>
                   </div>
                 </Tile>

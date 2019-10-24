@@ -18,19 +18,16 @@ class MainGrid extends Component {
     let _this = this;
     if (!!this.props.full) {
       this.measureheight();
-
-      window.onresize = function() {
-        _this.measureheight(300);
-      };
+      window.addEventListener("resize", function() {
+        _this.measureheight();
+      });
     }
   }
   measureheight() {
-    // setTimeout(() => {
-    let h = ReactDOM.findDOMNode(this.dom.current).offsetHeight;
+    let h = ReactDOM.findDOMNode(this.dom).offsetHeight;
     this.setState({
       h: this.props.hidePagination ? h - 44 - 10 : h - 44 - 43 - 10
     });
-    // }, 1000);
   }
   render() {
     let { props } = this;
@@ -67,10 +64,12 @@ class MainGrid extends Component {
             return "";
           }
         }}
-        className={[props.opration ? "opration-grid" : null, "iot-grid"].join(
-          " "
-        )}
-        ref={this.dom}
+        className={[
+          props.opration ? "opration-grid" : null,
+          "iot-grid",
+          props.full ? "full" : ""
+        ].join(" ")}
+        ref={ref => (this.dom = ref)}
         columns={props.columns}
         data={props.data}
         syncHover={false}
@@ -85,6 +84,7 @@ class MainGrid extends Component {
         getSelectedDataFunc={props.getSelectedDataFunc}
         paginationObj={props.hidePagination ? "none" : paginationObj}
         size="md"
+        showHeaderMenu={false}
         headerHeight={34}
         height={40}
         scroll={{ y: this.state.h }}

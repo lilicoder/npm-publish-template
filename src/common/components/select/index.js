@@ -18,7 +18,7 @@ let IndexView = props => {
         <Select
           value={props.value}
           onChange={props.onChange}
-          placeholder="请选择"
+          placeholder={props.placeHolder || "请选择"}
           allowClear={true}
           className={props.showError ? "error-input iot-select" : "iot-select"}
         >

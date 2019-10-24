@@ -15,7 +15,7 @@ const IndexView = props => {
   return (
     <Drawer
       className="more-search"
-      title="高级搜索"
+      title={props.title || "高级搜索"}
       placement="right"
       show={props.show}
       onClose={() => props.onClose()}
@@ -31,14 +31,14 @@ const IndexView = props => {
       </div>
       <div className="button-footer">
         <button type="button" className="red-button" onClick={props.confirmFn}>
-          确定
+          {props.confirmText || "确定"}
         </button>
         <button
           type="button"
           className="gray-button ml-8  mr-8"
           onClick={props.resetFn}
         >
-          重置
+          {props.resetText || "重置"}
         </button>
         <button
           type="button"
@@ -47,7 +47,7 @@ const IndexView = props => {
             props.cancelFn();
           }}
         >
-          取消
+          {props.cancelText || "取消"}
         </button>
       </div>
     </Drawer>

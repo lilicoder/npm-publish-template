@@ -87,7 +87,7 @@ class Demo4 extends Component {
           console.log(x, "999");
           this.setState({ data: data2, totalPage: 100 });
         }}
-        full={true}
+        // full={true}
         // hidePagination={true}
         // opration={true}
         // multiSelect={{ type: "radio" }}
