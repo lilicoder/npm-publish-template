@@ -3,14 +3,21 @@ import { Row, Col } from "tinper-bee";
 // import PropTypes from "prop-types";
 import { getComponentChild } from "../utils";
 import "./index.less";
-
+import noData from "./nodata-search.png";
 let IndexView = props => {
   return (
     <div className="main-layout">
       <Row className="header">{getComponentChild(props.header)}</Row>
       <Row className="content">
         <Col md={12} className={"full"}>
-          {getComponentChild(props.content)}
+          {props.content && props.content.length > 0 ? (
+            getComponentChild(props.content)
+          ) : (
+            <div className="no-data">
+              <img src={noData} />
+              <p>暂无数据</p>
+            </div>
+          )}
         </Col>
       </Row>
       <Row className="footer">{getComponentChild(props.footer)}</Row>

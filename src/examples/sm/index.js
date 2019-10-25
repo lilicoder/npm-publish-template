@@ -168,7 +168,7 @@ class IndexView extends Component {
         <h4>搜索框</h4>
         <SearchInput
           onSearch={x => console.log(x)}
-          value="xxx"
+          // value="xxx"
           showError={this.state.visible}
           errorText={"我是错误信息"}
         />

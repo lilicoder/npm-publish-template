@@ -95,7 +95,7 @@ let Demo = Form.createForm()(
       // let content = <Card data={this.state.data} />;
       let content = [<Grid full={true} />];
 
-      return <Layout header={header} content={content} />;
+      return <Layout header={header} content={null} />;
     }
   }
 );

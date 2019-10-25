@@ -1,4 +1,24 @@
 @import "../common.less";
+.iot-input-container {
+  position: relative;
+  &.show-close {
+    &:hover {
+      .close-icon {
+        display: block;
+      }
+    }
+  }
+
+  .close-icon {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    color: #dfdfdf;
+    cursor: pointer;
+  }
+}
+
 .iot-search {
   i.uf {
     border-left: 1px solid @inputBorderColor;

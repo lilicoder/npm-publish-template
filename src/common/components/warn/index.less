@@ -1,63 +1,92 @@
 @import "../color.less";
 @gray: #c7c7c7;
-@aniTime: 300ms;
+@aniTime: 1s;
 
 @keyframes BlueAnimate {
-  from {
+  0% {
     color: @Blue;
   }
-  to {
+  50% {
+    color: @Blue;
+  }
+  51% {
+    color: @gray;
+  }
+  100% {
     color: @gray;
   }
 }
 @keyframes YellowAnimate {
-  from {
+  0% {
     color: @Yellow;
   }
-  to {
+  50% {
+    color: @Yellow;
+  }
+  51% {
+    color: @gray;
+  }
+  100% {
     color: @gray;
   }
 }
 @keyframes OrangeAnimate {
-  from {
+  0% {
     color: @Orange;
   }
-  to {
+  50% {
+    color: @Orange;
+  }
+  51% {
+    color: @gray;
+  }
+  100% {
     color: @gray;
   }
 }
 @keyframes GreenAnimate {
-  from {
+  0% {
     color: @Green;
   }
-  to {
+  50% {
+    color: @Green;
+  }
+  51% {
+    color: @gray;
+  }
+  100% {
     color: @gray;
   }
 }
 @keyframes CrimsonAnimate {
-  from {
+  0% {
     color: @Crimson;
   }
-  to {
+  50% {
+    color: @Crimson;
+  }
+  51% {
+    color: @gray;
+  }
+  100% {
     color: @gray;
   }
 }
 @keyframes RedAnimate {
-  from {
+  0% {
     color: @Red;
   }
-  to {
+  50% {
+    color: @Red;
+  }
+  51% {
+    color: @gray;
+  }
+  100% {
     color: @gray;
   }
 }
-@keyframes RedAnimate {
-  from {
-    color: @Red;
-  }
-  to {
-    color: @gray;
-  }
-}
+
 .warn-container {
   padding-left: 16px;
   div {
@@ -143,7 +172,7 @@
         cursor: pointer;
         &.disabled {
           color: #999;
-          cursor: auto;
+          cursor: au50%;
         }
         span {
           flex: 1;

@@ -23,8 +23,8 @@ let IndexView = props => {
                   ].join(" ")}
                 >
                   <Icon type="uf-exc-c-2" />
-                  <div className="name" title={item.tag}>
-                    {item.tag}
+                  <div className="name" title={item.name}>
+                    {item.name}
                   </div>
                   <div className="num">
                     {item.actValue}

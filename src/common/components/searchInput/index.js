@@ -1,28 +1,59 @@
-import React from "react";
-import { FormControl, Tooltip } from "tinper-bee";
+import React, { Component } from "react";
+import { FormControl, Tooltip, Icon } from "tinper-bee";
 import ErrorTip from "../errorTip";
 import "./index.less";
-let SearchInput = props => {
-  return (
-    <div className="iot-input-container">
-      {props.label && <div className="label">{props.label}</div>}
-      <Tooltip
-        inverse
-        visible={props.showError}
-        placement="top"
-        overlay={<ErrorTip value={props.errorText} />}
-        className="error-tip"
+class SearchInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ""
+    };
+  }
+  handleChange(v) {
+    this.setState({
+      value: v
+    });
+    this.props.onChange && this.props.onChange(v);
+  }
+  render() {
+    let { props } = this;
+    return (
+      <div
+        className={
+          !!props.value || !!this.state.value
+            ? "iot-input-container show-close"
+            : "iot-input-container"
+        }
       >
-        <FormControl
-          className={props.showError ? "error-input iot-search" : "iot-search"}
-          value={props.value}
-          placeHolder={props.placeHolder}
-          onSearch={props.onSearch}
-          onChange={v => props.onChange && props.onChange(v)}
-          type="search"
-        />
-      </Tooltip>
-    </div>
-  );
-};
+        {props.label && <div className="label">{props.label}</div>}
+        <Tooltip
+          inverse
+          visible={props.showError}
+          placement="top"
+          overlay={<ErrorTip value={props.errorText} />}
+          className="error-tip"
+        >
+          <div style={{ width: "100%" }}>
+            <FormControl
+              className={
+                props.showError ? "error-input iot-search" : "iot-search"
+              }
+              value={props.value || this.state.value}
+              placeHolder={props.placeHolder}
+              onSearch={props.onSearch}
+              onChange={v => this.handleChange(v)}
+              type="search"
+            />
+            <Icon
+              type="uf-close-c"
+              className="close-icon"
+              onClick={() => this.handleChange("")}
+            />
+          </div>
+        </Tooltip>
+      </div>
+    );
+  }
+}
+
 export default SearchInput;
