@@ -21,8 +21,8 @@ class IndexView extends Component {
         .fill({
           id: "62f32a2cdc254b89904b0f0aa4f2e561",
           tag: "测试7",
-          actValue: "5.0000",
-          unit: "Kv",
+          actValue: "578.0000",
+          unit: "千帕Kpv",
           createTime: "2019-09-29 14:22:46",
           alarmColor: "Red",
           isAlarm: 1,

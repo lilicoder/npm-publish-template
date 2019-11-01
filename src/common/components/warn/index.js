@@ -26,7 +26,7 @@ let IndexView = props => {
                   <div className="name" title={item.name}>
                     {item.name}
                   </div>
-                  <div className="num">
+                  <div className="num" title={item.actValue + item.unit}>
                     {item.actValue}
                     <span>{item.unit}</span>
                   </div>

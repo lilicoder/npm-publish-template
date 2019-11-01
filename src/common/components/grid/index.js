@@ -89,6 +89,7 @@ class MainGrid extends Component {
         height={40}
         scroll={{ y: this.state.h }}
         multiSelect={props.multiSelect || false}
+        draggable={false}
       />
     );
   }
