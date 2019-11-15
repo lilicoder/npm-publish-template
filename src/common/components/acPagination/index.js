@@ -13,13 +13,12 @@ class MainPagination extends Component {
     let { activePage, dataNum } = this.state;
     let { props } = this;
     let paginationObj = {
+      gap: true,
       prev: true,
       next: true,
-      gap: true,
-      first: true,
-      last: true,
       horizontalPosition: "right",
       maxButtons: 10,
+      size: "sm",
       boundaryLinks: true,
       items: Math.ceil(props.totalPage / (props.dataNum || dataNum)), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
@@ -34,7 +33,8 @@ class MainPagination extends Component {
       onDataNumSelect: (x, y) => {
         if (!props.dataNum) {
           this.setState({
-            dataNum: x
+            dataNum: x,
+            dataNumSelect: y
           });
         }
         props.onDataNumSelect && props.onDataNumSelect(y);
@@ -43,7 +43,24 @@ class MainPagination extends Component {
       activePage: props.activePage || activePage,
       dataNum: props.dataNum || dataNum
     };
-    return <Pagination className="iot-pagination" {...paginationObj} />;
+    return (
+      <div className="iot-ac-pagination-con">
+        {this.props.showSelect ? (
+          <div className="info">
+            <div>
+              已选<span>{props.selectedNum || 0}</span>条
+            </div>
+            <div onClick={props.selectAll && props.selectAll()}>选择全部</div>
+            <div onClick={props.selectReverse && props.selectReverse()}>
+              反选
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        <Pagination className="iot-ac-pagination" {...paginationObj} />
+      </div>
+    );
   }
 }
 

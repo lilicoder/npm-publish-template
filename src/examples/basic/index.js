@@ -3,15 +3,15 @@ import { Form } from "tinper-bee";
 
 import {
   BasicLayout as Layout,
-  Card,
+  // Card,
   SearchContainer,
   TreeRef,
   Select,
-  Pagination,
+  // Pagination,
   SearchInput
 } from "./../../common";
 
-import Grid from "../grid";
+// import Grid from "../grid";
 
 import "./index.less";
 
@@ -93,7 +93,7 @@ let Demo = Form.createForm()(
         />
       );
       // let content = <Card data={this.state.data} />;
-      let content = [<Grid full={true} />];
+      // let content = [<Grid full={true} />];
 
       return <Layout header={header} content={null} />;
     }

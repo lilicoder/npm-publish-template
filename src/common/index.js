@@ -16,6 +16,13 @@ import DepartRef from "./business-components/departRef";
 import SearchInput from "./components/searchInput";
 import InputNumber from "./components/inputNumber";
 import Input from "./components/input";
+import AcGrid from "./components/acGrid";
+import AcTitleBar from "./components/acTitleBar";
+import AcMoreSearchContainer from "./components/acMoreSearchContainer";
+import AcSeachPanel from "./components/acSeachPanel";
+import AcSplitLayout from "./components/acSplitLayout";
+import AcSingleLayout from "./components/acSingleLayout";
+import AcPagination from "./components/acPagination";
 import InputNumberGroup from "./components/inputNumberGroup";
 import NumberEditGridCell from "./logic-components/edittable/cell/NumberEditGridCell";
 import SelectEditGridCell from "./logic-components/edittable/cell/SelectEditGridCell";
@@ -42,5 +49,12 @@ export {
   InputNumberGroup,
   NumberEditGridCell,
   SelectEditGridCell,
-  StringEditGridCell
+  StringEditGridCell,
+  AcGrid,
+  AcMoreSearchContainer,
+  AcTitleBar,
+  AcSeachPanel,
+  AcSplitLayout,
+  AcSingleLayout,
+  AcPagination
 };

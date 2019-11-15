@@ -16,10 +16,12 @@ let IndexView = props => {
         className="error-tip"
       >
         <Select
+          open={props.open}
           value={props.value}
           onChange={props.onChange}
           placeholder={props.placeHolder || "请选择"}
           allowClear={true}
+          dropdownClassName="iot-select-dropdown"
           className={props.showError ? "error-input iot-select" : "iot-select"}
         >
           {props.data.map(item => (

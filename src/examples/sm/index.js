@@ -8,8 +8,11 @@ import {
   SearchInput,
   InputNumber,
   InputNumberGroup,
-  Input
+  Input,
+  AcTitleBar
 } from "../../common";
+import { ButtonGroup } from "tinper-bee";
+import Btns from "ac-btns";
 
 import "./index.less";
 
@@ -109,6 +112,7 @@ class IndexView extends Component {
       <div style={{ width: 200 }}>
         <h4>普通下拉</h4>
         <Select
+          open={true}
           data={this.state.selectData}
           onChange={value => {
             this.setState({
@@ -149,7 +153,7 @@ class IndexView extends Component {
         <h4>分页</h4>
         <Pagination
           // activePage={2}
-          dataNum={10}
+          dataNum={1}
           totalPage={50}
           freshData={x => console.log(x)}
           onDataNumSelect={x => console.log(x, "999")}
@@ -196,6 +200,37 @@ class IndexView extends Component {
           showError={this.state.visible}
           errorText={"我是错误信息"}
         />
+      </div>,
+      <div>
+        <h4>AC title bar</h4>
+        <AcTitleBar title="劣化趋势组定义">
+          <ButtonGroup>
+            <Btns
+              btns={{
+                add: {
+                  onClick: () => {
+                    console.log("add");
+                  }
+                },
+                cancel: {
+                  name: "新增保存",
+                  onClick: () => {
+                    console.log("新增保存");
+                  }
+                }
+              }}
+            />
+          </ButtonGroup>
+          <Btns
+            btns={{
+              cancel: {
+                onClick: () => {
+                  console.log("cancel");
+                }
+              }
+            }}
+          />
+        </AcTitleBar>
       </div>
     ];
 

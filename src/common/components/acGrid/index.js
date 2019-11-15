@@ -1,54 +1,51 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Grid from "bee-complex-grid";
-import "bee-complex-grid/build/Grid.css";
-import "./index.less";
+import AcGrids from "ac-grids";
+import "ac-grids/build/AcGrids.css";
+// import "./index.less";
 
-class MainGrid extends Component {
+class MainAcGrid extends Component {
   constructor(props) {
     super(props);
     this.dom = React.createRef();
     this.state = {
       h: null,
       activePage: 1,
-      dataNum: 10
+      dataNum: 1
     };
   }
-  componentDidMount() {
-    let _this = this;
-    if (!!this.props.full) {
-      this.measureheight();
-      window.addEventListener("resize", function() {
-        _this.measureheight();
-      });
-    }
-  }
-  measureheight() {
-    let h = ReactDOM.findDOMNode(this.dom).offsetHeight;
-    this.setState({
-      h: this.props.hidePagination ? h - 44 - 10 : h - 44 - 43 - 10
-    });
-  }
+  // componentDidMount() {
+  //   let _this = this;
+  //   if (!!this.props.full) {
+  //     this.measureheight();
+  //     window.addEventListener("resize", function() {
+  //       _this.measureheight();
+  //     });
+  //   }
+  // }
+  // measureheight() {
+  //   let h = ReactDOM.findDOMNode(this.dom).offsetHeight;
+  //   this.setState({
+  //     h: this.props.hidePagination ? h - 44 - 10 : h - 44 - 43 - 10
+  //   });
+  // }
   render() {
     let { props } = this;
     let paginationObj = {
       activePage: props.activePage || this.state.activePage,
       dataNum: props.dataNum || this.state.dataNum,
-      size: "md",
-      gap: true,
-      horizontalPosition: "right",
+      maxButtons: 10,
+      boundaryLinks: true,
+      // horizontalPosition: "right",
       items: Math.ceil(props.totalPage / (props.dataNum || this.state.dataNum)), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
-      freshData: x => {
+      onSelect: x => {
         if (!props.activePage) {
           this.setState({ activePage: x });
         }
         props.freshData && props.freshData(x);
       }, //点击下一页刷新的数据
-      onDataNumSelect: (x, y) => {
-        if (!props.activePage) {
-          this.setState({ activePage: x });
-        }
+      onDataNumSelect: y => {
         this.setState({
           dataNum: y
         });
@@ -56,7 +53,7 @@ class MainGrid extends Component {
       }
     };
     return (
-      <Grid
+      <AcGrids
         rowClassName={(record, index) => {
           let styles = "";
           if (this.state.selectedRowIndex === index) {
@@ -67,11 +64,7 @@ class MainGrid extends Component {
           }
           return styles;
         }}
-        className={[
-          props.opration ? "opration-grid" : null,
-          "iot-grid",
-          props.full ? "full" : ""
-        ].join(" ")}
+        className={["iot-ac-grid", props.full ? "full" : ""].join(" ")}
         ref={ref => (this.dom = ref)}
         columns={props.columns}
         data={props.data}
@@ -90,16 +83,14 @@ class MainGrid extends Component {
         }}
         loading={props.loading}
         getSelectedDataFunc={props.getSelectedDataFunc}
-        paginationObj={props.hidePagination ? "none" : paginationObj}
-        size="md"
+        showPagination={!props.hidePagination}
+        paginationObj={paginationObj}
         showHeaderMenu={false}
-        headerHeight={34}
-        height={40}
-        scroll={{ y: this.state.h }}
+        // scroll={{ y: this.state.h }}
         multiSelect={props.multiSelect || false}
         draggable={false}
       />
     );
   }
 }
-export default MainGrid;
+export default MainAcGrid;

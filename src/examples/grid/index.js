@@ -83,6 +83,7 @@ class Demo4 extends Component {
           console.log(1111);
           this.setState({ data: data2 });
         }}
+        rowKey="key"
         onDataNumSelect={x => {
           console.log(x, "999");
           this.setState({ data: data2, totalPage: 100 });

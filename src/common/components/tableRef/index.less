@@ -2,6 +2,23 @@
 
 .iot-table-ref {
   font-size: 12px;
+  &.ref-multiple-table {
+    .u-table-content {
+      .ref-multiple-table-row-selected {
+        background: #ebebf2;
+      }
+      tr:nth-child(2n) {
+        background: #f7f9fb;
+        &.selected {
+          background: #fff7e7;
+        }
+      }
+      tr:hover {
+        background: #edeff2;
+      }
+    }
+  }
+
   .rc-tree-select-selection {
     border-color: @inputBorderColor;
     &.error-input {
@@ -14,7 +31,6 @@
   .uf {
     color: @inputBorderColor;
   }
-  @import "../common.less";
   .iot-tree-ref-input.ref-red {
     .u-form-control {
       border-color: @inputBorderColor;
@@ -40,11 +56,14 @@
     left: 0;
   }
   &.ref-core.u-modal {
-    .u-modal-content {
-      background: #f7f9fb;
-    }
-    .u-modal-body {
-      background: #fff;
+    .u-modal-dialog {
+      .u-modal-content {
+        background: #f7f9fb;
+      }
+      .u-modal-body {
+        background: #fff;
+        text-align: right;
+      }
     }
   }
 }

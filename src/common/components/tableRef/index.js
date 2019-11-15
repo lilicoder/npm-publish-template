@@ -163,7 +163,7 @@ class TableRef extends Component {
       columnsData: columnsData,
       tableData: tableData,
       title: title,
-      // ...page,
+      ...page,
       matchData,
       value,
       miniSearchFunc: this.miniSearchFunc,
