@@ -68,24 +68,17 @@ class IndexView extends Component {
         data={data}
         totalPage={50}
         freshData={x => console.log(x)}
-        onDataNumSelect={x => console.log(x, "999")}
+        onDataNumSelect={(x, y) => console.log(x, y, "999")}
         full
       />
     ];
     let content = [
-      <SearchContainer
-        data={[
-          <SearchInput
-            placeHolder="请输入搜索内容"
-            onSearch={() => console.log(123)}
-          />,
-          null,
-          null,
-          <div className="right-button">
-            <button className="border-button mr-10">导入</button>
-            <button className="border-button">导出</button>
-          </div>
-        ]}
+      <Grid
+        onRowClick={(record, index) => alert(index)}
+        columns={columns}
+        data={data}
+        hidePagination={true}
+        full
       />,
       <Grid
         onRowClick={(record, index) => alert(index)}
@@ -93,8 +86,6 @@ class IndexView extends Component {
         data={data}
         hidePagination={true}
         full
-
-        // loading={true}
       />
     ];
 

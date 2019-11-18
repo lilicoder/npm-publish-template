@@ -10,19 +10,19 @@ let IndexView = props => {
       {props.label && <div className="label">{props.label}</div>}
       <Tooltip
         inverse
-        visible={props.showError}
+        visible={props.showError && props.showErrorText}
         placement="top"
         overlay={<ErrorTip value={props.errorText} />}
         className="error-tip"
       >
         <Select
-          open={props.open}
           value={props.value}
           onChange={props.onChange}
           placeholder={props.placeHolder || "请选择"}
           allowClear={true}
           dropdownClassName="iot-select-dropdown"
           className={props.showError ? "error-input iot-select" : "iot-select"}
+          size={props.size || "md"}
         >
           {props.data.map(item => (
             <Option key={item.code} value={item.code}>

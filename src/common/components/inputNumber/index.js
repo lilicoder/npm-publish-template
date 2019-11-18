@@ -9,16 +9,18 @@ let MainInputNumber = props => {
       {props.label && <div className="label">{props.label}</div>}
       <Tooltip
         inverse
-        visible={props.showError}
+        visible={props.showError && props.showErrorText}
         placement="top"
         overlay={<ErrorTip value={props.errorText} />}
         className="error-tip"
       >
         <InputNumber
           iconStyle="one"
-          precision={props.precision || 2}
+          precision={props.precision || 0}
           value={props.value}
-          onChange={props.onChange}
+          onChange={v => {
+            props.onChange(v);
+          }}
           toThousands={true}
           className={
             props.showError
@@ -27,6 +29,7 @@ let MainInputNumber = props => {
           }
           max={props.max}
           min={props.min}
+          size={props.size || "md"}
         />
       </Tooltip>
     </div>

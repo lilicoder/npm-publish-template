@@ -6,11 +6,12 @@ class MainPagination extends Component {
     super(props);
     this.state = {
       activePage: 1,
-      dataNum: 1
+      dataNum: 1,
+      dataNumSelect: 10
     };
   }
   render() {
-    let { activePage, dataNum } = this.state;
+    let { activePage, dataNum, dataNumSelect } = this.state;
     let { props } = this;
     let paginationObj = {
       gap: true,
@@ -20,7 +21,7 @@ class MainPagination extends Component {
       maxButtons: 10,
       size: "sm",
       boundaryLinks: true,
-      items: Math.ceil(props.totalPage / (props.dataNum || dataNum)), //一页显示多少条
+      items: Math.ceil(props.totalPage / dataNumSelect),
       total: props.totalPage || 0, //总共多少条
       onSelect: value => {
         if (!props.activePage) {
@@ -31,17 +32,17 @@ class MainPagination extends Component {
         props.freshData && props.freshData(value);
       }, //点击下一页刷新的数据
       onDataNumSelect: (x, y) => {
-        if (!props.dataNum) {
-          this.setState({
-            dataNum: x,
-            dataNumSelect: y
-          });
-        }
-        props.onDataNumSelect && props.onDataNumSelect(y);
+        // if (!props.dataNum) {
+        this.setState({
+          dataNum: x,
+          dataNumSelect: y
+        });
+        // }
+        props.onDataNumSelect && props.onDataNumSelect(y, x);
       },
       showJump: true,
       activePage: props.activePage || activePage,
-      dataNum: props.dataNum || dataNum
+      dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum
     };
     return (
       <div className="iot-ac-pagination-con">
@@ -50,8 +51,16 @@ class MainPagination extends Component {
             <div>
               已选<span>{props.selectedNum || 0}</span>条
             </div>
-            <div onClick={props.selectAll && props.selectAll()}>选择全部</div>
-            <div onClick={props.selectReverse && props.selectReverse()}>
+            <div
+              className="selectAll"
+              onClick={() => props.selectAll && props.selectAll()}
+            >
+              选择全部
+            </div>
+            <div
+              className="selectReverse"
+              onClick={() => props.selectReverse && props.selectReverse()}
+            >
               反选
             </div>
           </div>

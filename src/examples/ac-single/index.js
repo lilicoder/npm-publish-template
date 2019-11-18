@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 
-import {
-  AcSingleLayout,
-  AcTitleBar,
-  AcSeachPanel,
-  AcPagination
-} from "../../common";
+import { AcSingleLayout, AcTitleBar, AcPagination } from "../../common";
 
 import { ButtonGroup, Icon } from "tinper-bee";
 import Btns from "ac-btns";
@@ -59,7 +54,9 @@ class Demo extends Component {
       <AcPagination
         totalPage={800}
         activePage={2}
-        onDataNumSelect={x => console.log(x, "KKKKK")}
+        onDataNumSelect={(x, y) => console.log(x, y, "KKKKK")}
+        selectAll={() => console.log("select")}
+        showSelect={true}
       />
     );
     return (

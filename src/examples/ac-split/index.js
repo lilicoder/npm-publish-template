@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { AcSplitLayout, AcTitleBar, AcSeachPanel } from "../../common";
+import { AcSplitLayout, AcTitleBar } from "../../common";
 
 import { ButtonGroup, Button, Icon } from "tinper-bee";
 import Btns from "ac-btns";

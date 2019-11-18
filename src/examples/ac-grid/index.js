@@ -143,8 +143,8 @@ class Demo4 extends Component {
           // this.setState({ data: data2 });
         }}
         rowKey="key"
-        onDataNumSelect={x => {
-          console.log(x, "999");
+        onDataNumSelect={(x, y) => {
+          console.log(x, y, "999");
           // this.setState({ data: data2, totalPage: 100 });
         }}
         hidePagination={this.props.hidePagination}

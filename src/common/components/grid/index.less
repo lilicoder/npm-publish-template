@@ -27,13 +27,14 @@
     // overflow: hidden;
     tr:nth-child(2n) {
       background: #f7f9fb;
-      &.selected {
-        background: #fff7e7;
-      }
     }
-    tr.hover {
-      background: #ebecf0;
+    tr.selected,
+    tr.selected:hover {
+      background: #e6e8ed !important;
     }
+    // tr.hover {
+    //   background: #ebecf0;
+    // }
     .u-table th {
       padding-top: 0;
       padding-bottom: 0;

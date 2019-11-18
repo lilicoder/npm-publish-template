@@ -11,7 +11,8 @@ class MainGrid extends Component {
     this.state = {
       h: null,
       activePage: 1,
-      dataNum: 10
+      dataNum: 1,
+      dataNumSelect: 10
     };
   }
   componentDidMount() {
@@ -33,11 +34,14 @@ class MainGrid extends Component {
     let { props } = this;
     let paginationObj = {
       activePage: props.activePage || this.state.activePage,
-      dataNum: props.dataNum || this.state.dataNum,
+      dataNum:
+        props.dataNum || props.dataNum === 0
+          ? props.dataNum
+          : this.state.dataNum,
       size: "md",
       gap: true,
       horizontalPosition: "right",
-      items: Math.ceil(props.totalPage / (props.dataNum || this.state.dataNum)), //一页显示多少条
+      items: Math.ceil(props.totalPage / this.state.dataNumSelect), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
       freshData: x => {
         if (!props.activePage) {
@@ -50,9 +54,10 @@ class MainGrid extends Component {
           this.setState({ activePage: x });
         }
         this.setState({
-          dataNum: y
+          dataNum: x,
+          dataNumSelect: y
         });
-        props.onDataNumSelect && props.onDataNumSelect(y); //每页大小改变触发的事件
+        props.onDataNumSelect && props.onDataNumSelect(y, x); //每页大小改变触发的事件
       }
     };
     return (
@@ -60,7 +65,7 @@ class MainGrid extends Component {
         rowClassName={(record, index) => {
           let styles = "";
           if (this.state.selectedRowIndex === index) {
-            styles += "selected";
+            styles += "selected ";
           }
           if (this.state.hoverIndex === index) {
             styles += "hover";

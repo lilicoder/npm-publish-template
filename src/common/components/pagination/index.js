@@ -10,7 +10,7 @@ class MainPagination extends Component {
     };
   }
   render() {
-    let { activePage, dataNum } = this.state;
+    let { activePage, dataNum, dataNumSelect } = this.state;
     let { props } = this;
     let paginationObj = {
       prev: true,
@@ -21,7 +21,7 @@ class MainPagination extends Component {
       horizontalPosition: "right",
       maxButtons: 10,
       boundaryLinks: true,
-      items: Math.ceil(props.totalPage / (props.dataNum || dataNum)), //一页显示多少条
+      items: Math.ceil(props.totalPage / dataNumSelect), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
       onSelect: value => {
         if (!props.activePage) {
@@ -32,16 +32,17 @@ class MainPagination extends Component {
         props.freshData && props.freshData(value);
       }, //点击下一页刷新的数据
       onDataNumSelect: (x, y) => {
-        if (!props.dataNum) {
-          this.setState({
-            dataNum: x
-          });
-        }
-        props.onDataNumSelect && props.onDataNumSelect(y);
+        // if (!props.dataNum) {
+        this.setState({
+          dataNum: x,
+          dataNumSelect: y
+        });
+        // }
+        props.onDataNumSelect && props.onDataNumSelect(y, x);
       },
       showJump: true,
       activePage: props.activePage || activePage,
-      dataNum: props.dataNum || dataNum
+      dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum
     };
     return <Pagination className="iot-pagination" {...paginationObj} />;
   }

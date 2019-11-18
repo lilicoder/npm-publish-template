@@ -31,7 +31,7 @@ let IndexView = props => {
   ) : (
     <Tooltip
       inverse
-      visible={props.showError}
+      visible={props.showError && props.showErrorText}
       placement="top"
       overlay={<ErrorTip value={props.errorText} />}
       className="error-tip"
@@ -41,6 +41,7 @@ let IndexView = props => {
         onChange={value => {
           props.onChange(value);
         }}
+        size={props.size || "md"}
         allowClear={true}
         className={[
           selectColor,

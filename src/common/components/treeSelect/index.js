@@ -13,7 +13,7 @@ let IndexView = props => {
       {props.label && <div className="label">{props.label}</div>}
       <Tooltip
         inverse
-        visible={props.showError}
+        visible={props.showError && props.showErrorText}
         placement="top"
         overlay={<ErrorTip value={props.errorText} />}
         className="error-tip"
@@ -28,6 +28,7 @@ let IndexView = props => {
           treeData={props.treeData}
           // onChange={this.onChange}
           onSelect={props.onSelect}
+          size={props.size || "md"}
           className={
             props.showError ? "error-input iot-tree-select" : "iot-tree-select"
           }

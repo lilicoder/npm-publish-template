@@ -14,7 +14,7 @@ let IndexView = props => {
             getComponentChild(props.content)
           ) : (
             <div className="no-data">
-              <img src={noData} />
+              <img src={noData} alt="no-data" />
               <p>暂无数据</p>
             </div>
           )}

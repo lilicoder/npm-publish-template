@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import AcGrids from "ac-grids";
 import "ac-grids/build/AcGrids.css";
 // import "./index.less";
@@ -11,7 +10,8 @@ class MainAcGrid extends Component {
     this.state = {
       h: null,
       activePage: 1,
-      dataNum: 1
+      dataNum: 1,
+      dataNumSelect: 10
     };
   }
   // componentDidMount() {
@@ -37,7 +37,7 @@ class MainAcGrid extends Component {
       maxButtons: 10,
       boundaryLinks: true,
       // horizontalPosition: "right",
-      items: Math.ceil(props.totalPage / (props.dataNum || this.state.dataNum)), //一页显示多少条
+      items: Math.ceil(props.totalPage / this.state.dataNumSelect), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
       onSelect: x => {
         if (!props.activePage) {
@@ -45,11 +45,12 @@ class MainAcGrid extends Component {
         }
         props.freshData && props.freshData(x);
       }, //点击下一页刷新的数据
-      onDataNumSelect: y => {
+      onDataNumSelect: x => {
         this.setState({
-          dataNum: y
+          dataNum: x / 10,
+          dataNumSelect: x
         });
-        props.onDataNumSelect && props.onDataNumSelect(y); //每页大小改变触发的事件
+        props.onDataNumSelect && props.onDataNumSelect(x, x / 10); //每页大小改变触发的事件
       }
     };
     return (

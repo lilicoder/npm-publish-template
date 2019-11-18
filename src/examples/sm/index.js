@@ -112,7 +112,7 @@ class IndexView extends Component {
       <div style={{ width: 200 }}>
         <h4>普通下拉</h4>
         <Select
-          open={true}
+          // open={true}
           data={this.state.selectData}
           onChange={value => {
             this.setState({
@@ -153,10 +153,10 @@ class IndexView extends Component {
         <h4>分页</h4>
         <Pagination
           // activePage={2}
-          dataNum={1}
+          dataNum={this.state.test || 0}
           totalPage={50}
           freshData={x => console.log(x)}
-          onDataNumSelect={x => console.log(x, "999")}
+          onDataNumSelect={(x, y) => this.setState({ test: y })}
         />
       </div>,
       <div>
@@ -180,11 +180,14 @@ class IndexView extends Component {
       <div style={{ width: 200 }}>
         <h4>数字框</h4>
         <InputNumber
-          onChange={x => this.setState({ num: x })}
+          onChange={x => {
+            console.log(x, "kkk");
+            this.setState({ num: x });
+          }}
           value={this.state.num}
           min={0}
           max={10}
-          precision={5}
+          // precision={5}
           showError={this.state.visible}
           errorText={"我是错误信息"}
         />

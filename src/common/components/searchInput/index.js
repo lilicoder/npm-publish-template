@@ -28,7 +28,7 @@ class SearchInput extends Component {
         {props.label && <div className="label">{props.label}</div>}
         <Tooltip
           inverse
-          visible={props.showError}
+          visible={props.showError && props.showErrorText}
           placement="top"
           overlay={<ErrorTip value={props.errorText} />}
           className="error-tip"
@@ -43,6 +43,7 @@ class SearchInput extends Component {
               onSearch={props.onSearch}
               onChange={v => this.handleChange(v)}
               type="search"
+              size={props.size || "md"}
             />
             <Icon
               type="uf-close-c"
