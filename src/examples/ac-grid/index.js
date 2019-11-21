@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { AcGrid as Grid } from "../../common";
+import { AcGrid as Grid, Select } from "../../common";
 const column = [
   {
     required: true,
@@ -64,7 +64,7 @@ const dataList = [
   {
     orderCode: "2343",
     supplierName: "xxx",
-    type_name: "123",
+    type_name: <Select />,
     purchasing: "内行",
     purchasingGroup: "323",
     voucherDate: "kkkk",

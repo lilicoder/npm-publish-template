@@ -31,13 +31,17 @@ class MainAcGrid extends Component {
   // }
   render() {
     let { props } = this;
+    let itemNum = this.state.dataNumSelect;
+    if (props.dataNum || props.dataNum === 0) {
+      itemNum = (props.dataNum + 1) * 5;
+    }
     let paginationObj = {
       activePage: props.activePage || this.state.activePage,
       dataNum: props.dataNum || this.state.dataNum,
       maxButtons: 10,
       boundaryLinks: true,
       // horizontalPosition: "right",
-      items: Math.ceil(props.totalPage / this.state.dataNumSelect), //一页显示多少条
+      items: Math.ceil(props.totalPage / itemNum), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
       onSelect: x => {
         if (!props.activePage) {

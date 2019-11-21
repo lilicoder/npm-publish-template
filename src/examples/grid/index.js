@@ -84,7 +84,7 @@ class Demo4 extends Component {
           this.setState({ data: data2 });
         }}
         rowKey="key"
-        dataNum={this.state.d}
+        dataNum={5}
         onDataNumSelect={(x, y) => {
           this.setState({ d: y });
           // console.log(x, "999");

@@ -13,6 +13,10 @@ class MainPagination extends Component {
   render() {
     let { activePage, dataNum, dataNumSelect } = this.state;
     let { props } = this;
+    let itemNum = dataNumSelect;
+    if (props.dataNum || props.dataNum === 0) {
+      itemNum = (props.dataNum + 1) * 5;
+    }
     let paginationObj = {
       gap: true,
       prev: true,
@@ -21,7 +25,7 @@ class MainPagination extends Component {
       maxButtons: 10,
       size: "sm",
       boundaryLinks: true,
-      items: Math.ceil(props.totalPage / dataNumSelect),
+      items: Math.ceil(props.totalPage / itemNum),
       total: props.totalPage || 0, //总共多少条
       onSelect: value => {
         if (!props.activePage) {
