@@ -187,7 +187,7 @@ class IndexView extends Component {
           value={this.state.num}
           min={0}
           max={10}
-          size="lg"
+          size="sm"
           // precision={5}
           showError={this.state.visible}
           errorText={"我是错误信息"}

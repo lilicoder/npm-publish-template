@@ -15,7 +15,8 @@ class Demo extends Component {
         showSearch={true}
         onSearch={x => console.log(x)}
         onChange={y => console.log(y)}
-        icon={<Icon className="uf-close" />}
+        // icon={<Icon className="uf-close" />}
+        handleGoBack={()=>alert(1)}
       >
         <ButtonGroup>
           <Btns

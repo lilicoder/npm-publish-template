@@ -8,6 +8,6 @@ gulp
   .pipe(gulp.dest(output));
 
 gulp
-  .src(["src/common/**/*.png", "src/common/**/*.jpg"], { sourcemaps: true })
+  .src(["src/common/**/*.png", "src/common/**/*.jpg","src/common/**/*.svg"], { sourcemaps: true })
   .pipe(imageMin({ progressive: true }))
   .pipe(gulp.dest(output, { sourcemaps: true }));

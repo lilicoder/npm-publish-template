@@ -1,20 +1,37 @@
 @import "../common.less";
-.iot-ac-title {  background: #fff;
+.iot-ac-title {  
+  background: #fff;
   padding: 8px 20px;
   line-height: 24px;
   overflow: hidden;
+  line-height: 30px;
+  .ac-btns{
+    button{
+      min-width: 60px;
+      height: 32px;
+      font-size: 14px;
+    }
+  }
   .ac-search-input {
     width: 252px;
     margin-left: 24px;
     float: left;
   }
-
-  > i {
+.uf-anglepointingtoleft{
+  float: left;font-size: 24px;
+  margin-left: -15px;
+  margin-right: 10px;
+  color: #333;
+  cursor: pointer;
+}
+  > i.icon {
     width: 24px;
     height: 24px;
     border-radius: 12px;
     background-color: #d8d8d8;
     float: left;
+    margin-top: 4px;
+    line-height: 24px;
   }
   .ac-title {
     font-size: 16px;

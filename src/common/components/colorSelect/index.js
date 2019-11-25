@@ -26,7 +26,7 @@ let IndexView = props => {
   return props.disabled ? (
     <div
       className={"color-select-option " + selectColor}
-      style={{ width: "75%" }}
+      style={{ width: "60%",height:26 }}
     ></div>
   ) : (
     <Tooltip

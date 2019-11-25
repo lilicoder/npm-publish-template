@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AcGrids from "ac-grids";
 import "ac-grids/build/AcGrids.css";
-// import "./index.less";
+import "./index.less";
 
 class MainAcGrid extends Component {
   constructor(props) {
@@ -58,27 +58,28 @@ class MainAcGrid extends Component {
       }
     };
     return (
+      <div className="iot-ac-grid">
       <AcGrids
         rowClassName={(record, index) => {
           let styles = "";
           if (this.state.selectedRowIndex === index) {
             styles += "selected";
           }
-          if (this.state.hoverIndex === index) {
-            styles += "hover";
-          }
+          // if (this.state.hoverIndex === index) {
+          //   styles += "hover";
+          // }
           return styles;
         }}
-        className={["iot-ac-grid", props.full ? "full" : ""].join(" ")}
+        columnFilterAble={true}
         ref={ref => (this.dom = ref)}
         columns={props.columns}
         data={props.data}
-        syncHover={false}
-        onRowHover={index =>
-          this.setState({
-            hoverIndex: index
-          })
-        }
+        // syncHover={false}
+        // onRowHover={index =>
+        //   this.setState({
+        //     hoverIndex: index
+        //   })
+        // }
         rowKey={this.props.rowKey || "id"}
         onRowClick={(x, y) => {
           this.setState({
@@ -94,7 +95,7 @@ class MainAcGrid extends Component {
         // scroll={{ y: this.state.h }}
         multiSelect={props.multiSelect || false}
         draggable={false}
-      />
+      /></div>
     );
   }
 }
