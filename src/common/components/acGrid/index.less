@@ -1,16 +1,55 @@
 @import "../common.less";
 
 .iot-ac-grid {
-  .uf-grid:before{
+  .uf-grid:before {
     content: "\e73c";
   }
   .u-table-filter-column-filter-icon {
     line-height: 30px;
     height: 30px;
-    background: transparent;
+    background: #eceff5;
   }
-  .u-table .u-table-tbody tr:nth-child(2n) {
-    background: #f6f7f8;
+  .u-table-filter-column-pop-column-filter-cont {
+    background: #eceff5;
+  }
+  .u-table {
+    .u-table-header{ 
+      th.text-center {
+      text-align: center;
+      padding-left: 0;
+    }}
+    .u-table-tbody {
+     
+      tr td {
+        border-color: #d9d9d9;
+        padding-right: 10px;
+        box-sizing: border-box;
+        // padding-left: 0;
+        margin-left: -20px;
+        a,button{outline: none;}
+      }
+    }
+  }
+  .u-table {
+    .u-table-header {
+      th.text-center {
+        text-align: center;
+        padding-left: 0;
+      }
+    }
+
+    .u-table-tbody {
+      tr td {
+        border-color: #d9d9d9;
+        padding-right: 10px;
+        box-sizing: border-box;
+        // padding-left: 0;
+        margin-left: -20px;
+      }
+      tr:nth-child(2n) {
+        background: #f6f7f8;
+      }
+    }
   }
   .ac-grids .u-table .u-table-tbody tr:hover,
   .ac-grids .u-table .u-table-tbody tr.u-table-row-hover {

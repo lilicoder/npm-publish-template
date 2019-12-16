@@ -6,7 +6,7 @@ const column = [
     title: "订单编号",
     dataIndex: "orderCode",
     key: "orderCode",
-    width: 150
+    width: 150,textAlign: "center"
   },
   {
     title: "金额",

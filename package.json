@@ -1,6 +1,6 @@
 {
   "name": "u9-iot-basic-template",
-  "version": "0.4.7",
+  "version": "0.5.1",
   "main": "lib/index.js",
   "files": [
     "lib",
@@ -10,7 +10,7 @@
   "dependencies": {
     "ac-btns": "^0.1.2",
     "ac-form-layout": "0.0.19",
-    "ac-grids": "^0.2.3",
+    "ac-grids": "^0.2.4",
     "ac-pagelayout": "0.0.1",
     "ac-search-panel": "^1.0.0",
     "bee-complex-grid": "^2.0.25",

@@ -6,16 +6,17 @@ class MainPagination extends Component {
     super(props);
     this.state = {
       activePage: 1,
-      dataNum: 1,
-      dataNumSelect: 10
+      dataNum: 0,
+      dataNumSelect: 10,
+      dataNumArray:[10,20,50,100]
     };
   }
   render() {
-    let { activePage, dataNum, dataNumSelect } = this.state;
+    let { activePage, dataNum, dataNumSelect,dataNumArray } = this.state;
     let { props } = this;
     let itemNum = dataNumSelect;
     if (props.dataNum || props.dataNum === 0) {
-      itemNum = (props.dataNum + 1) * 5;
+      itemNum = dataNumArray[props.dataNum];
     }
     let paginationObj = {
       gap: true,
@@ -44,6 +45,7 @@ class MainPagination extends Component {
         // }
         props.onDataNumSelect && props.onDataNumSelect(y, x);
       },
+      dataNumSelect:dataNumArray,
       showJump: true,
       activePage: props.activePage || activePage,
       dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum

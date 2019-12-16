@@ -9,7 +9,8 @@ import {
   InputNumber,
   InputNumberGroup,
   Input,
-  AcTitleBar
+  AcTitleBar,
+  AcTitle
 } from "../../common";
 import { ButtonGroup } from "tinper-bee";
 import Btns from "ac-btns";
@@ -235,6 +236,37 @@ class IndexView extends Component {
             }}
           />
         </AcTitleBar>
+      </div>,
+      <div>
+        <h4 className="cardBg">AC title</h4>
+        <AcTitle title="劣化趋势组定义" btnLeft={true}>
+          <ButtonGroup>
+            <Btns
+              btns={{
+                add: {
+                  onClick: () => {
+                    console.log("add");
+                  }
+                },
+                cancel: {
+                  name: "新增保存",
+                  onClick: () => {
+                    console.log("新增保存");
+                  }
+                }
+              }}
+            />
+          </ButtonGroup>
+          <Btns
+            btns={{
+              cancel: {
+                onClick: () => {
+                  console.log("cancel");
+                }
+              }
+            }}
+          />
+        </AcTitle>
       </div>
     ];
 

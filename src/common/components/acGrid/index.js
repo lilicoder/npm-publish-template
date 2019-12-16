@@ -92,6 +92,7 @@ class MainAcGrid extends Component {
         showPagination={!props.hidePagination}
         paginationObj={paginationObj}
         showHeaderMenu={false}
+        headerHeight={35}
         // scroll={{ y: this.state.h }}
         multiSelect={props.multiSelect || false}
         draggable={false}

@@ -18,6 +18,7 @@ import InputNumber from "./components/inputNumber";
 import Input from "./components/input";
 import AcGrid from "./components/acGrid";
 import AcTitleBar from "./components/acTitleBar";
+import AcTitle from "./components/acTitle";
 import AcMoreSearchContainer from "./components/acMoreSearchContainer";
 import AcSeachPanel from "./components/acSeachPanel";
 import AcSplitLayout from "./components/acSplitLayout";
@@ -56,5 +57,6 @@ export {
   AcSeachPanel,
   AcSplitLayout,
   AcSingleLayout,
-  AcPagination
+  AcPagination,
+  AcTitle
 };

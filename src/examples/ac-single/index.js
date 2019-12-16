@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { AcSingleLayout, AcTitleBar, AcPagination } from "../../common";
 
-import { ButtonGroup, Icon } from "tinper-bee";
+import { ButtonGroup } from "tinper-bee";
 import Btns from "ac-btns";
 
 import SearchCon from "../ac-seach";
