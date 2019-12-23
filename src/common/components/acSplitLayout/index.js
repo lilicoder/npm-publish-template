@@ -8,7 +8,7 @@ const TableContent = Pagelayout.TableContent;
 
 const AcSplit = props => {
   return (
-    <Pagelayout>
+    <Pagelayout className="iot-ac-split-layout">
       <Header>{props.header}</Header>
       <SearchArea>{props.search}</SearchArea>
       <TableContent className="main-grid">{props.mainGrid}</TableContent>
