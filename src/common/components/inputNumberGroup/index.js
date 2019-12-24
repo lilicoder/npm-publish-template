@@ -29,6 +29,7 @@ let MainInputNumber = props => {
           max={props.max}
           min={props.min}
           size={props.size || "md"}
+          disabled={props.disabled}
         />
       </Tooltip>
     </div>

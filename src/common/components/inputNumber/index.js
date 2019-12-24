@@ -23,6 +23,7 @@ let MainInputNumber = props => {
           onChange={v => {
             props.onChange(v);
           }}
+          disabled={props.disabled}
           toThousands={true}
           className={
             props.showError

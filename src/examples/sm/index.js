@@ -192,6 +192,7 @@ class IndexView extends Component {
           // precision={5}
           showError={this.state.visible}
           errorText={"我是错误信息"}
+          disabled={true}
         />
       </div>,
       <div style={{ width: 400 }}>
@@ -204,6 +205,7 @@ class IndexView extends Component {
           precision={5}
           showError={this.state.visible}
           errorText={"我是错误信息"}
+          disabled={true}
         />
       </div>,
       <div>
