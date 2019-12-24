@@ -239,7 +239,7 @@ class IndexView extends Component {
       </div>,
       <div>
         <h4 className="cardBg">AC title</h4>
-        <AcTitle title="劣化趋势组定义" btnLeft={true}>
+        <AcTitle title="劣化趋势组定义">
           <ButtonGroup>
             <Btns
               btns={{
@@ -262,6 +262,15 @@ class IndexView extends Component {
               cancel: {
                 onClick: () => {
                   console.log("cancel");
+                }
+              }
+            }}
+          />
+          <Btns
+            btns={{
+              max: {
+                onClick: () => {
+                  console.log("max");
                 }
               }
             }}

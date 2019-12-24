@@ -24,6 +24,10 @@ import AcSeachPanel from "./components/acSeachPanel";
 import AcSplitLayout from "./components/acSplitLayout";
 import AcSingleLayout from "./components/acSingleLayout";
 import AcPagination from "./components/acPagination";
+import StepLayout from "./components/stepLayout";
+import Step from "./components/step";
+import Tabs from "./components/tabs";
+import OprationBar from "./components/oprationBar";
 import InputNumberGroup from "./components/inputNumberGroup";
 import NumberEditGridCell from "./logic-components/edittable/cell/NumberEditGridCell";
 import SelectEditGridCell from "./logic-components/edittable/cell/SelectEditGridCell";
@@ -58,5 +62,9 @@ export {
   AcSplitLayout,
   AcSingleLayout,
   AcPagination,
-  AcTitle
+  AcTitle,
+  StepLayout,
+  OprationBar,
+  Step,
+  Tabs
 };

@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import { SearchInput } from "../../index";
 import "./index.less";
-import {Icon} from "tinper-bee"
+import { Icon } from "tinper-bee";
 
 class AcTitleBar extends Component {
   render() {
     return (
       <div className="iot-ac-title">
-       {this.props.handleGoBack&&<Icon type="uf-anglepointingtoleft" onClick={this.props.handleGoBack}/>}
-        <i className="icon">{this.props.icon||<img src={require("./icon.png")} alt="icon"/>}</i>
+        {this.props.handleGoBack && (
+          <Icon
+            type="uf-anglepointingtoleft"
+            onClick={this.props.handleGoBack}
+          />
+        )}
+        <i className="icon">
+          {this.props.icon || <img src={require("./icon.png")} alt="icon" />}
+        </i>
         <div className="ac-title">{this.props.title}</div>
         {this.props.showSearch ? (
           <div className="ac-search-input">

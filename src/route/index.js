@@ -13,6 +13,8 @@ import AcMoreSearch from "../examples/ac-more-seach";
 import AcSeachPanel from "../examples/ac-seach";
 import AcSplit from "../examples/ac-split";
 import AcSingle from "../examples/ac-single";
+import Steplayout from "../examples/step-layout";
+import StepInput from "../examples/step-input";
 const routers = () => (
   <Router>
     <Switch>
@@ -30,6 +32,8 @@ const routers = () => (
       <Route exact path="/ac-search" component={AcSeachPanel} />
       <Route exact path="/ac-split" component={AcSplit} />
       <Route exact path="/ac-single" component={AcSingle} />
+      <Route exact path="/step" component={Steplayout} />
+      <Route exact path="/step-input" component={StepInput} />
     </Switch>
   </Router>
 );

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { SearchInput } from "../../index";
+// import { SearchInput } from "../../index";
 import "./index.less";
-import { Icon } from "tinper-bee";
+// import { Icon } from "tinper-bee";
 
 class AcTitle extends Component {
   render() {

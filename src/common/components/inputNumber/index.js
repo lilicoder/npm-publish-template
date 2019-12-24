@@ -1,9 +1,9 @@
 import React from "react";
 import "./index.less";
-import {  Tooltip } from "tinper-bee";
+import { Tooltip } from "tinper-bee";
 import ErrorTip from "../errorTip";
-import InputNumber from 'bee-input-number';
-import 'bee-input-number/build/InputNumber.css';
+import InputNumber from "bee-input-number";
+import "bee-input-number/build/InputNumber.css";
 
 let MainInputNumber = props => {
   return (
@@ -32,6 +32,7 @@ let MainInputNumber = props => {
           max={props.max}
           min={props.min}
           size={props.size || "md"}
+          disabled={props.disabled}
         />
       </Tooltip>
     </div>
