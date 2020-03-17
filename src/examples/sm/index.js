@@ -210,7 +210,7 @@ class IndexView extends Component {
       </div>,
       <div>
         <h4>AC title bar</h4>
-        <AcTitleBar title="劣化趋势组定义">
+        <AcTitleBar title="劣化趋势组定义" showSearch placeholder="输入...">
           <ButtonGroup>
             <Btns
               btns={{

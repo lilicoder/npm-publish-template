@@ -22,6 +22,7 @@ class AcTitleBar extends Component {
             <SearchInput
               onSearch={this.props.onSearch}
               onChange={this.props.onChange}
+              placeHolder={this.props.placeHolder || this.props.placeholder}
             />
           </div>
         ) : (

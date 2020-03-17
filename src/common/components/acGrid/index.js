@@ -59,44 +59,41 @@ class MainAcGrid extends Component {
     };
     return (
       <div className="iot-ac-grid">
-      <AcGrids
-        rowClassName={(record, index) => {
-          let styles = "";
-          if (this.state.selectedRowIndex === index) {
-            styles += "selected";
-          }
-          // if (this.state.hoverIndex === index) {
-          //   styles += "hover";
-          // }
-          return styles;
-        }}
-        columnFilterAble={true}
-        ref={ref => (this.dom = ref)}
-        columns={props.columns}
-        data={props.data}
-        // syncHover={false}
-        // onRowHover={index =>
-        //   this.setState({
-        //     hoverIndex: index
-        //   })
-        // }
-        rowKey={this.props.rowKey || "id"}
-        onRowClick={(x, y) => {
-          this.setState({
-            selectedRowIndex: y
-          });
-          this.props.onRowClick && this.props.onRowClick(x, y);
-        }}
-        loading={props.loading}
-        getSelectedDataFunc={props.getSelectedDataFunc}
-        showPagination={!props.hidePagination}
-        paginationObj={paginationObj}
-        showHeaderMenu={false}
-        headerHeight={35}
-        // scroll={{ y: this.state.h }}
-        multiSelect={props.multiSelect || false}
-        draggable={false}
-      /></div>
+        <AcGrids
+          rowClassName={(record, index) => {
+            let styles = "";
+            if (this.state.selectedRowIndex === index) {
+              styles += "selected";
+            }
+            // if (this.state.hoverIndex === index) {
+            //   styles += "hover";
+            // }
+            return styles;
+          }}
+          columnFilterAble={true}
+          ref={ref => (this.dom = ref)}
+          columns={props.columns}
+          data={props.data}
+          // syncHover={false}
+          onRowHover={props.onRowHover}
+          rowKey={props.rowKey || "id"}
+          onRowClick={(x, y) => {
+            this.setState({
+              selectedRowIndex: y
+            });
+            props.onRowClick && props.onRowClick(x, y);
+          }}
+          loading={props.loading}
+          getSelectedDataFunc={props.getSelectedDataFunc}
+          showPagination={!props.hidePagination}
+          paginationObj={paginationObj}
+          showHeaderMenu={false}
+          headerHeight={35}
+          scroll={props.scroll}
+          multiSelect={props.multiSelect || false}
+          draggable={false}
+        />
+      </div>
     );
   }
 }

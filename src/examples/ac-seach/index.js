@@ -37,7 +37,11 @@ class Demo4 extends Component {
     const { getFieldProps } = this.props.form;
     let self = this;
     return (
-      <AcSeachPanel>
+      <AcSeachPanel
+        onPanelChangeEnd={status => {
+          console.log(status, "*****");
+        }}
+      >
         <Form>
           <Row>
             <Col xs={12} sm={6} md={4} lg={3}>

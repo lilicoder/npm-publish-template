@@ -79,6 +79,7 @@ class Demo4 extends Component {
         data={this.state.data}
         totalPage={this.state.totalPage}
         // onRowClick={(a, i) => alert(i)}
+        onRowHover={(a, i) => console.log(a, i, "KKKKK")}
         freshData={x => {
           console.log(1111);
           this.setState({ data: data2 });

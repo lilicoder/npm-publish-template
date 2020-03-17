@@ -8,11 +8,11 @@ class MainPagination extends Component {
       activePage: 1,
       dataNum: 0,
       dataNumSelect: 10,
-      dataNumArray:[10,20,50,100]
+      dataNumArray: [10, 20, 50, 100]
     };
   }
   render() {
-    let { activePage, dataNum, dataNumSelect,dataNumArray } = this.state;
+    let { activePage, dataNum, dataNumSelect, dataNumArray } = this.state;
     let { props } = this;
     let itemNum = dataNumSelect;
     if (props.dataNum || props.dataNum === 0) {
@@ -45,7 +45,7 @@ class MainPagination extends Component {
         // }
         props.onDataNumSelect && props.onDataNumSelect(y, x);
       },
-      dataNumSelect:dataNumArray,
+      dataNumSelect: dataNumArray,
       showJump: true,
       activePage: props.activePage || activePage,
       dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum

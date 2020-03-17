@@ -6,7 +6,8 @@ const column = [
     title: "订单编号",
     dataIndex: "orderCode",
     key: "orderCode",
-    width: 150,textAlign: "center"
+    width: 150,
+    textAlign: "center"
   },
   {
     title: "金额",
@@ -138,6 +139,7 @@ class Demo4 extends Component {
         data={dataList.concat(dataList).concat(dataList)}
         totalPage={this.state.totalPage}
         onRowClick={(a, i) => alert(i)}
+        // onRowHover={(a, i) => console.log(a, i, "KKKKK")}
         freshData={x => {
           console.log(1111);
           // this.setState({ data: data2 });
@@ -147,6 +149,7 @@ class Demo4 extends Component {
           console.log(x, y, "999");
           // this.setState({ data: data2, totalPage: 100 });
         }}
+        scroll={{ y: 200 }}
         hidePagination={this.props.hidePagination}
       />
     );

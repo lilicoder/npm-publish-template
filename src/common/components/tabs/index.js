@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.less";
-import { Tabs } from "tinper-bee";
+import Tabs from "bee-tabs";
+import "bee-tabs/build/Tabs.css";
 const { TabPane } = Tabs;
 
 const IotTabs = props => {

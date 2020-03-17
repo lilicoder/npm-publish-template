@@ -16,7 +16,7 @@ class Demo extends Component {
         onSearch={x => console.log(x)}
         onChange={y => console.log(y)}
         // icon={<Icon className="uf-close" />}
-        handleGoBack={()=>alert(1)}
+        handleGoBack={() => alert(1)}
       >
         <ButtonGroup>
           <Btns
@@ -54,7 +54,7 @@ class Demo extends Component {
     let footer = (
       <AcPagination
         totalPage={800}
-        activePage={2}
+        activePage={0}
         onDataNumSelect={(x, y) => console.log(x, y, "KKKKK")}
         selectAll={() => console.log("select")}
         showSelect={true}

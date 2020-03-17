@@ -85,17 +85,18 @@ class MainGrid extends Component {
         columns={props.columns}
         data={props.data}
         syncHover={false}
-        onRowHover={index =>
+        onRowHover={(index, record) => {
           this.setState({
             hoverIndex: index
-          })
-        }
+          });
+          props.onRowHover && props.onRowHover(index, record);
+        }}
         rowKey={this.props.rowKey || "id"}
         onRowClick={(x, y) => {
           this.setState({
             selectedRowIndex: y
           });
-          this.props.onRowClick && this.props.onRowClick(x, y);
+          props.onRowClick && props.onRowClick(x, y);
         }}
         loading={props.loading}
         getSelectedDataFunc={props.getSelectedDataFunc}

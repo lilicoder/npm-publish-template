@@ -17,6 +17,9 @@ let Demo = props => {
       showOperation={false}
       defaultExpanded={true}
       className="iot-ac-search"
+      onPanelChangeEnd={status => {
+        props.onPanelChangeEnd && props.onPanelChangeEnd(status);
+      }}
     >
       <AdvancedContainer>
         <div className="ac-search-content">{props.children}</div>
