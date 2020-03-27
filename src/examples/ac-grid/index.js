@@ -144,6 +144,7 @@ class Demo4 extends Component {
           console.log(1111);
           // this.setState({ data: data2 });
         }}
+        emptyText={() => "No data"}
         rowKey="key"
         onDataNumSelect={(x, y) => {
           console.log(x, y, "999");

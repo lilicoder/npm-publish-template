@@ -83,6 +83,7 @@ class MainAcGrid extends Component {
             });
             props.onRowClick && props.onRowClick(x, y);
           }}
+          emptyText={props.emptyText}
           loading={props.loading}
           getSelectedDataFunc={props.getSelectedDataFunc}
           showPagination={!props.hidePagination}
