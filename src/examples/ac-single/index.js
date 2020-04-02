@@ -63,9 +63,13 @@ class Demo extends Component {
     return (
       <AcSingleLayout
         header={header}
+        headerClassName="class1"
         search={search}
+        searchClassName="class2"
         grid={mainGrid}
+        gridClassName="class3"
         footer={footer}
+        footerClassName="class4"
       />
     );
   }

@@ -50,9 +50,13 @@ class Demo extends Component {
     return (
       <AcSplitLayout
         header={header}
+        headerClassName="class1"
         search={search}
+        searchClassName="222"
         mainGrid={mainGrid}
+        mainGridClassName="333"
         kidGrid={kidGrid}
+        kidGridClassName="444"
       />
     );
   }

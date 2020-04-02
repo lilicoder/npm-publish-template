@@ -9,10 +9,24 @@ const TableContent = Pagelayout.TableContent;
 const AcSplit = props => {
   return (
     <Pagelayout className="iot-ac-split-layout">
-      <Header>{props.header}</Header>
-      <SearchArea>{props.search}</SearchArea>
-      <TableContent className="main-grid">{props.mainGrid}</TableContent>
-      <TableContent>{props.kidGrid}</TableContent>
+      {props.header && (
+        <Header className={props.headerClassName}>{props.header}</Header>
+      )}
+      {props.search && (
+        <SearchArea className={props.searchClassName}>
+          {props.search}
+        </SearchArea>
+      )}
+      {props.mainGrid && (
+        <TableContent className={"main-grid " + props.mainGridClassName}>
+          {props.mainGrid}
+        </TableContent>
+      )}
+      {props.kidGrid && (
+        <TableContent className={props.kidGridClassName}>
+          {props.kidGrid}
+        </TableContent>
+      )}
     </Pagelayout>
   );
 };
