@@ -8,10 +8,15 @@ class AcTitleBar extends Component {
     return (
       <div className="iot-ac-title">
         {this.props.handleGoBack && (
-          <Icon
-            type="uf-anglepointingtoleft"
+          <img
+            src={require("./left.png")}
+            className="back"
             onClick={this.props.handleGoBack}
           />
+          // <Icon
+          //   type="uf-anglepointingtoleft"
+          //   onClick={this.props.handleGoBack}
+          // />
         )}
         <i className="icon">
           {this.props.icon || <img src={require("./icon.png")} alt="icon" />}

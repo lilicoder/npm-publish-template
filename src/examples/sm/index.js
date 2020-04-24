@@ -10,7 +10,7 @@ import {
   InputNumberGroup,
   Input,
   AcTitleBar,
-  AcTitle
+  AcTitle,
 } from "../../common";
 import { ButtonGroup } from "tinper-bee";
 import Btns from "ac-btns";
@@ -50,12 +50,12 @@ class IndexView extends Component {
       selectData: [
         {
           value: "选项1",
-          code: "x1"
+          code: "x1",
         },
         {
           value: "选项2",
-          code: "x2"
-        }
+          code: "x2",
+        },
       ],
       treeData: [
         {
@@ -71,28 +71,28 @@ class IndexView extends Component {
                 {
                   title: "Child Node1",
                   value: "0-0-1",
-                  key: "0-0-1"
+                  key: "0-0-1",
                 },
                 {
                   title: "Child Node2",
                   value: "0-0-2",
-                  key: "0-0-2"
-                }
-              ]
+                  key: "0-0-2",
+                },
+              ],
             },
             {
               title: "Child Node2",
               value: "0-0-2",
-              key: "0-0-2"
-            }
-          ]
+              key: "0-0-2",
+            },
+          ],
         },
         {
           title: "Node2",
           value: "0-1",
-          key: "0-1"
-        }
-      ]
+          key: "0-1",
+        },
+      ],
     };
   }
   render() {
@@ -101,9 +101,9 @@ class IndexView extends Component {
         <h4>颜色选择</h4>
         <ColorSelect
           // data={this.state.data}
-          onChange={value =>
+          onChange={(value) =>
             this.setState({
-              selectedColor: value
+              selectedColor: value,
             })
           }
           value={this.state.selectedColor}
@@ -115,9 +115,9 @@ class IndexView extends Component {
         <Select
           // open={true}
           data={this.state.selectData}
-          onChange={value => {
+          onChange={(value) => {
             this.setState({
-              selectedCode: value
+              selectedCode: value,
             });
           }}
           showError={this.state.visible}
@@ -140,9 +140,9 @@ class IndexView extends Component {
         <TreeSelect
           treeData={this.state.treeData}
           value={this.state.treeValue}
-          onSelect={value => {
+          onSelect={(value) => {
             this.setState({
-              treeValue: value
+              treeValue: value,
             });
             console.log(value);
           }}
@@ -156,14 +156,14 @@ class IndexView extends Component {
           // activePage={2}
           dataNum={this.state.test || 0}
           totalPage={50}
-          freshData={x => console.log(x)}
+          freshData={(x) => console.log(x)}
           onDataNumSelect={(x, y) => this.setState({ test: y })}
         />
       </div>,
       <div>
         <h4>输入框</h4>
         <Input
-          onChange={x => console.log(x)}
+          onChange={(x) => console.log(x)}
           value="xxx"
           showError={this.state.visible}
           errorText={"我是错误信息"}
@@ -172,7 +172,7 @@ class IndexView extends Component {
       <div>
         <h4>搜索框</h4>
         <SearchInput
-          onSearch={x => console.log(x)}
+          onSearch={(x) => console.log(x)}
           // value="xxx"
           showError={this.state.visible}
           errorText={"我是错误信息"}
@@ -181,7 +181,7 @@ class IndexView extends Component {
       <div style={{ width: 200 }}>
         <h4>数字框</h4>
         <InputNumber
-          onChange={x => {
+          onChange={(x) => {
             console.log(x, "kkk");
             this.setState({ num: x });
           }}
@@ -198,7 +198,7 @@ class IndexView extends Component {
       <div style={{ width: 400 }}>
         <h4>数字框组</h4>
         <InputNumberGroup
-          onChange={x => console.log(x)}
+          onChange={(x) => console.log(x)}
           value={this.state.num}
           min={0}
           max={10}
@@ -210,21 +210,26 @@ class IndexView extends Component {
       </div>,
       <div>
         <h4>AC title bar</h4>
-        <AcTitleBar title="劣化趋势组定义" showSearch placeholder="输入...">
+        <AcTitleBar
+          title="劣化趋势组定义"
+          showSearch
+          placeholder="输入..."
+          handleGoBack={() => {}}
+        >
           <ButtonGroup>
             <Btns
               btns={{
                 add: {
                   onClick: () => {
                     console.log("add");
-                  }
+                  },
                 },
                 cancel: {
                   name: "新增保存",
                   onClick: () => {
                     console.log("新增保存");
-                  }
-                }
+                  },
+                },
               }}
             />
           </ButtonGroup>
@@ -233,8 +238,8 @@ class IndexView extends Component {
               cancel: {
                 onClick: () => {
                   console.log("cancel");
-                }
-              }
+                },
+              },
             }}
           />
         </AcTitleBar>
@@ -248,14 +253,14 @@ class IndexView extends Component {
                 add: {
                   onClick: () => {
                     console.log("add");
-                  }
+                  },
                 },
                 cancel: {
                   name: "新增保存",
                   onClick: () => {
                     console.log("新增保存");
-                  }
-                }
+                  },
+                },
               }}
             />
           </ButtonGroup>
@@ -264,8 +269,8 @@ class IndexView extends Component {
               cancel: {
                 onClick: () => {
                   console.log("cancel");
-                }
-              }
+                },
+              },
             }}
           />
           <Btns
@@ -273,12 +278,12 @@ class IndexView extends Component {
               max: {
                 onClick: () => {
                   console.log("max");
-                }
-              }
+                },
+              },
             }}
           />
         </AcTitle>
-      </div>
+      </div>,
     ];
 
     return <Layout content={content} />;
