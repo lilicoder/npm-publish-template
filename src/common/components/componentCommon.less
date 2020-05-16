@@ -1,0 +1,46 @@
+@import "./color.less";
+.error-tip.u-tooltip.inverse {
+  &.top .tooltip-arrow {
+    border-top-color: @red;
+  }
+  .tooltip-inner {
+    border-color: @red;
+  }
+}
+
+.iot-tree-select-container,
+.iot-select-container,
+.iot-tree-ref-container,
+.iot-input-container {
+  // display: flex;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  .label {
+    white-space: nowrap;
+    line-height: 32px;
+    padding-right: 10px;
+    font-size: 12px;
+  }
+}
+.cardBg {
+  background: #f6f6f6;
+  padding: 16px;
+}
+.iot-card-input-container {
+  width: 450px;
+  margin: 60px auto;
+  color: #ddd;
+  input,
+  .ref-red .u-form-control {
+    width: 300px !important;
+    border-color: #d9d9d9;
+    &::placeholder {
+      color: #c7c7c7;
+    }
+  }
+  .uf-calendar {
+    position: relative;
+    right: 5px;
+  }
+}
