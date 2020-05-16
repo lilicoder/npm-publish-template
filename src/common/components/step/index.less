@@ -1,4 +1,4 @@
-@import "../common.less";
+// @import "../common.less";
 @stepRed: #e14c45;
 .step-container {
   width: 75%;
@@ -11,6 +11,10 @@
     .u-steps-item:not(:last-child)
     .u-steps-item-icon:after {
     height: 3px;
+    left: 20px;
+  }
+  .u-steps-small.u-steps-horizontal:not(.u-steps-label-vertical) .u-steps-item {
+    margin-right: 0;
   }
 
   .u-steps-horizontal

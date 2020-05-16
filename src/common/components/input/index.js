@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl, Tooltip } from "tinper-bee";
 import ErrorTip from "../errorTip";
 import "./index.less";
-let Input = props => {
+let Input = (props) => {
   return (
     <div className="iot-input-container">
       {props.label && <div className="label">{props.label}</div>}
@@ -17,8 +17,9 @@ let Input = props => {
           className={props.showError ? "error-input iot-input" : "iot-input"}
           value={props.value}
           placeHolder={props.placeHolder}
-          onChange={v => props.onChange && props.onChange(v)}
+          onChange={(v) => props.onChange && props.onChange(v)}
           size={props.size || "md"}
+          disabled={props.disabled}
         />
       </Tooltip>
     </div>

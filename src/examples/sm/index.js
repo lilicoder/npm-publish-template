@@ -108,7 +108,7 @@ class IndexView extends Component {
           }
           value={this.state.selectedColor}
         />
-        <ColorSelect disabled={true} value="Green" />
+        <ColorSelect disabled={false} value="Green" />
       </div>,
       <div style={{ width: 200 }}>
         <h4>普通下拉</h4>
@@ -120,6 +120,7 @@ class IndexView extends Component {
               selectedCode: value,
             });
           }}
+          disabled={false}
           showError={this.state.visible}
           errorText={
             <div>
@@ -148,6 +149,7 @@ class IndexView extends Component {
           }}
           showError={this.state.visible}
           errorText={"我是错误信息"}
+          disabled={false}
         />
       </div>,
       <div>
@@ -167,6 +169,7 @@ class IndexView extends Component {
           value="xxx"
           showError={this.state.visible}
           errorText={"我是错误信息"}
+          disabled={true}
         />
       </div>,
       <div>
@@ -176,6 +179,7 @@ class IndexView extends Component {
           // value="xxx"
           showError={this.state.visible}
           errorText={"我是错误信息"}
+          disabled={false}
         />
       </div>,
       <div style={{ width: 200 }}>
@@ -192,7 +196,7 @@ class IndexView extends Component {
           // precision={5}
           showError={this.state.visible}
           errorText={"我是错误信息"}
-          disabled={true}
+          disabled={false}
         />
       </div>,
       <div style={{ width: 400 }}>
@@ -205,7 +209,7 @@ class IndexView extends Component {
           precision={5}
           showError={this.state.visible}
           errorText={"我是错误信息"}
-          disabled={true}
+          disabled={false}
         />
       </div>,
       <div>
@@ -215,6 +219,10 @@ class IndexView extends Component {
           showSearch
           placeholder="输入..."
           handleGoBack={() => {}}
+          value={this.state.value}
+          onSearch={(value) => console.log(value)}
+          onChange={(v) => this.setState({ value: v })}
+          // disabled={false}
         >
           <ButtonGroup>
             <Btns

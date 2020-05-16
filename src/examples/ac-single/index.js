@@ -13,8 +13,8 @@ class Demo extends Component {
       <AcTitleBar
         title="劣化分析"
         showSearch={true}
-        onSearch={x => console.log(x)}
-        onChange={y => console.log(y)}
+        onSearch={(x) => console.log(x)}
+        onChange={(y) => console.log(y)}
         // icon={<Icon className="uf-close" />}
         handleGoBack={() => alert(1)}
       >
@@ -24,14 +24,14 @@ class Demo extends Component {
               add: {
                 onClick: () => {
                   console.log("add");
-                }
+                },
               },
               delete: {
                 // name: "新增保存",
                 onClick: () => {
                   console.log("delete");
-                }
-              }
+                },
+              },
             }}
           />
         </ButtonGroup>
@@ -40,8 +40,8 @@ class Demo extends Component {
             cancel: {
               onClick: () => {
                 console.log("cancel");
-              }
-            }
+              },
+            },
           }}
         />
       </AcTitleBar>
@@ -49,7 +49,9 @@ class Demo extends Component {
 
     let search = <SearchCon />;
 
-    let mainGrid = <AcGrid />;
+    let mainGrid = (
+      <AcGrid hidePagination={true} loading={false} isSingle={true} />
+    );
 
     let footer = (
       <AcPagination

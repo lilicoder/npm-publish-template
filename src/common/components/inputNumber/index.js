@@ -5,7 +5,7 @@ import ErrorTip from "../errorTip";
 import InputNumber from "bee-input-number";
 import "bee-input-number/build/InputNumber.css";
 
-let MainInputNumber = props => {
+let MainInputNumber = (props) => {
   return (
     <div className="iot-input-container">
       {props.label && <div className="label">{props.label}</div>}
@@ -20,7 +20,7 @@ let MainInputNumber = props => {
           iconStyle="one"
           precision={props.precision || 0}
           value={props.value}
-          onChange={v => {
+          onChange={(v) => {
             props.onChange(v);
           }}
           disabled={props.disabled}
@@ -33,7 +33,6 @@ let MainInputNumber = props => {
           max={props.max}
           min={props.min}
           size={props.size || "md"}
-          disabled={props.disabled}
         />
       </Tooltip>
     </div>

@@ -6,12 +6,12 @@ class SearchInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ""
+      value: "",
     };
   }
   handleChange(v) {
     this.setState({
-      value: v
+      value: v,
     });
     this.props.onChange && this.props.onChange(v);
   }
@@ -41,9 +41,10 @@ class SearchInput extends Component {
               value={props.value || this.state.value}
               placeHolder={props.placeHolder}
               onSearch={props.onSearch}
-              onChange={v => this.handleChange(v)}
+              onChange={(v) => this.handleChange(v)}
               type="search"
               size={props.size || "md"}
+              disabled={props.disabled}
             />
             <Icon
               type="uf-close-c"

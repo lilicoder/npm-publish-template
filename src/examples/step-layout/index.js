@@ -13,8 +13,8 @@ class Demo extends Component {
     let header = [
       <AcTitleBar
         title="智能配料解决方案"
-        onSearch={x => console.log(x)}
-        onChange={y => console.log(y)}
+        onSearch={(x) => console.log(x)}
+        onChange={(y) => console.log(y)}
       />,
       <Step
         steps={[
@@ -22,19 +22,19 @@ class Demo extends Component {
           { title: "已完成" },
           { title: "已完成" },
           { title: "已完成" },
-          { title: "已完成" }
+          { title: "已完成" },
         ]}
         current={2}
-      />
+      />,
     ];
 
     let mainGrid = [
       <Tabs
         defaultActiveKey="1"
         content={[
-          <div name="grid1">grid1</div>,
-          <div name="grid2">grid2</div>,
-          <AcGrid name="main-grid1" />
+          <div name="工艺">工艺</div>,
+          <div name="工艺规划">表格one</div>,
+          <AcGrid name="表格two" hidePagination={true} />,
         ]}
         rightButton={[
           <ButtonGroup>
@@ -43,13 +43,13 @@ class Demo extends Component {
                 detail: {
                   onClick: () => {
                     console.log("add");
-                  }
+                  },
                 },
                 cancel: {
                   onClick: () => {
                     console.log("add");
-                  }
-                }
+                  },
+                },
               }}
             />
           </ButtonGroup>,
@@ -58,12 +58,12 @@ class Demo extends Component {
               max: {
                 onClick: () => {
                   console.log("max");
-                }
-              }
+                },
+              },
             }}
-          />
+          />,
         ]}
-      />
+      />,
     ];
 
     let footer = (

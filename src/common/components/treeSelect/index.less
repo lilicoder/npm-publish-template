@@ -1,4 +1,4 @@
-@import "../common.less";
+@import "../color.less";
 
 .iot-tree-select {
   &.error-input.u-select .u-select-selection {
@@ -6,9 +6,20 @@
   }
   &.u-select .u-select-selection {
     border-color: @inputBorderColor;
+    &:hover {
+      border-color: @inputHoverColor;
+    }
 
     &:focus {
       border-color: @inputfocusColor;
+    }
+  }
+  &.u-select-disabled.u-select .u-select-selection {
+    border-color: @inputDisableBorderColor;
+    background: @inputDisableBgColor;
+    color: @inputDisableColor;
+    &:hover {
+      border-color: @inputDisableBorderColor;
     }
   }
 }

@@ -1,4 +1,4 @@
-@import "../common.less";
+@import "../color.less";
 .iot-input-container {
   position: relative;
   &.show-close {
@@ -13,7 +13,7 @@
     display: none;
     position: absolute;
     right: 30px;
-    top: 5px;
+    top: 1px;
     color: #dfdfdf;
     cursor: pointer;
   }
@@ -40,9 +40,20 @@
   }
   .u-form-control {
     border-color: @inputBorderColor;
+    &:hover {
+      border-color: @inputHoverColor;
+    }
 
     &:focus {
       border-color: @inputfocusColor;
+    }
+    &[disabled] {
+      border-color: @inputDisableBorderColor;
+      background: @inputDisableBgColor;
+      color: @inputDisableColor;
+      &:hover {
+        border-color: @inputDisableBorderColor;
+      }
     }
   }
 }

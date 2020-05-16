@@ -6,7 +6,7 @@ const Header = Pagelayout.Header;
 const SearchArea = Pagelayout.SearchArea;
 const TableContent = Pagelayout.TableContent;
 
-const AcSplit = props => {
+const AcSplit = (props) => {
   return (
     <Pagelayout className="iot-ac-single-layout">
       {props.header && (

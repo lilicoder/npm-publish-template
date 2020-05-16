@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { AcSplitLayout, AcTitleBar } from "../../common";
+import { AcSplitLayout, AcTitleBar, AcPagination } from "../../common";
 
 import { ButtonGroup, Button, Icon } from "tinper-bee";
 import Btns from "ac-btns";
@@ -17,14 +17,14 @@ class Demo extends Component {
               add: {
                 onClick: () => {
                   console.log("add");
-                }
+                },
               },
               delete: {
                 // name: "新增保存",
                 onClick: () => {
                   console.log("delete");
-                }
-              }
+                },
+              },
             }}
           />
         </ButtonGroup>
@@ -33,8 +33,8 @@ class Demo extends Component {
             cancel: {
               onClick: () => {
                 console.log("cancel");
-              }
-            }
+              },
+            },
           }}
         />
         <Button shape="icon" bordered>
@@ -45,7 +45,18 @@ class Demo extends Component {
 
     let search = <SearchCon />;
 
-    let mainGrid = <AcGrid />;
+    let mainGrid = (
+      <div>
+        <AcGrid hidePagination={true} />
+        <AcPagination
+          totalPage={800}
+          activePage={0}
+          onDataNumSelect={(x, y) => console.log(x, y, "KKKKK")}
+          selectAll={() => console.log("select")}
+          showSelect={true}
+        />
+      </div>
+    );
     let kidGrid = <AcGrid hidePagination={true} />;
     return (
       <AcSplitLayout

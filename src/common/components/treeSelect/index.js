@@ -7,7 +7,7 @@ import ErrorTip from "../errorTip";
 import "bee-tree-select/build/TreeSelect.css";
 import "./index.less";
 
-let IndexView = props => {
+let IndexView = (props) => {
   return (
     <div className="iot-tree-select-container">
       {props.label && <div className="label">{props.label}</div>}
@@ -24,6 +24,7 @@ let IndexView = props => {
           dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
           placeholder="请选择"
           allowClear
+          disabled={props.disabled}
           // treeDefaultExpandAll
           treeData={props.treeData}
           // onChange={this.onChange}
@@ -40,12 +41,12 @@ let IndexView = props => {
 IndexView.propTypes = {
   treeData: PropTypes.array,
   onSelect: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.string,
 };
 IndexView.defaultProps = {
   treeData: [],
   onSelect: () => {},
-  value: ""
+  value: "",
 };
 
 export default IndexView;

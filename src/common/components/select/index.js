@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./index.less";
 import ErrorTip from "../errorTip";
 const Option = Select.Option;
-let IndexView = props => {
+let IndexView = (props) => {
   return (
     <div className="iot-select-container">
       {props.label && <div className="label">{props.label}</div>}
@@ -23,8 +23,9 @@ let IndexView = props => {
           dropdownClassName="iot-select-dropdown"
           className={props.showError ? "error-input iot-select" : "iot-select"}
           size={props.size || "md"}
+          disabled={props.disabled}
         >
-          {props.data.map(item => (
+          {props.data.map((item) => (
             <Option key={item.code} value={item.code}>
               {item.value}
             </Option>
@@ -36,11 +37,11 @@ let IndexView = props => {
 };
 IndexView.propTypes = {
   data: PropTypes.array,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 };
 IndexView.defaultProps = {
   data: [],
-  onChange: () => {}
+  onChange: () => {},
 };
 
 export default IndexView;

@@ -1,8 +1,11 @@
-@import "../common.less";
+@import "../color.less";
 .iot-input-number.u-input-number {
   border-color: @inputBorderColor;
   &.error-input {
     border-color: @red;
+  }
+  &:hover {
+    border-color: @inputHoverColor;
   }
   &.focus {
     border-color: @inputfocusColor;
@@ -11,6 +14,15 @@
       border-color: @inputfocusColor;
     }
   }
+  &.disabled-con .u-form-control[disabled] {
+    border-color: @inputDisableBorderColor;
+    background: @inputDisableBgColor;
+    color: @inputDisableColor;
+    &:hover {
+      border-color: @inputDisableBorderColor;
+    }
+  }
+
   &.u-input-group > span:last-child {
     border-color: @inputBorderColor;
   }

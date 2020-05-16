@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { SearchInput } from "../../index";
 import "./index.less";
-import { Icon } from "tinper-bee";
+// import { Icon } from "tinper-bee";
 
 class AcTitleBar extends Component {
   render() {
@@ -12,6 +12,7 @@ class AcTitleBar extends Component {
             src={require("./left.png")}
             className="back"
             onClick={this.props.handleGoBack}
+            alt="goback"
           />
           // <Icon
           //   type="uf-anglepointingtoleft"
@@ -27,6 +28,8 @@ class AcTitleBar extends Component {
             <SearchInput
               onSearch={this.props.onSearch}
               onChange={this.props.onChange}
+              value={this.props.value}
+              disabled={this.props.disabled}
               placeHolder={this.props.placeHolder || this.props.placeholder}
             />
           </div>

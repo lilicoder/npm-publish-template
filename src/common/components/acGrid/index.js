@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AcGrids from "ac-grids";
 import "ac-grids/build/AcGrids.css";
 import "./index.less";
+import ReactDOM from "react-dom";
 
 class MainAcGrid extends Component {
   constructor(props) {
@@ -11,24 +12,25 @@ class MainAcGrid extends Component {
       h: null,
       activePage: 1,
       dataNum: 1,
-      dataNumSelect: 10
+      dataNumSelect: 10,
     };
   }
-  // componentDidMount() {
-  //   let _this = this;
-  //   if (!!this.props.full) {
-  //     this.measureheight();
-  //     window.addEventListener("resize", function() {
-  //       _this.measureheight();
-  //     });
-  //   }
-  // }
-  // measureheight() {
-  //   let h = ReactDOM.findDOMNode(this.dom).offsetHeight;
-  //   this.setState({
-  //     h: this.props.hidePagination ? h - 44 - 10 : h - 44 - 43 - 10
-  //   });
-  // }
+  componentDidMount() {
+    let _this = this;
+    if (this.props.isSingle) {
+      this.measureheight();
+      window.addEventListener("resize", function () {
+        _this.measureheight();
+      });
+    }
+  }
+  measureheight() {
+    let h = ReactDOM.findDOMNode(this.dom).offsetHeight;
+    console.log(h, "lll");
+    this.setState({
+      h: h - 40,
+    });
+  }
   render() {
     let { props } = this;
     let itemNum = this.state.dataNumSelect;
@@ -43,23 +45,28 @@ class MainAcGrid extends Component {
       // horizontalPosition: "right",
       items: Math.ceil(props.totalPage / itemNum), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
-      onSelect: x => {
+      onSelect: (x) => {
         if (!props.activePage) {
           this.setState({ activePage: x });
         }
         props.freshData && props.freshData(x);
       }, //点击下一页刷新的数据
-      onDataNumSelect: x => {
+      onDataNumSelect: (x) => {
         this.setState({
           dataNum: x / 10,
-          dataNumSelect: x
+          dataNumSelect: x,
         });
         props.onDataNumSelect && props.onDataNumSelect(x, x / 10); //每页大小改变触发的事件
-      }
+      },
     };
     return (
-      <div className="iot-ac-grid">
+      <div
+        className="iot-ac-grid"
+        style={{ height: props.isSingle ? "100%" : "auto" }}
+        ref={(ref) => (this.dom = ref)}
+      >
         <AcGrids
+          showIndex={this.props.showIndex}
           rowClassName={(record, index) => {
             let styles = "";
             if (this.state.selectedRowIndex === index) {
@@ -71,7 +78,6 @@ class MainAcGrid extends Component {
             return styles;
           }}
           columnFilterAble={true}
-          ref={ref => (this.dom = ref)}
           columns={props.columns}
           data={props.data}
           // syncHover={false}
@@ -79,18 +85,31 @@ class MainAcGrid extends Component {
           rowKey={props.rowKey || "id"}
           onRowClick={(x, y) => {
             this.setState({
-              selectedRowIndex: y
+              selectedRowIndex: y,
             });
             props.onRowClick && props.onRowClick(x, y);
           }}
+          onRowDoubleClick={props.onRowDoubleClick}
           emptyText={props.emptyText}
-          loading={props.loading}
+          loading={{
+            show: props.loading,
+            loadingType: "custom", //启用自定义图标
+            indicator: (
+              <span className="s-loading-dot">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+            ),
+            children: "加载中...",
+          }}
           getSelectedDataFunc={props.getSelectedDataFunc}
           showPagination={!props.hidePagination}
           paginationObj={paginationObj}
           showHeaderMenu={false}
           headerHeight={35}
-          scroll={props.scroll}
+          scroll={props.scroll || { y: this.state.h }}
           multiSelect={props.multiSelect || false}
           draggable={false}
         />
