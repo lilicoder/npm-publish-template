@@ -1,10 +1,18 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2020-12-29 14:10:22
+ */
 import React from "react";
 import { Row, Col } from "tinper-bee";
 // import PropTypes from "prop-types";
 import { getComponentChild } from "../utils";
 import "./index.less";
 import noData from "./nodata-search.png";
-let IndexView = props => {
+let IndexView = (props) => {
   return (
     <div className="main-layout">
       <Row className="header">{getComponentChild(props.header)}</Row>
@@ -15,7 +23,7 @@ let IndexView = props => {
           ) : (
             <div className="no-data">
               <img src={noData} alt="no-data" />
-              <p>暂无数据</p>
+              <p>{props.noDataText || "暂无数据"}</p>
             </div>
           )}
         </Col>
@@ -32,7 +40,7 @@ let IndexView = props => {
 IndexView.defaultProps = {
   content: [],
   header: [],
-  footer: []
+  footer: [],
 };
 
 export default IndexView;

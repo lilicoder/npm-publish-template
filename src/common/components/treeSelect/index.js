@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2020-12-29 14:15:28
+ */
 import React from "react";
 import PropTypes from "prop-types";
 import { Tooltip } from "tinper-bee";
@@ -22,7 +30,7 @@ let IndexView = (props) => {
           showSearch
           value={props.value}
           dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-          placeholder="请选择"
+          placeholder={props.placeholder || "请选择"}
           allowClear
           disabled={props.disabled}
           // treeDefaultExpandAll

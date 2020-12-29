@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2020-12-29 14:05:07
+ */
 import React, { Component } from "react";
 import "./index.less";
 import { Pagination } from "tinper-bee";
@@ -8,7 +16,7 @@ class MainPagination extends Component {
       activePage: 1,
       dataNum: 0,
       dataNumSelect: 10,
-      dataNumArray: [10, 20, 50, 100]
+      dataNumArray: [10, 20, 50, 100],
     };
   }
   render() {
@@ -28,10 +36,10 @@ class MainPagination extends Component {
       boundaryLinks: true,
       items: Math.ceil(props.totalPage / itemNum),
       total: props.totalPage || 0, //总共多少条
-      onSelect: value => {
+      onSelect: (value) => {
         if (!props.activePage) {
           this.setState({
-            activePage: value
+            activePage: value,
           });
         }
         props.freshData && props.freshData(value);
@@ -40,7 +48,7 @@ class MainPagination extends Component {
         // if (!props.dataNum) {
         this.setState({
           dataNum: x,
-          dataNumSelect: y
+          dataNumSelect: y,
         });
         // }
         props.onDataNumSelect && props.onDataNumSelect(y, x);
@@ -48,26 +56,27 @@ class MainPagination extends Component {
       dataNumSelect: dataNumArray,
       showJump: true,
       activePage: props.activePage || activePage,
-      dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum
+      dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum,
     };
     return (
       <div className="iot-ac-pagination-con">
         {this.props.showSelect ? (
           <div className="info">
             <div>
-              已选<span>{props.selectedNum || 0}</span>条
+              {props.selectedText || "已选"}
+              <span>{props.selectedNum || 0}</span>条
             </div>
             <div
               className="selectAll"
               onClick={() => props.selectAll && props.selectAll()}
             >
-              选择全部
+              {props.selectAllText || "选择全部"}
             </div>
             <div
               className="selectReverse"
               onClick={() => props.selectReverse && props.selectReverse()}
             >
-              反选
+              {props.selectReverseText || "反选"}
             </div>
           </div>
         ) : (

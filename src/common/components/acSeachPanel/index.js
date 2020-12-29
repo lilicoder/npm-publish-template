@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2020-12-29 14:01:09
+ */
 /**
  *
  * @title 基础示例
@@ -10,14 +18,14 @@ import "./index.less";
 
 const AdvancedContainer = SearchPanel.AdvancedContainer;
 
-let Demo = props => {
+let Demo = (props) => {
   return (
     <SearchPanel
-      title="高级搜索"
+      title={props.title || "高级搜索"}
       showOperation={false}
       defaultExpanded={true}
       className="iot-ac-search"
-      onPanelChangeEnd={status => {
+      onPanelChangeEnd={(status) => {
         props.onPanelChangeEnd && props.onPanelChangeEnd(status);
       }}
     >

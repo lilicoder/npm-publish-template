@@ -102,7 +102,7 @@ class MainAcGrid extends Component {
                 <i></i>
               </span>
             ),
-            children: "加载中...",
+            children: props.loadingText || "加载中...",
           }}
           getSelectedDataFunc={props.getSelectedDataFunc}
           showPagination={!props.hidePagination}

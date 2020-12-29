@@ -1,8 +1,16 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2020-12-29 14:13:36
+ */
 import React from "react";
 import { Icon, Tile } from "tinper-bee";
 import "./index.less";
 
-let IndexView = props => {
+let IndexView = (props) => {
   let { data } = props;
   return (
     <div className="tile-container">
@@ -28,7 +36,6 @@ let IndexView = props => {
                 </div>
               </div>
             </Tile>
-            )}
           </div>
         ))}
       </div>
