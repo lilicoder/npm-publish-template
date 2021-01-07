@@ -4,7 +4,7 @@
  * @Author: lianglli
  * @Date: 2019-11-21 11:11:28
  * @LastEditors: lianglli
- * @LastEditTime: 2021-01-07 21:10:14
+ * @LastEditTime: 2021-01-07 21:52:33
  */
 import React, { Component } from "react";
 import "./index.less";
@@ -58,7 +58,7 @@ class MainPagination extends Component {
       showJump: true,
       activePage: props.activePage || activePage,
       dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum,
-      local: props.local || {},
+      locale: props.locale || {},
     };
     return (
       <div className="iot-ac-pagination-con">

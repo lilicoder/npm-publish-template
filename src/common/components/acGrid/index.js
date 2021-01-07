@@ -67,6 +67,7 @@ class MainAcGrid extends Component {
       >
         <AcGrids
           showIndex={this.props.showIndex}
+          locale={props.locale}
           rowClassName={(record, index) => {
             let styles = "";
             if (this.state.selectedRowIndex === index) {
