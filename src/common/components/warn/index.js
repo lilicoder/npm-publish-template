@@ -1,8 +1,22 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:38:18
+ */
 import React from "react";
-import { Row, Col, Icon, Tile } from "tinper-bee";
+import { Col, Row } from "bee-layout";
+import "bee-layout/build/Layout.css";
+
+import Icon from "bee-icon";
+import "bee-icon/build/Icon.css";
+import Tile from "bee-tile";
+import "bee-tile/build/Tile.css";
 import "./index.less";
 
-let IndexView = props => {
+let IndexView = (props) => {
   let { data } = props;
   return (
     <div className="warn-container">
@@ -19,7 +33,7 @@ let IndexView = props => {
                       ? (!item.isConfirm ? "animate" : null) +
                         " " +
                         item.alarmColor
-                      : null
+                      : null,
                   ].join(" ")}
                 >
                   <Icon type="uf-exc-c-2" />

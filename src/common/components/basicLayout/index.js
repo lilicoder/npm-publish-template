@@ -4,11 +4,11 @@
  * @Author: lianglli
  * @Date: 2019-11-21 11:11:28
  * @LastEditors: lianglli
- * @LastEditTime: 2020-12-29 14:10:22
+ * @LastEditTime: 2021-01-15 12:06:41
  */
 import React from "react";
-import { Row, Col } from "tinper-bee";
-// import PropTypes from "prop-types";
+import { Col, Row } from "bee-layout";
+import "bee-layout/build/Layout.css";
 import { getComponentChild } from "../utils";
 import "./index.less";
 import noData from "./nodata-search.png";

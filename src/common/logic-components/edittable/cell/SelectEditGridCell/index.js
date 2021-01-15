@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Icon, Select, Tooltip, Form } from "tinper-bee";
+import Icon from "bee-icon";
+import "bee-icon/build/Icon.css";
+import Tooltip from "bee-tooltip";
+import "bee-tooltip/build/Tooltip.css";
+import Form from "bee-form";
+import "bee-form/build/Form.css";
+import Select from "bee-select";
+import "bee-select/build/Select.css";
 import { formFieldHasError, getFieldHasErrorTip } from "../../../utils";
 const Option = Select.Option;
 
@@ -21,7 +28,7 @@ class SelectEditGridCell extends Component {
   /**
    * 设置数值
    */
-  setValue = value => {
+  setValue = (value) => {
     const { form, colCode } = this.props;
     if (colCode) {
       form.setFieldsValue({ [colCode]: value });
@@ -48,7 +55,7 @@ class SelectEditGridCell extends Component {
    * 选择事件处理
    * @param value
    */
-  handleSelect = value => {
+  handleSelect = (value) => {
     const { onSelect } = this.props;
     onSelect && onSelect(value);
   };
@@ -61,7 +68,7 @@ class SelectEditGridCell extends Component {
       colCode,
       dataSource,
       initialValue,
-      form: { getFieldDecorator, getFieldsError }
+      form: { getFieldDecorator, getFieldsError },
     } = this.props;
     let { valueRules = [] } = this.props;
     // 如果是隐藏状态返回原始数值
@@ -77,7 +84,7 @@ class SelectEditGridCell extends Component {
     if (required) {
       valueRules.push({
         required: true,
-        message: `${colName}不能为空`
+        message: `${colName}不能为空`,
       });
     }
     return (
@@ -86,7 +93,7 @@ class SelectEditGridCell extends Component {
           {getFieldDecorator(colCode, {
             initialValue: initialValue,
             rules: valueRules,
-            valuePropName: "value"
+            valuePropName: "value",
           })(
             <Select {...opt} placeholder="请选择" onSelect={this.handleSelect}>
               {dataSource.map((item, index) => (

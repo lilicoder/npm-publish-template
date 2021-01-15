@@ -7,7 +7,8 @@
 
 import React, { Component } from "react";
 import { RefTreeWithInput } from "ref-tree";
-import { Tooltip } from "tinper-bee";
+import Tooltip from "bee-tooltip";
+import "bee-tooltip/build/Tooltip.css";
 import ErrorTip from "../errorTip";
 import "ref-tree/lib/index.css";
 import "./index.less";
@@ -19,7 +20,7 @@ class TreeRef extends Component {
     this.state = {
       treeData: [],
       matchData: [{ name: "用友集团", refname: "用友集团", code: "001" }],
-      value: null
+      value: null,
     };
   }
 
@@ -32,10 +33,10 @@ class TreeRef extends Component {
    */
   loadData = async () => {
     this.setState({
-      loading: true
+      loading: true,
     });
     let ajax = {
-      url: this.props.fetchDataUrl
+      url: this.props.fetchDataUrl,
     };
     let results = await request(ajax);
     results = results.data;
@@ -43,7 +44,7 @@ class TreeRef extends Component {
     if (!results || !results.data.length) {
       this.setState({
         pageCount: -1, //不展示分页
-        treeData
+        treeData,
       });
       return false;
     }
@@ -51,13 +52,13 @@ class TreeRef extends Component {
     let page = results.page;
     this.setState({
       treeData,
-      ...page
+      ...page,
     });
   };
 
-  onSave = result => {
+  onSave = (result) => {
     this.setState({
-      matchData: result
+      matchData: result,
     });
     this.props.onSave(result);
   };
@@ -80,10 +81,10 @@ class TreeRef extends Component {
             title={title}
             placeholder={placeholder}
             emptyBut={true}
-            nodeDisplay={record => {
+            nodeDisplay={(record) => {
               return record.refname;
             }}
-            displayField={record => {
+            displayField={(record) => {
               return record.code;
             }} //显示内容的键
             valueField={"code"} //真实 value 的键

@@ -4,10 +4,13 @@
  * @Author: lianglli
  * @Date: 2019-11-21 11:11:28
  * @LastEditors: lianglli
- * @LastEditTime: 2020-12-29 14:13:36
+ * @LastEditTime: 2021-01-15 12:09:58
  */
 import React from "react";
-import { Icon, Tile } from "tinper-bee";
+import Icon from "bee-icon";
+import "bee-icon/build/Icon.css";
+import Tile from "bee-tile";
+import "bee-tile/build/Tile.css";
 import "./index.less";
 
 let IndexView = (props) => {

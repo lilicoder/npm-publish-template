@@ -1,10 +1,17 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:22:01
+ */
 import React from "react";
-import { Row } from "tinper-bee";
-// import PropTypes from "prop-types";
+import { Row } from "bee-layout";
 import { getComponentChild } from "./../utils";
 import "./index.less";
 
-let IndexView = props => {
+let IndexView = (props) => {
   return (
     <div className="split-layout">
       <Row className="top">{getComponentChild(props.header)}</Row>
@@ -20,7 +27,7 @@ let IndexView = props => {
 IndexView.defaultProps = {
   content: [],
   header: [],
-  footer: []
+  footer: [],
 };
 
 export default IndexView;

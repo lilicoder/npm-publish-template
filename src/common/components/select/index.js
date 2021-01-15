@@ -1,5 +1,16 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:21:48
+ */
 import React from "react";
-import { Select, Tooltip } from "tinper-bee";
+import Select from "bee-select";
+import "bee-select/build/Select.css";
+import Tooltip from "bee-tooltip";
+import "bee-tooltip/build/Tooltip.css";
 import PropTypes from "prop-types";
 import "./index.less";
 import ErrorTip from "../errorTip";

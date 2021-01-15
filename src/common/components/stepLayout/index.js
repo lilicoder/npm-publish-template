@@ -1,10 +1,17 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-12-24 09:31:49
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:22:39
+ */
 import React from "react";
-import { Row } from "tinper-bee";
-// import PropTypes from "prop-types";
+import { Row } from "bee-layout";
 import { getComponentChild } from "./../utils";
 import "./index.less";
 
-let IndexView = props => {
+let IndexView = (props) => {
   return (
     <div className="step-layout">
       <Row className="top">{getComponentChild(props.header)}</Row>
@@ -16,7 +23,7 @@ let IndexView = props => {
 IndexView.defaultProps = {
   content: [],
   header: [],
-  footer: []
+  footer: [],
 };
 
 export default IndexView;

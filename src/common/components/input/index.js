@@ -1,5 +1,16 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:12:23
+ */
 import React from "react";
-import { FormControl, Tooltip } from "tinper-bee";
+import FormControl from "bee-form-control";
+import "bee-form-control/build/FormControl.css";
+import Tooltip from "bee-tooltip";
+import "bee-tooltip/build/Tooltip.css";
 import ErrorTip from "../errorTip";
 import "./index.less";
 let Input = (props) => {

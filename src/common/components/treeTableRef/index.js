@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { RefTreeTableWithInput } from "ref-tree-table";
 import "ref-tree-table/lib/index.css";
-import { Form, Button } from "tinper-bee";
-// import Radio from "bee-radio";
+import Form from "bee-form";
+import "bee-form/build/Form.css";
+import Button from "bee-button";
+import "bee-button/build/Button.css";
 import "bee-radio/build/Radio.css";
 import request from "./../utils/request";
 let options = {};
@@ -22,19 +24,19 @@ class Demo2 extends Component {
           refpk: "004989bb-a705-45ce-88f3-662f87ee6e52",
           id: "004989bb-a705-45ce-88f3-662f87ee6e52",
           refname: "人员3",
-          email: "33@33.com"
-        }
+          email: "33@33.com",
+        },
       ],
       value:
         '{"refname":"人员3-初始value","refpk":"004989bb-a705-45ce-88f3-662f87ee6e52"}',
       displayField: "{refname}-{refcode}-displayField",
-      valueField: "refpk"
+      valueField: "refpk",
     };
     this.page = {
       pageCount: 1, //总页数
       pageSize: "10", //每页数据数
       totalElements: 9,
-      currPageIndex: 0
+      currPageIndex: 0,
     };
   }
   /**
@@ -62,21 +64,21 @@ class Demo2 extends Component {
       refInfo:
         "https://mock.yonyoucloud.com/mock/1264/pap_basedoc/common-ref/refInfo", //表头请求
       tableBodyUrl:
-        "https://mock.yonyoucloud.com/mock/1264/pap_basedoc/common-ref/blobRefTreeGrid" //表体请求
+        "https://mock.yonyoucloud.com/mock/1264/pap_basedoc/common-ref/blobRefTreeGrid", //表体请求
     };
     let requestList = [
       request(refModelUrl.treeUrl, {
-        method: "get"
+        method: "get",
       }),
       request(refModelUrl.refInfo, {
-        method: "get"
+        method: "get",
       }),
       request(refModelUrl.tableBodyUrl, {
         method: "get",
         "refClientPageInfo.currPageIndex": this.page.currPageIndex - 1,
         "refClientPageInfo.pageSize": this.page.pageSize,
-        content: this.state.searchValue
-      })
+        content: this.state.searchValue,
+      }),
     ];
 
     Promise.all(requestList)
@@ -87,14 +89,14 @@ class Demo2 extends Component {
           this.launchTableData(bodyData.data);
         }
         this.setState({
-          showLoading: false
+          showLoading: false,
         });
       })
-      .catch(e => {
+      .catch((e) => {
         this.launchTableHeader({});
         this.launchTableData({});
         this.setState({
-          showLoading: false
+          showLoading: false,
         });
         console.log(e);
       });
@@ -104,7 +106,7 @@ class Demo2 extends Component {
    * @param {type}
    * @return:
    */
-  getTreeData = res => {
+  getTreeData = (res) => {
     let { data } = res;
     if (data && data.length > 0) {
       this.treeData = data;
@@ -116,7 +118,7 @@ class Demo2 extends Component {
    * 根据 refinfo 返回结果拆解并渲染表格表头
    * @param {object} data
    */
-  launchTableHeader = data => {
+  launchTableHeader = (data) => {
     if (!data) return;
     let { multiple, valueField } = options;
     let keyList = data.strFieldCode || [];
@@ -125,12 +127,12 @@ class Demo2 extends Component {
       return {
         key: item,
         dataIndex: item,
-        title: titleList[index]
+        title: titleList[index],
       };
     });
     if (colunmsList.length === 0) {
       colunmsList = [
-        { title: "未传递表头数据", dataIndex: "nodata", key: "nodata" }
+        { title: "未传递表头数据", dataIndex: "nodata", key: "nodata" },
       ];
     }
     this.columnsData = colunmsList;
@@ -138,7 +140,7 @@ class Demo2 extends Component {
   /**
    * 处理并渲染表格数据
    */
-  launchTableData = response => {
+  launchTableData = (response) => {
     if (!response) return;
     let { valueField } = options;
     let { data = [], page = {} } = response;
@@ -151,7 +153,7 @@ class Demo2 extends Component {
     this.page = {
       pageCount: page.pageCount || 0,
       currPageIndex: page.currPageIndex || 0,
-      totalElements: page.totalElements || 0
+      totalElements: page.totalElements || 0,
     };
   };
   /**
@@ -159,13 +161,13 @@ class Demo2 extends Component {
    * @param {type}
    * @return:
    */
-  onTreeChange = record => {
+  onTreeChange = (record) => {
     this.tableData = this.originTableData.slice(
       Math.floor(Math.random() * 8),
       -1
     );
     this.setState({
-      mustRender: Math.random()
+      mustRender: Math.random(),
     });
   };
   /**
@@ -173,7 +175,7 @@ class Demo2 extends Component {
    * @param {type}
    * @return:
    */
-  onTreeSearch = value => {
+  onTreeSearch = (value) => {
     alert(value);
   };
   /**
@@ -181,10 +183,10 @@ class Demo2 extends Component {
    * @param {type}
    * @return:
    */
-  onTableSearch = value => {
+  onTableSearch = (value) => {
     console.log("onTableSearch", value);
   };
-  loadTableData = param => {
+  loadTableData = (param) => {
     console.log("loadTableData", param);
   };
   /**
@@ -192,10 +194,10 @@ class Demo2 extends Component {
    * @param {type}
    * @return:
    */
-  onSave = result => {
+  onSave = (result) => {
     console.log("save", result);
     this.setState({
-      matchData: result
+      matchData: result,
     });
   };
 
@@ -204,7 +206,7 @@ class Demo2 extends Component {
       lang: "zh_CN",
       miniSearch: true,
       multiple: true,
-      isLocalSearch: true
+      isLocalSearch: true,
     };
     const { value, matchData, displayField, valueField } = this.state;
     const { getFieldProps, getFieldError } = this.props.form;
@@ -234,9 +236,9 @@ class Demo2 extends Component {
             rules: [
               {
                 message: "提示：请选择",
-                pattern: /[^{"refname":"","refpk":""}|{"refpk":"","refname":""}]/
-              }
-            ]
+                pattern: /[^{"refname":"","refpk":""}|{"refpk":"","refname":""}]/,
+              },
+            ],
           })}
         />
         <Button
@@ -256,7 +258,7 @@ class Demo2 extends Component {
         <span
           className="error"
           style={{
-            color: "red"
+            color: "red",
           }}
         >
           {getFieldError("treeTable2")}

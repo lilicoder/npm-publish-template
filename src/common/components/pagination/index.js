@@ -1,12 +1,21 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-11-21 11:11:28
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:18:24
+ */
 import React, { Component } from "react";
 import "./index.less";
-import { Pagination } from "tinper-bee";
+import Pagination from "bee-pagination";
+import "bee-pagination/build/Pagination.css";
 class MainPagination extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activePage: 1,
-      dataNum: 1
+      dataNum: 1,
     };
   }
   render() {
@@ -27,10 +36,10 @@ class MainPagination extends Component {
       boundaryLinks: true,
       items: Math.ceil(props.totalPage / itemNum), //一页显示多少条
       total: props.totalPage || 0, //总共多少条
-      onSelect: value => {
+      onSelect: (value) => {
         if (!props.activePage) {
           this.setState({
-            activePage: value
+            activePage: value,
           });
         }
         props.freshData && props.freshData(value);
@@ -39,14 +48,14 @@ class MainPagination extends Component {
         // if (!props.dataNum) {
         this.setState({
           dataNum: x,
-          dataNumSelect: y
+          dataNumSelect: y,
         });
         // }
         props.onDataNumSelect && props.onDataNumSelect(y, x);
       },
       showJump: true,
       activePage: props.activePage || activePage,
-      dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum
+      dataNum: props.dataNum || props.dataNum === 0 ? props.dataNum : dataNum,
     };
     return <Pagination className="iot-pagination" {...paginationObj} />;
   }

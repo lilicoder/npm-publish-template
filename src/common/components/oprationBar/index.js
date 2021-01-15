@@ -1,7 +1,13 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: lianglli
+ * @Date: 2019-12-24 09:31:49
+ * @LastEditors: lianglli
+ * @LastEditTime: 2021-01-15 12:18:07
+ */
 import React, { Component } from "react";
-// import { SearchInput } from "../../index";
 import "./index.less";
-// import { Icon } from "tinper-bee";
 
 class OprationBar extends Component {
   render() {

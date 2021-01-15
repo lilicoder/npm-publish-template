@@ -4,11 +4,12 @@
  * @Author: lianglli
  * @Date: 2019-11-21 11:11:28
  * @LastEditors: lianglli
- * @LastEditTime: 2020-12-29 14:15:28
+ * @LastEditTime: 2021-01-15 12:23:45
  */
 import React from "react";
 import PropTypes from "prop-types";
-import { Tooltip } from "tinper-bee";
+import Tooltip from "bee-tooltip";
+import "bee-tooltip/build/Tooltip.css";
 import TreeSelect from "bee-tree-select";
 import ErrorTip from "../errorTip";
 
