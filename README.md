@@ -1,12 +1,14 @@
 <!--
- * @Descripttion:
- * @version:
+ * @Descripttion: 
+ * @version: 
  * @Author: lianglli
  * @Date: 2020-05-16 17:18:23
  * @LastEditors: lianglli
- * @LastEditTime: 2021-06-24 21:18:25
+ * @LastEditTime: 2021-06-26 14:13:07
 -->
-
+#### 运行
+npm install
+npm start
 #### 打包发布命令
 
 - npm run republish

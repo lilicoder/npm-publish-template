@@ -1,67 +1,30 @@
-@import "../color.less";
-.iot-grid {
-  // display: flex;
-  // flex-direction: column;
-
-  position: relative;
-  height: 100%;
-  &.opration-grid {
-    th:last-child {
-      text-align: center;
-    }
+body {
+  background-color: #f5f5f5;
+}
+.content {
+  text-align: center;
+  .tip {
+    font-size: 20px;
+    color: #14af4c;
+    font-weight: bold;
+    margin-top: 50px;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 150px auto 0;
+    animation: 2s steps(12) 0s 1 normal none running typing;
+    width: 920px;
+    white-space: nowrap;
+    overflow: hidden;
   }
-  .opration {
-    text-align: center;
-    > * {
-      display: flex;
-      justify-content: space-around;
-      button {
-        background: none;
-        border: none;
-        color: #2684ff;
-      }
-    }
+  .text {
+    font-size: 30px;
+    line-height: 2;
+    color: #333;
   }
-  .u-table-filter-column-cont {
-    // flex: 1;
-    // overflow: hidden;
-    tr:nth-child(2n) {
-      background: #f7f9fb;
-    }
-    tr.selected,
-    tr.selected:hover {
-      background: #e6e8ed !important;
-    }
-    // tr.hover {
-    //   background: #ebecf0;
-    // }
-    .u-table th {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    .u-table-filter-column-filter-icon {
-      height: 33px;
-      line-height: 33px;
-    }
-  }
-
-  .u-pagination {
-    margin-bottom: 0;
-    padding-bottom: 8px;
-    background: #fff;
-    .u-pagination-list > .active > a {
-      background: #fff;
-      border: 1px solid @red;
-      color: @red;
-    }
-  }
-  &.full {
-    .u-pagination {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: 3;
-    }
+}
+@keyframes typing {
+  0% {
+    width: 1px;
   }
 }
